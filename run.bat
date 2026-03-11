@@ -1,4 +1,4 @@
 @echo off
-cd /d %~dp0
-powershell -ExecutionPolicy Bypass -File "./b.ps1"
+set /p target="Target(t.txt or URL): "
+powershell.exe -ExecutionPolicy Bypass -File ".\b.ps1" "%target%"
 pause
