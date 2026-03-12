@@ -2,36 +2,43 @@
 
 情報の「真偽」ではなく「認知操作の構造」を定量化するテキスト監査システム。
 
-## 概念
+A text analysis system that quantifies the **structure of cognitive manipulation**, not the truth or falsity of information.
 
-ファクトチェックツールは嘘を検出する。
-R8は、嘘をつかずに人を操る情報構造を検出する。
+## 概念 / Concept
 
-## 監査カテゴリ（12項目）
+ファクトチェックツールは嘘を検出する。R8は、嘘をつかずに人を操る情報構造を検出する。
 
-- Authority Risk（権威リスク）
-- Emotional Risk（感情誘導リスク）
-- Logical Risk（論理飛躍リスク）
-- Statistical Risk（統計操作リスク）
-- Hype Risk（責任回避型煽りリスク）
-- Clickbait Risk（クリックベイト）
-- Propaganda Risk（プロパガンダ）
-- Fear Risk（恐怖煽動リスク）
-- Enemy Frame（敵/味方フレーム）
-- Disclaimer Exploit（免責文逆利用）
-- Anonymous Authority（匿名権威）
-- Naked Number（根拠なき具体数値）
+Fact-checking tools detect lies. R8 detects the manipulative structure of information that deceives without lying.
 
-## 対応フォーマット
+## 監査カテゴリ / Audit Categories（12項目）
 
-- テキストファイル（.txt）
-- PDFファイル（.pdf）
-- WebページURL
+| 日本語 | English |
+|---|---|
+| 権威リスク | Authority Risk |
+| 感情誘導リスク | Emotional Risk |
+| 論理飛躍リスク | Logical Risk |
+| 統計操作リスク | Statistical Risk |
+| 責任回避型煽りリスク | Hype Risk |
+| クリックベイト | Clickbait Risk |
+| プロパガンダ | Propaganda Risk |
+| 恐怖煽動リスク | Fear Risk |
+| 敵/味方フレーム | Enemy Frame |
+| 免責文逆利用 | Disclaimer Exploit |
+| 匿名権威 | Anonymous Authority |
+| 根拠なき具体数値 | Naked Number |
 
-## 開発者
+## 対応フォーマット / Supported Formats
 
-臨床心理学修士 / 独立研究者
+- テキストファイル / Text file（.txt）
+- PDFファイル / PDF file（.pdf）
+- WebページURL / Web page URL
 
-## Status
+## 開発者 / Developer
 
-v9 開発中 / 論文準備中
+臨床心理学修士 / 独立研究者  
+M.A. Clinical Psychology / Independent Researcher
+
+## ステータス / Status
+
+v9 開発中 / In Development  
+論文準備中 / Academic paper in preparation
