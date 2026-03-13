@@ -6,3 +6,5 @@ bak_*
 *token*
 *secret*
 *.key
+__pycache__/
+audit_results.*
