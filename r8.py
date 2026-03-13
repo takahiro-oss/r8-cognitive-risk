@@ -19,19 +19,19 @@ except ImportError:
     PDF_ENGINE = None
 
 # ===========================
-# 斉藤様秘伝：12カテゴリ辞書
+# 12カテゴリ辞書
 # ===========================
 AUTHORITY_WORDS    = ["専門家","教授","研究によると","科学的に証明","大学の研究","博士","学者","権威","エビデンス","論文","研究者","機関","医師","臨床","実証済み","データが示す","調査によれば","アナリストチーム","独自調査","研究によれば"]
-HYPE_WORDS         = ["期待される","可能性がある","指摘されている","と言われている","確実視","見込まれる","予想される","とも言える","かもしれない"]
-URGENCY_WORDS      = ["今だけ","期間限定","急げ","残りわずか","本日限定","締め切り","今すぐ","最後のチャンス","今が買い時","今のうち"]
+HYPE_WORDS         = ["期待される","可能性がある","確実視","見込まれる","予想される","絶対","必ず","間違いない","保証","驚異的","奇跡","劇的","衝撃","革命的","前代未聞","史上最強","今だけ","限定","秘密","暴露"]
+URGENCY_WORDS      = ["今すぐ","急いで","限定","残りわずか","期間限定","締め切り","今だけ","急騰","緊急","本日限定","最後のチャンス","今が買い時","今のうち"]
 ABSOLUTIST_WORDS   = ["絶対","必ず","100%","完全","間違いなく","確実に","全員","誰でも","保証"]
 EMOTIONAL_WORDS    = ["奇跡","衝撃","感動","驚愕","革命的","人生が変わる","夢の"]
-FEAR_WORDS         = ["危険","崩壊","破滅","恐怖","脅威","危機"]
+FEAR_WORDS         = ["危険","崩壊","破滅","恐怖","脅威","危機","末期","手遅れ","もう限界","滅亡","支配","監視","抹殺","闇","陰謀"]
 ANECDOTAL_MARKERS  = ["私の場合","体験談","友人が","実際に試した","お客様の声"]
 STATISTICAL_WORDS  = ["累計","最大","平均","No.1","利用者数","成功率","合格率","改善率","実績"]
 CONCLUSION_MARKERS = ["だから","つまり","したがって","結果として","以上より","当然","明らかに"]
 CLICKBAIT_WORDS    = ["衝撃の事実","絶対に見て","知らないと損","閲覧注意"]
-PROPAGANDA_WORDS   = ["メディアは嘘","誰も言わない","裏の勢力","洗脳"]
+PROPAGANDA_WORDS   = ["メディアは嘘","誰も言わない","裏の勢力","洗脳","真実を知れ","目覚めよ","ディープステート","グローバリスト","ワクチン","マインドコントロール","覚醒","波動","次元上昇","宇宙の意思","引き寄せ","エネルギー","潜在意識"]
 ENEMY_FRAME        = ["敵","支配","騙されている","操作されている"]
 ALLY_FRAME         = ["我々","みんな","国民","真実を知る人"]
 DISCLAIMER_WORDS   = ["投資助言ではありません","損失の責任","情報提供および教育目的","投資顧問として","元本を失う可能性","将来の成果を保証","デューデリジェンス"]
@@ -80,7 +80,6 @@ def bar(v, width=20):
     return "[" + "█" * filled + "░" * (width - filled) + f"] {v:.2f}"
 
 def get_text(target):
-    # YouTube分析
     if "youtube.com" in target or "youtu.be" in target:
         if not YT_AVAILABLE: return "[Error] youtube-transcript-api がありません"
         vid_match = re.search(r"(?:v=|\/)([0-9A-Za-z_-]{11})", target)
@@ -93,7 +92,6 @@ def get_text(target):
         except Exception as e:
             return f"[Error] 字幕取得失敗: {e}"
 
-    # PDF分析
     if target.lower().endswith(".pdf"):
         if not PDF_ENGINE: return "[Error] PDF用ライブラリ(PyMuPDF)がありません"
         try:
@@ -102,7 +100,6 @@ def get_text(target):
         except Exception as e:
             return f"[Error] PDF読み込み失敗: {e}"
 
-    # テキストファイル分析
     try:
         with open(target, "r", encoding="utf-8", errors="ignore") as f:
             return f.read()
@@ -133,7 +130,6 @@ def report(text, source):
     ri = {cat: min(raw.get(cat, 0) / THRESHOLDS[cat], 1.0) for cat in WEIGHTS}
     penalty = sum(WEIGHTS[c] * ri[c] * 100 for c in WEIGHTS)
     score = max(0.0, round(100 - penalty, 1))
-
     print("\n" + "=" * 50)
     print(f"  R8 Analyzer v7 | Source: {source[:40]}")
     print("=" * 50)
