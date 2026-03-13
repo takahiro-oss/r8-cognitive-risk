@@ -4,6 +4,8 @@
 
 A text analysis system that quantifies the **structure of cognitive manipulation**, not the truth or falsity of information.
 
+---
+
 ## Concept / 概念
 
 Fact-checking tools detect lies.
@@ -11,6 +13,23 @@ R8 detects the manipulative structure of information that deceives without lying
 
 ファクトチェックツールは嘘を検出する。
 R8は、嘘をつかずに人を操る情報構造を検出する。
+
+R8 proposes a structural approach to quantifying cognitive manipulation risk across 12 categories, drawing conceptual inspiration from factor-based psychometric models. This is an exploratory framework requiring empirical validation.
+
+---
+
+## Why R8 / なぜR8か
+
+Modern cognitive manipulation rarely relies on outright falsehoods.
+It operates through emotional amplification, false authority, fear framing, and structural deception — none of which fact-checkers are designed to detect.
+
+現代の認知操作は、嘘に頼らない。
+感情的増幅、偽の権威、恐怖フレーミング、構造的欺瞞によって機能する。
+ファクトチェッカーはこれらを検出するように設計されていない。
+
+R8 was built to address this gap.
+
+---
 
 ## Audit Categories / 監査カテゴリ（12）
 
@@ -29,18 +48,25 @@ R8は、嘘をつかずに人を操る情報構造を検出する。
 | Anonymous Authority | 匿名権威 |
 | Naked Number | 根拠なき具体数値 |
 
+---
+
 ## Supported Formats / 対応フォーマット
 
 - Text file / テキストファイル（.txt）
 - PDF file / PDFファイル（.pdf）
 - Web page URL / ウェブページURL
 
+---
+
 ## Developer / 開発者
 
 M.A. Clinical Psychology / Independent Researcher
 臨床心理学修士 / 独立研究者
 
+---
+
 ## Status / ステータス
 
 - v9 In Development / 開発中
-- Academic paper in preparation / 論文準備中ko
+- Empirical validation in progress / 実証的検証進行中
+- Academic paper in preparation / 論文準備中
