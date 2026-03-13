@@ -41,9 +41,9 @@ ANONYMOUS_SUBJECT  = ["当社","一部のアナリスト","市場では","業界
 # 重み付けと閾値
 # ===========================
 THRESHOLDS = {
-    "authority": 0.05, "emotional": 0.08, "logical": 0.04, "statistical": 0.06,
-    "hype": 0.05, "clickbait": 0.04, "propaganda": 0.04, "fear": 0.05,
-    "enemy_frame": 0.04, "disclaimer_exploit": 0.30,
+    "authority": 0.02, "emotional": 0.03, "logical": 0.02, "statistical": 0.03,
+    "hype": 0.02, "clickbait": 0.02, "propaganda": 0.02, "fear": 0.02,
+    "enemy_frame": 0.02, "disclaimer_exploit": 0.30,
     "anonymous_authority": 0.30, "naked_number": 0.30,
 }
 WEIGHTS = {

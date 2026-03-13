@@ -16,33 +16,25 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import r8
 
 WEIGHTS = {
-    "authority": 0.08,
-    "emotional": 0.15,
-    "logical": 0.10,
-    "statistical": 0.08,
-    "hype": 0.15,
-    "clickbait": 0.12,
-    "propaganda": 0.12,
+    "authority": 0.12,
+    "emotional": 0.12,
+    "logical": 0.08,
+    "statistical": 0.16,
+    "hype": 0.08,
+    "clickbait": 0.04,
+    "propaganda": 0.04,
     "fear": 0.08,
-    "enemy_frame": 0.05,
-    "disclaimer_exploit": 0.02,
-    "anonymous_authority": 0.03,
-    "naked_number": 0.02
+    "enemy_frame": 0.08,
+    "disclaimer_exploit": 0.08,
+    "anonymous_authority": 0.06,
+    "naked_number": 0.06
 }
 
 THRESHOLDS = {
-    "authority": 0.3,
-    "emotional": 0.3,
-    "logical": 0.3,
-    "statistical": 0.5,
-    "hype": 0.2,
-    "clickbait": 0.2,
-    "propaganda": 0.2,
-    "fear": 0.3,
-    "enemy_frame": 0.2,
-    "disclaimer_exploit": 1.0,
-    "anonymous_authority": 1.0,
-    "naked_number": 1.0
+    "authority": 0.02, "emotional": 0.03, "logical": 0.02, "statistical": 0.03,
+    "hype": 0.02, "clickbait": 0.02, "propaganda": 0.02, "fear": 0.02,
+    "enemy_frame": 0.02, "disclaimer_exploit": 0.30,
+    "anonymous_authority": 0.30, "naked_number": 0.30,
 }
 
 
