@@ -43,4 +43,4 @@ M.A. Clinical Psychology / Independent Researcher
 ## Status / ステータス
 
 - v9 In Development / 開発中
-- Academic paper in preparation / 論文準備中
+- Academic paper in preparation / 論文準備中ko
