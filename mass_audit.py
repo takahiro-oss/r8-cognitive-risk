@@ -49,6 +49,7 @@ THRESHOLDS = {
 def get_text(source):
     if source.startswith("http"):
         import urllib.request
+        from bs4 import BeautifulSoup
         req = urllib.request.Request(
             source,
             headers={"User-Agent": "Mozilla/5.0"}
@@ -61,9 +62,10 @@ def get_text(source):
         except ImportError:
             enc = "utf-8"
         text = raw_bytes.decode(enc, errors="ignore")
-        # HTMLタグ除去
-        text = re.sub(r"<[^>]+>", " ", text)
-        return text
+        soup = BeautifulSoup(text, "html.parser")
+        for tag in soup(["script", "style", "noscript"]):
+            tag.decompose()
+        return soup.get_text(separator="\n", strip=True)
     elif source.lower().endswith(".pdf"):
         try:
             import fitz
