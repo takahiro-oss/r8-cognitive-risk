@@ -1,9 +1,20 @@
 #!/usr/bin/env python3
-# r8.py — R8 Cognitive Risk Analyzer v7 (Full Integration)
-# 12カテゴリ辞書・構造的欺瞞検出・PDF・YouTube・自動入力判定 すべて搭載
+# r8.py — R8 Cognitive Risk Analyzer v10
+# CMI (Cognitive Manipulation Index): 0=安全, 100=最高リスク
+# 権威リスク v2: 偽権威/正当権威の2層判定導入
+# 表記ゆれ正規化 Phase1: NFKC+カタカナ→ひらがな変換、辞書ひらがな読み追加
 
 import sys
+import io
 import re
+import unicodedata
+
+# Windows cp932環境でのUnicodeEncodeError対策
+if sys.stdout.encoding and sys.stdout.encoding.lower() in ("cp932", "shift_jis", "shift-jis", "mbcs"):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
+VERSION = "v10"
 
 # --- 外部ライブラリのインポート ---
 try:
@@ -13,25 +24,93 @@ except ImportError:
     YT_AVAILABLE = False
 
 try:
-    import fitz # PyMuPDF
+    import fitz  # PyMuPDF
     PDF_ENGINE = "pymupdf"
 except ImportError:
     PDF_ENGINE = None
 
 # ===========================
+# 表記ゆれ正規化 (Phase 1)
+# ===========================
+def normalize_text(text):
+    """
+    Phase1 表記ゆれ正規化:
+    - NFKC正規化: 全角英数→半角、！→! など記号統一
+    - カタカナ→ひらがな変換（濁音・半濁音含む完全対応）
+    - 連続空白・改行の圧縮
+    制約: 漢字←→読み変換・多義性・文脈判定はPhase2（形態素解析）以降
+    """
+    if not text:
+        return text
+    # NFKC: 全角英数→半角、合字分解など
+    text = unicodedata.normalize("NFKC", text)
+    # カタカナ→ひらがな（ァ=12449〜ン=12531、差=96）
+    result = []
+    for ch in text:
+        cp = ord(ch)
+        if 12449 <= cp <= 12531:
+            result.append(chr(cp - 96))
+        else:
+            result.append(ch)
+    text = "".join(result)
+    # 連続空白・改行の圧縮
+    text = re.sub(r"[ \t]{2,}", " ", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text
+
+# ===========================
 # 12カテゴリ辞書
 # ===========================
-AUTHORITY_WORDS    = ["専門家","教授","研究によると","科学的に証明","大学の研究","博士","学者","権威","エビデンス","論文","研究者","機関","医師","臨床","実証済み","データが示す","調査によれば","アナリストチーム","独自調査","研究によれば"]
-HYPE_WORDS         = ["期待される","可能性がある","確実視","見込まれる","予想される","絶対","必ず","間違いない","保証","驚異的","奇跡","劇的","衝撃","革命的","前代未聞","史上最強","今だけ","限定","秘密","暴露"]
-URGENCY_WORDS      = ["今すぐ","急いで","限定","残りわずか","期間限定","締め切り","今だけ","急騰","緊急","本日限定","最後のチャンス","今が買い時","今のうち"]
-ABSOLUTIST_WORDS   = ["絶対","必ず","100%","完全","間違いなく","確実に","全員","誰でも","保証"]
-EMOTIONAL_WORDS    = ["奇跡","衝撃","感動","驚愕","革命的","人生が変わる","夢の"]
-FEAR_WORDS         = ["危険","崩壊","破滅","恐怖","脅威","危機","末期","手遅れ","もう限界","滅亡","支配","監視","抹殺","闇","陰謀"]
+
+# --- 権威リスク v2: 2層構造 ---
+PSEUDO_AUTHORITY = [
+    "科学的に証明", "大学の研究", "実証済み", "データが示す",
+    "アナリストチーム", "独自調査", "研究によれば", "研究によると",
+    "調査によれば", "専門家が認めた", "権威ある機関が",
+    # ひらがな読み（表記ゆれ対応）
+    "かがくてきにしょうめい", "じっしょうずみ", "どくじちょうさ",
+]
+LEGIT_AUTHORITY = [
+    "専門家", "教授", "博士", "学者", "権威",
+    "エビデンス", "論文", "研究者", "機関", "医師", "臨床",
+    # ひらがな読み
+    "せんもんか", "きょうじゅ", "はかせ", "がくしゃ",
+]
+
+HYPE_WORDS = [
+    "期待される","可能性がある","指摘されている","と言われている",
+    "確実視","見込まれる","予想される","とも言える","かもしれない",
+    # ひらがな読み
+    "きたいされる","かのうせいがある","みこまれる",
+]
+URGENCY_WORDS = [
+    "今だけ","期間限定","急げ","残りわずか","本日限定",
+    "締め切り","今すぐ","最後のチャンス","今が買い時","今のうち",
+    # ひらがな読み
+    "いまだけ","きかんげんてい","いそげ","のこりわずか",
+    "ほんじつげんてい","しめきり","いますぐ","さいごのちゃんす",
+]
+ABSOLUTIST_WORDS = [
+    "絶対","必ず","100%","完全","間違いなく","確実に","全員","誰でも","保証",
+    # ひらがな読み
+    "ぜったい","かならず","かんぜん","まちがいなく","かくじつに",
+    "ぜんいん","だれでも","ほしょう",
+]
+EMOTIONAL_WORDS = [
+    "奇跡","衝撃","感動","驚愕","革命的","人生が変わる","夢の",
+    # ひらがな読み
+    "きせき","しょうげき","かんどう","きょうがく","かくめいてき",
+]
+FEAR_WORDS = [
+    "危険","崩壊","破滅","恐怖","脅威","危機",
+    # ひらがな読み
+    "きけん","ほうかい","はめつ","きょうふ","きょうい","きき",
+]
 ANECDOTAL_MARKERS  = ["私の場合","体験談","友人が","実際に試した","お客様の声"]
 STATISTICAL_WORDS  = ["累計","最大","平均","No.1","利用者数","成功率","合格率","改善率","実績"]
 CONCLUSION_MARKERS = ["だから","つまり","したがって","結果として","以上より","当然","明らかに"]
 CLICKBAIT_WORDS    = ["衝撃の事実","絶対に見て","知らないと損","閲覧注意"]
-PROPAGANDA_WORDS   = ["メディアは嘘","誰も言わない","裏の勢力","洗脳","真実を知れ","目覚めよ","ディープステート","グローバリスト","ワクチン","マインドコントロール","覚醒","波動","次元上昇","宇宙の意思","引き寄せ","エネルギー","潜在意識"]
+PROPAGANDA_WORDS   = ["メディアは嘘","誰も言わない","裏の勢力","洗脳"]
 ENEMY_FRAME        = ["敵","支配","騙されている","操作されている"]
 ALLY_FRAME         = ["我々","みんな","国民","真実を知る人"]
 DISCLAIMER_WORDS   = ["投資助言ではありません","損失の責任","情報提供および教育目的","投資顧問として","元本を失う可能性","将来の成果を保証","デューデリジェンス"]
@@ -41,16 +120,32 @@ ANONYMOUS_SUBJECT  = ["当社","一部のアナリスト","市場では","業界
 # 重み付けと閾値
 # ===========================
 THRESHOLDS = {
-    "authority": 0.02, "emotional": 0.03, "logical": 0.02, "statistical": 0.03,
-    "hype": 0.02, "clickbait": 0.02, "propaganda": 0.02, "fear": 0.02,
-    "enemy_frame": 0.02, "disclaimer_exploit": 0.30,
-    "anonymous_authority": 0.30, "naked_number": 0.30,
+    "authority":           0.05,
+    "emotional":           0.08,
+    "logical":             0.04,
+    "statistical":         0.06,
+    "hype":                0.05,
+    "clickbait":           0.04,
+    "propaganda":          0.04,
+    "fear":                0.05,
+    "enemy_frame":         0.04,
+    "disclaimer_exploit":  0.30,
+    "anonymous_authority": 0.30,
+    "naked_number":        0.30,
 }
 WEIGHTS = {
-    "authority": 0.12, "emotional": 0.12, "logical": 0.08, "statistical": 0.16,
-    "hype": 0.08, "clickbait": 0.04, "propaganda": 0.04, "fear": 0.08,
-    "enemy_frame": 0.08, "disclaimer_exploit": 0.08,
-    "anonymous_authority": 0.06, "naked_number": 0.06,
+    "authority":           0.12,
+    "emotional":           0.12,
+    "logical":             0.08,
+    "statistical":         0.16,
+    "hype":                0.08,
+    "clickbait":           0.04,
+    "propaganda":          0.04,
+    "fear":                0.08,
+    "enemy_frame":         0.08,
+    "disclaimer_exploit":  0.08,
+    "anonymous_authority": 0.06,
+    "naked_number":        0.06,
 }
 CATEGORY_LABELS = {
     "authority":           "Authority Risk        (権威リスク)",
@@ -68,22 +163,52 @@ CATEGORY_LABELS = {
 }
 
 # ===========================
-# 取得・分析ロジック
+# CMIレベル判定
+# ===========================
+def cmi_level(cmi):
+    if cmi >= 60:
+        return "HIGH   ⚠⚠⚠"
+    elif cmi >= 35:
+        return "MEDIUM ⚠⚠"
+    else:
+        return "LOW    ⚠"
+
+# ===========================
+# 分析ロジック
 # ===========================
 def density(text, words):
-    if not text: return 0.0
+    if not text:
+        return 0.0
     count = sum(text.count(w) for w in words)
     return count / (len(text) / 100)
+
+def authority_score(text):
+    """
+    権威リスク v2: 2層判定
+    - PSEUDO_AUTHORITY: 偽権威専用語はそのままリスクカウント
+    - LEGIT_AUTHORITY:  正当権威語はHYPE共起度に応じてリスク加算
+    """
+    pseudo = density(text, PSEUDO_AUTHORITY)
+    legit  = density(text, LEGIT_AUTHORITY)
+    hype   = density(text, HYPE_WORDS)
+    hype_ratio = min(hype / 0.05, 1.0)
+    legit_risk = legit * hype_ratio * 0.5
+    return pseudo + legit_risk
 
 def bar(v, width=20):
     filled = max(0, min(width, round(v * width)))
     return "[" + "█" * filled + "░" * (width - filled) + f"] {v:.2f}"
 
+# ===========================
+# テキスト取得
+# ===========================
 def get_text(target):
     if "youtube.com" in target or "youtu.be" in target:
-        if not YT_AVAILABLE: return "[Error] youtube-transcript-api がありません"
+        if not YT_AVAILABLE:
+            return "[Error] youtube-transcript-api がありません"
         vid_match = re.search(r"(?:v=|\/)([0-9A-Za-z_-]{11})", target)
-        if not vid_match: return "[Error] YouTube URL 不正"
+        if not vid_match:
+            return "[Error] YouTube URL 不正"
         vid = vid_match.group(1)
         try:
             ts = YouTubeTranscriptApi.get_transcript(vid, languages=["ja", "en"])
@@ -93,7 +218,8 @@ def get_text(target):
             return f"[Error] 字幕取得失敗: {e}"
 
     if target.lower().endswith(".pdf"):
-        if not PDF_ENGINE: return "[Error] PDF用ライブラリ(PyMuPDF)がありません"
+        if not PDF_ENGINE:
+            return "[Error] PDF用ライブラリ(PyMuPDF)がありません"
         try:
             doc = fitz.open(target)
             return "\n".join(page.get_text() for page in doc)
@@ -106,43 +232,58 @@ def get_text(target):
     except FileNotFoundError:
         return f"[Error] ファイル未検出: {target}"
 
+# ===========================
+# 分析
+# ===========================
 def analyze(text):
+    text = normalize_text(text)  # Phase1: 表記ゆれ正規化
     raw = {
-        "authority": density(text, AUTHORITY_WORDS),
-        "emotional": (density(text, URGENCY_WORDS) + density(text, ABSOLUTIST_WORDS) + density(text, EMOTIONAL_WORDS)) / 3,
-        "logical": density(text, ANECDOTAL_MARKERS + CONCLUSION_MARKERS),
-        "statistical": density(text, STATISTICAL_WORDS) + (len(re.findall(r"\d+%", text)) / 10),
-        "hype": density(text, HYPE_WORDS),
-        "clickbait": density(text, CLICKBAIT_WORDS),
-        "propaganda": density(text, PROPAGANDA_WORDS),
-        "fear": density(text, FEAR_WORDS),
-        "enemy_frame": density(text, ENEMY_FRAME + ALLY_FRAME),
-        "disclaimer_exploit": 0.8 if (density(text, DISCLAIMER_WORDS) > 0.1 and density(text, HYPE_WORDS) > 0.1) else 0.0,
+        "authority":           authority_score(text),
+        "emotional":           (density(text, URGENCY_WORDS) + density(text, ABSOLUTIST_WORDS) + density(text, EMOTIONAL_WORDS)) / 3,
+        "logical":             density(text, ANECDOTAL_MARKERS + CONCLUSION_MARKERS),
+        "statistical":         density(text, STATISTICAL_WORDS) + (len(re.findall(r"\d+%", text)) / 10),
+        "hype":                density(text, HYPE_WORDS),
+        "clickbait":           density(text, CLICKBAIT_WORDS),
+        "propaganda":          density(text, PROPAGANDA_WORDS),
+        "fear":                density(text, FEAR_WORDS),
+        "enemy_frame":         density(text, ENEMY_FRAME + ALLY_FRAME),
+        "disclaimer_exploit":  0.8 if (density(text, DISCLAIMER_WORDS) > 0.1 and density(text, HYPE_WORDS) > 0.1) else 0.0,
         "anonymous_authority": min(density(text, ANONYMOUS_SUBJECT) * 2, 1.0),
-        "naked_number": 0.8 if (re.search(r"\d+倍|\d+円", text) and not re.search(r"出典|引用", text)) else 0.0,
-        "_structure": round(density(text, ["なぜなら", "原因", "解決"]) / 3, 3),
-        "_sentiment_bias": round(abs(density(text, EMOTIONAL_WORDS) - density(text, FEAR_WORDS)), 3)
+        "naked_number":        0.8 if (re.search(r"\d+倍|\d+円", text) and not re.search(r"出典|引用", text)) else 0.0,
+        "_structure":          round(density(text, ["なぜなら", "原因", "解決"]) / 3, 3),
+        "_sentiment_bias":     round(abs(density(text, EMOTIONAL_WORDS) - density(text, FEAR_WORDS)), 3),
     }
     return raw
 
+# ===========================
+# レポート出力
+# ===========================
 def report(text, source):
     raw = analyze(text)
     ri = {cat: min(raw.get(cat, 0) / THRESHOLDS[cat], 1.0) for cat in WEIGHTS}
-    penalty = sum(WEIGHTS[c] * ri[c] * 100 for c in WEIGHTS)
-    score = max(0.0, round(100 - penalty, 1))
-    print("\n" + "=" * 50)
-    print(f"  R8 Analyzer v7 | Source: {source[:40]}")
-    print("=" * 50)
-    print(f"  Score: {score} / 100")
-    print("-" * 50)
+    cmi = round(sum(WEIGHTS[c] * ri[c] * 100 for c in WEIGHTS), 1)
+    level = cmi_level(cmi)
+
+    print("\n" + "=" * 54)
+    print(f"  R8 Analyzer {VERSION} | Source: {source[:38]}")
+    print("=" * 54)
+    print(f"  CMI  : {cmi:5.1f} / 100   [{level}]")
+    print(f"  (Cognitive Manipulation Index: 高いほど高リスク)")
+    print("-" * 54)
     for cat, lbl in CATEGORY_LABELS.items():
         print(f"  {lbl}\n    {bar(ri[cat])}")
-    print("-" * 50)
+    print("-" * 54)
+    print(f"  _structure_score    : {raw['_structure']:.3f}  (論理構造密度)")
+    print(f"  _sentiment_bias     : {raw['_sentiment_bias']:.3f}  (感情極性偏差)")
+    print("-" * 54)
     print("\n[Notice] R8は認知リスクのフラグ提示ツールです。")
+    print("[Notice] CMIは操作構造の定量化であり、真偽判定ではありません。\n")
+
+    return cmi
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("使い方: python r8.py <URL/File>")
+        print("使い方: python r8.py <URL/File/TextFile.txt>")
         sys.exit(1)
     target = sys.argv[1]
     content = get_text(target)
