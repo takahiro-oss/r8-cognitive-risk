@@ -1,7 +1,10 @@
 source,label,note
-test/20210126-mxt_syoto02-000012321_2-4.pdf,low,文科省中教審答申
-https://kyoko-np.net/2026030401.html,high,虚構新聞・意図的フェイク記事
-https://web-mu.jp/spiritual/67811/,high,スピリチュアル系記事
-https://micropreneur.jp/voice160t/,high,投資・自己啓発系LP
-https://item.rakuten.co.jp/fanfareshop/rsc01_14p/,high,楽天ダイエットコーヒーLP
-https://fxtrade.co.jp,high,FX投資系サイト
+test/20210126-mxt_syoto02-000012321_2-4.pdf,LOW,文科省中教審答申・CMI34.2
+https://kyoko-np.net/2026030401.html,LOW,虚構新聞・風刺記事・設計外・CMI37.2
+https://web-mu.jp/spiritual/67811/,MEDIUM,スピリチュアル系体験談・JS動的・CMI11.4（テキスト不足）
+https://micropreneur.jp/voice160t/,MEDIUM,投資・自己啓発系LP・CMI22.0
+https://item.rakuten.co.jp/fanfareshop/rsc01_14p/,MEDIUM,楽天ダイエットコーヒーLP・JS動的・CMI11.0（テキスト不足）
+https://fxtrade.co.jp,HIGH,FX投資系トップページ・CMI32.4（トップページのみ）
+https://www.mhlw.go.jp/stf/newpage_40000.html,LOW,厚労省報道発表・CMI6.3
+https://www.jetro.go.jp/world/reports/,LOW,JETRO海外ビジネス調査レポート・CMI0.0
+https://www.caa.go.jp/policies/policy/consumer_system/collective_redress/index.html,LOW,消費者庁法的制度解説・CMI0.0
