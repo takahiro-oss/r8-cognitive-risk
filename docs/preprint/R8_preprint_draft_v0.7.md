@@ -1,11 +1,11 @@
 # R8: A Lexical Framework for Quantifying Cognitive Manipulation Risk in Text
 
-**Author:** Takahiro Saito, M.S. in Clinical Psychology  
-**Affiliation:** Independent Researcher  
-**GitHub:** https://github.com/takahiro-oss/r8-cognitive-risk  
-**License:** CC BY 4.0  
-**Status:** Preprint (not peer-reviewed)  
-**Date:** March 2026  
+**Author:** Takahiro Saito, M.S. in Clinical Psychology
+**Affiliation:** Independent Researcher
+**GitHub:** https://github.com/takahiro-oss/r8-cognitive-risk
+**License:** CC BY 4.0
+**Status:** Preprint (not peer-reviewed)
+**Date:** March 2026
 
 ---
 

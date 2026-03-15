@@ -32,15 +32,15 @@ GitHub: takahiro-oss/r8-cognitive-risk（2026年3月12日公開）
 
 ## プレプリント用Abstract候補
 
-R8 proposes a structural approach to quantifying cognitive manipulation 
-risk across 12 categories, drawing conceptual inspiration from 
-factor-based psychometric models. This is an exploratory framework 
+R8 proposes a structural approach to quantifying cognitive manipulation
+risk across 12 categories, drawing conceptual inspiration from
+factor-based psychometric models. This is an exploratory framework
 requiring empirical validation.
 
-R8 extends the qualitative analysis of organizational cognitive failure — 
-as documented in studies of military and institutional collapse — into a 
-quantitative, real-time detection framework. Rather than analyzing failure 
-after the fact, R8 identifies the linguistic patterns of cognitive 
+R8 extends the qualitative analysis of organizational cognitive failure —
+as documented in studies of military and institutional collapse — into a
+quantitative, real-time detection framework. Rather than analyzing failure
+after the fact, R8 identifies the linguistic patterns of cognitive
 manipulation that precede organizational and societal failure.
 
 ## KEY SENTENCES
@@ -50,9 +50,9 @@ manipulation that precede organizational and societal failure.
 「改革のふりをした現状維持は、R8のスコアに現れる。」
 
 ### 英語
-"R8 quantifies what 'Failures of Japanese Military Strategy' identified 
+"R8 quantifies what 'Failures of Japanese Military Strategy' identified
 qualitatively — the cognitive structures that precede organizational collapse."
-"Organizational failure leaves linguistic traces before it manifests in 
+"Organizational failure leaves linguistic traces before it manifests in
 outcomes. R8 detects those traces."
 
 ## 現状
