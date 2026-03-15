@@ -1,0 +1,4 @@
+﻿timestamp,target,cmi,level,error,authority,emotional,logical,statistical,hype,clickbait,propaganda,fear,enemy_frame,disclaimer_exploit,anonymous_authority,naked_number
+2026-03-15 14:48:05,https://www.u-tokyo.ac.jp/focus/ja/press/index.html,,ERROR,"[Error] URL取得失敗: ('Connection aborted.', ConnectionResetError(10054, '既存の接続はリモート ホストに強制的に切断されました。', None, 10054, None))",,,,,,,,,,,,
+2026-03-15 14:48:07,https://www.jetro.go.jp/world/reports/,0.0,LOW,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-03-15 14:48:07,https://www.caa.go.jp/policies/policy/consumer_system/collective_redress/index.html,0.0,LOW,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

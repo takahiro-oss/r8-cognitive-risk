@@ -1,0 +1,2 @@
+﻿timestamp,target,cmi,level,error,authority,emotional,logical,statistical,hype,clickbait,propaganda,fear,enemy_frame,disclaimer_exploit,anonymous_authority,naked_number
+2026-03-15 14:46:48,https://am-shifuku.com/lp/rich-mind/,,ERROR,"[Error] URL取得失敗: HTTPSConnectionPool(host='am-shifuku.com', port=443): Max retries exceeded with url: /lp/rich-mind/ (Caused by NameResolutionError(""HTTPSConnection(host='am-shifuku.com', port=443): Failed to resolve 'am-shifuku.com' ([Errno 11001] getaddrinfo failed)""))",,,,,,,,,,,,
