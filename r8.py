@@ -325,19 +325,35 @@ def bar(v, width=20):
 # テキスト取得
 # ===========================
 def get_text(target):
-    if "youtube.com" in target or "youtu.be" in target:
-        if not YT_AVAILABLE:
-            return "[Error] youtube-transcript-api がありません"
-        vid_match = re.search(r"(?:v=|\/)([0-9A-Za-z_-]{11})", target)
-        if not vid_match:
-            return "[Error] YouTube URL 不正"
-        vid = vid_match.group(1)
+    if target.startswith("http://") or target.startswith("https://"):
+        if "youtube.com" in target or "youtu.be" in target:
+            if not YT_AVAILABLE:
+                return "[Error] youtube-transcript-api がありません"
+            vid_match = re.search(r"(?:v=|\/)([0-9A-Za-z_-]{11})", target)
+            if not vid_match:
+                return "[Error] YouTube URL 不正"
+            vid = vid_match.group(1)
+            try:
+                ts = YouTubeTranscriptApi.get_transcript(vid, languages=["ja", "en"])
+                print("YouTube字幕取得完了\n")
+                return " ".join([x["text"] for x in ts])
+            except Exception as e:
+                return f"[Error] 字幕取得失敗: {e}"
         try:
-            ts = YouTubeTranscriptApi.get_transcript(vid, languages=["ja", "en"])
-            print("YouTube字幕取得完了\n")
-            return " ".join([x["text"] for x in ts])
+            import requests
+            from bs4 import BeautifulSoup
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+            r = requests.get(target, headers=headers, timeout=15)
+            r.encoding = r.apparent_encoding
+            soup = BeautifulSoup(r.text, "html.parser")
+            for tag in soup(["script","style","nav","footer","header"]):
+                tag.decompose()
+            text = soup.get_text(separator=" ", strip=True)
+            if len(text) < 100:
+                return "[Error] テキスト取得失敗（JS動的サイトの可能性）"
+            return text
         except Exception as e:
-            return f"[Error] 字幕取得失敗: {e}"
+            return f"[Error] URL取得失敗: {e}"
 
     if target.lower().endswith(".pdf"):
         if not PDF_ENGINE:
