@@ -1,11 +1,11 @@
 # R8: A Lexical Framework for Quantifying Cognitive Manipulation Risk in Text
 
-**Author:** Takahiro Saito, M.S. in Clinical Psychology  
-**Affiliation:** Independent Researcher  
-**GitHub:** https://github.com/takahiro-oss/r8-cognitive-risk  
-**License:** CC BY 4.0  
-**Status:** Preprint (not peer-reviewed)  
-**Date:** March 2026  
+**Author:** Takahiro Saito, M.S. in Clinical Psychology
+**Affiliation:** Independent Researcher
+**GitHub:** https://github.com/takahiro-oss/r8-cognitive-risk
+**License:** CC BY 4.0
+**Status:** Preprint (not peer-reviewed)
+**Date:** March 2026
 **Version:** v0.9 (preprint draft)
 
 ---
@@ -231,9 +231,19 @@ Extended validation efforts conducted during the development of this preprint fu
 
 Three structural findings emerged from this extended collection effort. First, HIGH-risk content (investment fraud landing pages, multi-level marketing promotions) disproportionately employs JavaScript-rendered dynamic content, creating a systematic sampling bias that underrepresents the most manipulative material in automated analysis pipelines. Second, spiritually framed manipulation content — including twin-ray reunion narratives and lightworker identity construction — achieves HIGH CMI scores through dense deployment of emotional, authority, and propaganda markers, suggesting that the commercial-spiritual manipulation genre is well-captured by the current dictionary. Third, politically framed manipulation content (nationalist political party websites) achieved LOW CMI scores (28.7) despite containing documented instances of conspiracy framing and fear amplification, indicating that the current dictionary underweights the rhetorical patterns characteristic of political manipulation — which tends toward implicit framing, euphemism, and structural presupposition rather than the explicit urgency markers targeted by the commercial manipulation dictionary.
 
-### 5.4 JavaScript-Rendered Content
+### 5.4 Closed-Platform Migration: A Structural Limitation of URL-Based Analysis
 
 A significant proportion of high-risk web content — including investment scheme promotions, multi-level marketing recruitment pages, and cult recruitment materials — employs JavaScript-rendered dynamic content that BeautifulSoup-based scraping cannot access. This creates a systematic sampling bias in which the most manipulative content is the least accessible to automated analysis. Headless browser integration (e.g., Playwright, Selenium) is identified as a priority technical development.
+
+A structurally more fundamental limitation, however, extends beyond the JavaScript rendering problem. Observational evidence gathered during corpus construction suggests that high-risk manipulative content has undergone a systematic platform migration away from indexable open web pages toward closed-platform ecosystems that are inaccessible to URL-based analysis by design.
+
+Specifically, Japanese National Police Agency data for fiscal year 2024 indicate that the primary initial contact tool for SNS-type investment fraud and romance fraud was Facebook for male victims, with subsequent interaction systematically migrated to LINE — a closed messaging platform operating outside the indexable web (National Police Agency, 2025). Romance fraud incidents increased 140.3% year-over-year in 2024, reaching 3,784 reported cases with aggregate losses of 39.7 billion yen. Instagram direct messaging, X (formerly Twitter), and TikTok function as additional primary contact surfaces for younger demographic targets, with LINE serving as the universal convergence platform for manipulation execution regardless of initial contact channel.
+
+This two-stage architecture — open platform for initial contact, closed platform for manipulation execution — represents a deliberate evasion structure that renders URL-based corpus construction systematically incomplete. The manipulative content that causes the greatest documented harm (investment fraud landing pages, romance fraud conversational scripts, MLM recruitment narratives) resides primarily in LINE conversation threads, Instagram DM exchanges, and private Facebook message chains that are structurally inaccessible to automated web scraping regardless of rendering technology.
+
+A further dimension of this migration involves organized transnational crime. Investigative reporting and law enforcement data confirm that criminal networks operating from special economic zones in Cambodia, Myanmar, and Laos employ the same closed-platform architecture for large-scale fraud operations targeting Japanese victims (UNODC, 2023; National Police Agency, 2025). Japanese nationals have been documented as both perpetrators recruited through SNS job postings and victims of romance and investment fraud executed through these platforms. The linguistic content of these operations — including recruitment scripts, investment scheme narratives, and romantic grooming dialogues — constitutes high-CMI material that is categorically inaccessible to the current R8 pipeline.
+
+The implication for R8's architecture is not merely technical but epistemological: URL-based lexical analysis captures the visible surface of the manipulation ecosystem while the highest-risk content has migrated below the indexable horizon. This structural observation reinforces the corpus LOW-bias documented in Section 5.3 and identifies closed-platform analysis as a critical research frontier that cannot be addressed through headless browser integration alone. Future development will require either platform API access under appropriate ethical and legal frameworks, or corpus construction through controlled experimental methods such as synthetic text generation calibrated to documented manipulation patterns.
 
 ### 5.5 Dictionary Construction Methodology
 
@@ -339,7 +349,7 @@ The three dimensions are grounded in Cialdini's (1984) principles of influence, 
 | 1 | Partial inhibition of critical evaluation; some claims presented as settled without full evidentiary support |
 | 2 | Systematic inhibition of independent judgment; urgency, authority, or emotional pressure forecloses evaluation |
 
-**Dimension 3: Verifiability of Claims**
+*Dimension 3: Verifiability of Claims**
 
 | Score | Criterion |
 |---|---|
@@ -403,8 +413,9 @@ Tobe, R., Teramoto, Y., Kamata, S., Suginoo, Y., Murai, T., & Nonaka, I. (1984).
 Toyama, S. (1983). *Shikou no seirigaku* [Lit. "Physiology of Thinking"; trans. as *The Art of Thought Organization*]. Chikuma Shobo.
 
 Yamamoto, S. (1977). *Kuuki no kenkyuu* [A study of "air"]. Bungeishunju.
+National Police Agency. (2025). *Tokushu sagi oyobi SNS-gata toshi/romance sagi no ninchi/kenkyo jokyo-to (Reiwa 6-nen, zantei-chi) ni tsuite* [Special fraud and SNS-type investment/romance fraud: Recognition and arrest statistics for fiscal year 2024 (provisional)]. National Police Agency of Japan.
 
----
+United Nations Office on Drugs and Crime. (2023). *Transnational organized crime and the convergence of cyber-enabled fraud, underground banking and technological innovation: A call for collective action in South-East Asia*. UNODC.---
 
 *This paper was developed with AI assistance (Claude, Anthropic; Gemini, Google). The conceptual framework, theoretical integration, and research direction are the original work of the author. AI tools were used for drafting, translation, and code implementation support.*
 
