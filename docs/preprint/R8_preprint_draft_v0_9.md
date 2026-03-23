@@ -54,7 +54,7 @@ The susceptibility of individuals to such manipulation is illuminated by Toyama'
 
 R8 functions as a "Cognitive Breakwater" (認知的防波堤): it identifies the structural slopes in text that incline a reader toward cognitive dependency rather than deliberation. The CMI is thus defined not merely as a sum of manipulation markers, but as a measure of the aggregate pressure exerted against autonomous thinking — the quantified force that induces gliding where independent propulsion is required.
 
-### 2.4 From "Kuuki" to CMI: The First Quantification of Implicit Coercion
+### 2.4 From "Kuuki" to CMI: A Lexical Approximation of Implicit Coercion
 
 The phenomena described by Tobe et al. (1984), Yamamoto (1977), and Nakane (1967) have resisted quantification precisely because they operate through implicit linguistic signals rather than explicit propositional content. Qualitative identification has been possible; measurement has not.
 
@@ -403,7 +403,6 @@ The three dimensions are grounded in Cialdini's (1984) principles of influence, 
 
 Arai, N. (2018). *Robotto wa toudai ni haireruka* [Can a robot get into Tokyo University?]. Toyo Keizai.
 
-Arai, N. (2020). *Suugaku wa kotoba* [Mathematics is language]. Toyo Keizai.
 
 Cialdini, R. B. (1984). *Influence: The psychology of persuasion*. Harper Business.
 

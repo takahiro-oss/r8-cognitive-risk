@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# r8.py — R8 Cognitive Risk Analyzer v15
+# r8.py — R8 Cognitive Risk Analyzer v16
 # CMI (Cognitive Manipulation Index): 0=安全, 100=最高リスク
 # 権威リスク v2: 偽権威/正当権威の2層判定導入
 # 表記ゆれ正規化 Phase1: NFKC+カタカナ→ひらがな変換、辞書ひらがな読み追加
@@ -19,7 +19,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() in ("cp932", "shift_jis",
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
-VERSION = "v15"
+VERSION = "v16"
 
 # --- 外部ライブラリのインポート ---
 try:
