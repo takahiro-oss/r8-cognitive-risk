@@ -88,6 +88,10 @@ R8's dictionary construction draws on this clinical tradition. The categories of
 
 The practical context for R8 extends into the domain of information integrity — the challenge of identifying communication that may exploit structural psychological vulnerabilities rather than relying on verifiable evidence. Automated lexical tools capable of flagging manipulation-compatible patterns at the surface level represent one possible complement to existing approaches focused on source credibility and network propagation analysis.
 
+Recent work by Google DeepMind and Jigsaw provides direct prior art for R8's problem framing. El-Sayed et al. (2024) distinguish between "rationally persuasive AI" — which relies on evidence and sound reasoning — and "manipulative AI" — which exploits cognitive biases and heuristics or misrepresents information. Their mechanism-based taxonomy of persuasion harms, and their proposal of manipulation classifiers as a mitigation strategy, define the same problem space that R8 addresses from a complementary angle. Marchal et al. (2024) analyze nearly 200 real-world incidents of generative AI misuse and identify impersonation, synthetic persona creation, and influence operations as the dominant threat categories — patterns structurally consistent with the manipulation-compatible linguistic signatures R8 targets.
+
+R8 differs from these approaches in three respects. First, R8 operates on Japanese-language text, a domain not addressed by either study. Second, R8 employs surface-level lexical analysis rather than LLM-based classification, prioritizing transparency and deployability in resource-constrained environments over predictive accuracy. Third, R8 targets manipulation-compatible patterns in human-authored text rather than AI-generated content specifically. These differences position R8 not as a competitor to LLM-based approaches but as a lightweight, auditable complement — applicable where computational infrastructure for transformer-based classification is unavailable or where interpretability of scoring is required.
+
 R8 is positioned as an open-source, transparent instrument for approximating the density of manipulation-compatible linguistic signatures, with the explicit acknowledgment that surface-level lexical patterns do not establish manipulative intent or effect. The relationship between this theoretical framing and the implemented method is examined critically in Section 5.7, where the structural gap between the phenomena described above and what lexical analysis can actually detect is addressed directly.
 
 ---
@@ -272,6 +276,10 @@ The iterative development process from version 10 to version 16 of the R8 dictio
 
 However, this iterative expansion process introduces a methodological concern that must be explicitly acknowledged: the risk of circular validation. When dictionary expansion is guided by the observation that targeted content produces low CMI scores, the expansion process may be optimizing for a predetermined outcome rather than discovering a stable underlying construct. The current version of R8 cannot fully resolve this concern without independent corpus-based validation against an annotated ground-truth dataset constructed without reference to CMI scores. This limitation precisely characterizes the exploratory status of the current instrument.
 
+### 5.6 Weight and Threshold Calibration
+
+Category weights and normalization thresholds were set through iterative empirical observation on a small pilot corpus rather than through optimization against a held-out validation set. The current weight distribution (Statistical Risk: 0.16; Authority Risk, Emotional Risk: 0.12 each) reflects theoretical priors rather than empirically derived importance rankings. Systematic calibration using a larger annotated corpus is required before the weight structure can be considered validated.
+
 ### 5.7 The Gap Between Theoretical Framing and Implemented Method
 
 A structural limitation that underlies all others in this paper deserves explicit statement. The theoretical framework presented in Section 2 draws heavily on phenomena that are by definition non-lexical: kuuki operates below the level of explicit argument; System 1 exploitation occurs through psychological priming that may be independent of specific vocabulary; narcissistic manipulation functions through relational dynamics and pragmatic implicature. These are context-dependent, cognitively mediated phenomena.
@@ -279,10 +287,6 @@ A structural limitation that underlies all others in this paper deserves explici
 The implemented method — surface-level lexical density analysis — operates at a categorically different level of description. No amount of dictionary expansion or weight calibration can bridge this gap, because the phenomena the theory describes are not reducible to lexical frequency. What R8 detects is not manipulation as theorized in Section 2; it detects the presence of lexical patterns that have been associated with manipulation contexts by the author's judgment. Whether those lexical patterns are reliable surface correlates of the deeper phenomena remains entirely undemonstrated.
 
 This does not invalidate the framework as an exploratory starting point. It does mean that the theoretical framing in Section 2 should be read as motivational context rather than as a validated theoretical foundation for the measurement model. Future work establishing empirical links between specific lexical patterns and documented manipulation outcomes would be required before the theoretical framing can be claimed as a genuine basis for the implemented method.
-
-
-
-Category weights and normalization thresholds were set through iterative empirical observation on a small pilot corpus rather than through optimization against a held-out validation set. The current weight distribution (Statistical Risk: 0.16; Authority Risk, Emotional Risk: 0.12 each) reflects theoretical priors rather than empirically derived importance rankings. Systematic calibration using a larger annotated corpus is required before the weight structure can be considered validated.
 
 ---
 
@@ -295,6 +299,8 @@ The development roadmap is structured in two phases. Phase 2 addresses the empir
 Expansion of the calibration corpus and establishment of inter-rater reliability are the immediate empirical priorities, and are prerequisite to all other Phase 2 developments. Independent annotation of the validation corpus by multiple raters with defined inter-rater reliability metrics (Cohen's kappa or Krippendorff's alpha) is required before calibration results can be presented as statistically defensible. The expanded corpus will include high-risk documents across three manipulation modalities currently underrepresented: cult recruitment and coercive control language, multi-level marketing and investment scheme promotions, and domestic violence and psychological abuse language patterns.
 
 The Phase 2 corpus design will address current limitations through three modifications: (1) manual collection of HIGH-risk documents where automated collection fails due to JavaScript rendering; (2) genre-stratified sampling that separately targets commercial, political, and spiritual manipulation modalities; and (3) independent annotation by multiple raters to establish inter-rater reliability metrics prior to CMI calibration.
+
+A further Phase 2 priority is systematic comparison of R8's lexical approach against the manipulation taxonomy developed by El-Sayed et al. (2024) and the misuse categories identified by Marchal et al. (2024). Specifically, Phase 2 will investigate whether R8's 12 categories map onto El-Sayed et al.'s mechanism-based classification in a consistent and interpretable manner, and whether the misuse patterns documented by Marchal et al. produce reliably elevated CMI scores in Japanese-language equivalents. This comparative analysis will either confirm R8's category structure as a coherent operationalization of an established taxonomy, or identify structural gaps requiring dictionary revision.
 
 ### 6.2 Phase 2: Vector Profile Development
 
@@ -401,6 +407,8 @@ Cialdini, R. B. (1984). *Influence: The psychology of persuasion*. Harper Busine
 
 DeVellis, R. F. (2016). *Scale development: Theory and applications* (4th ed.). SAGE Publications.
 
+El-Sayed, S., Brown, S., Marchal, N., Gabriel, I., Goldberg, B., Isaac, W., & Hendricks, L. A. (2024). A mechanism-based approach to mitigating harms from persuasive generative AI. *arXiv preprint arXiv:2404.15058*. Google DeepMind, UCL, Jigsaw, Google Research, Cornell University.
+
 Exner, J. E. (1993). *The Rorschach: A comprehensive system* (3rd ed.). Wiley.
 
 Hathaway, S. R., & McKinley, J. C. (1943). *The Minnesota Multiphasic Personality Inventory*. University of Minnesota Press.
@@ -410,6 +418,8 @@ Hobbs, R. (2010). *Digital and media literacy: A plan of action*. Aspen Institut
 Janis, I. L. (1972). *Victims of groupthink: A psychological study of foreign-policy decisions and fiascoes*. Houghton Mifflin.
 
 Kahneman, D. (2011). *Thinking, fast and slow*. Farrar, Straus and Giroux.
+
+Marchal, N., Xu, R., Elasmar, R., Gabriel, I., Goldberg, B., & Isaac, W. (2024). Mapping the misuse of generative AI. *arXiv preprint arXiv:2406.13843*. Google DeepMind, Jigsaw, Google.org.
 
 Milgram, S. (1963). Behavioral study of obedience. *Journal of Abnormal and Social Psychology, 67*(4), 371–378.
 
