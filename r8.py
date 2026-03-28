@@ -104,6 +104,10 @@ HYPE_WORDS = [
     "宇宙からのメッセージ","サインかもしれません","暗示しています",
     "スピリチュアル的には","霊的に見ると","魂レベルでは",
     "エネルギー的に","波動的に","高次元では",
+    # 煽り系誇張語
+    "激減","劇的に改善","驚異の","奇跡の","たった3ヶ月で",
+    "99%の人が","ほとんどの人が知らない","知らなきゃ損",
+    "鳥肌が立った","眠れなくなる","震えが止まらない",
     # ひらがな読み
     "きたいされる","かのうせいがある","みこまれる",
 ]
@@ -114,6 +118,9 @@ URGENCY_WORDS = [
     "LINEはこちら","LINE追加","LINEで受け取る","LINE登録","IDはこちら",
     "DMください","気軽にDM","まずはDM","無料で受け取る","無料配布中",
     "今すぐ登録","登録はこちら","友達追加","限定公開","シークレット",
+    # 削除系緊急誘導
+    "8時間後に削除","25分後に削除","今週限り","今だけ公開",
+    "削除前に","消される前に",
     # ひらがな読み
     "いまだけ","きかんげんてい","いそげ","のこりわずか",
     "ほんじつげんてい","しめきり","いますぐ","さいごのちゃんす",
@@ -124,6 +131,10 @@ ABSOLUTIST_WORDS = [
     "副作用が全くない","どんな病気にも","必ず引き寄せられる",
     "どんな症状にも効く","年齢を問わない","安全で効果的",
     "好転反応","再現性がある","細胞レベルで回復",
+    # 煽り系断定語
+    "必ず買い","今すぐやれ","一度だけ言う","8時間後に削除",
+    "命の危険を冒して","1億回でも言います","本っっ当に大事",
+    "ゾッとした","衝撃展開",
     # ひらがな読み
     "ぜったい","かならず","かんぜん","まちがいなく","かくじつに",
     "ぜんいん","だれでも","ほしょう",
@@ -239,6 +250,27 @@ ALLY_FRAME         = [
     "本当の日本を守る","日本人として","大和魂","武士道精神",
     "先人の知恵","日本の伝統","国体を守る",
 ]
+SEXUAL_INDUCTION_WORDS = [
+    # 直接的誘導（ひらがな変換後にマッチする形で記載）
+    "せふれ","おふぱこ","わんないと","出会い募集","即会い",
+    "写真交換","動画送ります","体の関係","大人の関係",
+    # 婉曲・SNS誘導
+    "ご縁があれば","気軽にメッセージ","IDを教えます","LINE教えます",
+    "仲良くしたい","お話しませんか","暇な人DM","気が合う人",
+    "大人の友達","割り切り","真剣な出会い","恋活","婚活以外",
+]
+BEAUTY_DIET_WORDS = [
+    # ダイエット煽り（正規化後にマッチする形）
+    "痩せるは通過点","何でも食べてすぐ戻る","たった1週間で",
+    "食べても太らない","リバウンドなし","脂肪が燃える",
+    "せるらいと撃退","代謝爆上がり","むくみ即解消",
+    "りばうんどなし",
+    # 美容・夜職・収入系
+    "稼げる身体","夜職","売上UP","指名本数",
+    "2〜3ヶ月でさっさと終わらせ","身体で稼ぐ",
+    # ひらがな読み
+    "やせる","ぜいにく","たいしゃ",
+]
 DISCLAIMER_WORDS   = ["投資助言ではありません","損失の責任","情報提供および教育目的","投資顧問として","元本を失う可能性","将来の成果を保証","デューデリジェンス"]
 ANONYMOUS_SUBJECT  = ["当社","一部のアナリスト","市場では","業界では","関係者によると","一部で","見方が出ている","強気の買い判断","目標株価を示す"]
 
@@ -258,12 +290,14 @@ THRESHOLDS = {
     "disclaimer_exploit":  0.30,
     "anonymous_authority": 0.30,
     "naked_number":        0.30,
+    "sexual_induction":    0.03,
+    "beauty_diet":         0.04,
 }
 WEIGHTS = {
     "authority":           0.12,
-    "emotional":           0.12,
+    "emotional":           0.10,
     "logical":             0.08,
-    "statistical":         0.16,
+    "statistical":         0.14,
     "hype":                0.08,
     "clickbait":           0.04,
     "propaganda":          0.04,
@@ -272,6 +306,8 @@ WEIGHTS = {
     "disclaimer_exploit":  0.08,
     "anonymous_authority": 0.06,
     "naked_number":        0.06,
+    "sexual_induction":    0.04,
+    "beauty_diet":         0.00,
 }
 CATEGORY_LABELS = {
     "authority":           "Authority Risk        (権威リスク)",
@@ -286,6 +322,8 @@ CATEGORY_LABELS = {
     "disclaimer_exploit":  "Disclaimer Exploit    (免責文逆利用) ★",
     "anonymous_authority": "Anonymous Authority   (匿名権威)",
     "naked_number":        "Naked Number          (根拠なき具体数値)",
+    "sexual_induction":    "Sexual Induction      (性的誘導リスク)",
+    "beauty_diet":         "Beauty/Diet Hype      (美容ダイエット煽り) ※参考値",
 }
 
 # ===========================
@@ -394,6 +432,8 @@ def analyze(text):
         "disclaimer_exploit":  0.8 if (density(text, DISCLAIMER_WORDS) > 0.1 and density(text, HYPE_WORDS) > 0.1) else 0.0,
         "anonymous_authority": min(density(text, ANONYMOUS_SUBJECT) * 2, 1.0),
         "naked_number":        0.8 if (re.search(r"\d+倍|\d+円", text) and not re.search(r"出典|引用", text)) else 0.0,
+        "sexual_induction":    density(text, SEXUAL_INDUCTION_WORDS),
+        "beauty_diet":         density(text, BEAUTY_DIET_WORDS),
         "_structure":          round(density(text, ["なぜなら", "原因", "解決"]) / 3, 3),
         "_sentiment_bias":     round(abs(density(text, EMOTIONAL_WORDS) - density(text, FEAR_WORDS)), 3),
     }
