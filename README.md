@@ -1,5 +1,6 @@
 # R8 Cognitive Risk Analyzer
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19306871.svg)](https://doi.org/10.5281/zenodo.19306871)
 情報の「真偽」ではなく「認知操作の構造」を定量化するテキスト監査システム。
 
 A text analysis system that quantifies the **structure of cognitive manipulation**, not the truth or falsity of information.
