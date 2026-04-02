@@ -37,7 +37,15 @@ INPUT_FILE = os.path.join(BASE_DIR, 'urls.txt')
 SAVE_DIR = os.path.join(BASE_DIR, 'corpus', 'phase2')
 LOG_FILE = os.path.join(BASE_DIR, 'fetch_log.txt')
 TARGETS_FILE = os.path.join(SAVE_DIR, 'targets.txt')
-START_INDEX = 34  # 既存ファイルの次の連番に合わせて変更する
+def get_next_index(save_dir):
+    import glob, re
+    files = glob.glob(os.path.join(save_dir, '*.txt'))
+    indices = []
+    for f in files:
+        match = re.search(r'_(\d{3})_', os.path.basename(f))
+        if match:
+            indices.append(int(match.group(1)))
+    return max(indices) + 1 if indices else 34
 
 TODAY_STR = datetime.now().strftime("%Y%m%d")
 
@@ -64,7 +72,7 @@ def collect():
         lines = f.readlines()
 
     current_category = "ETC"
-    current_idx = START_INDEX
+    current_idx = get_next_index(SAVE_DIR)
     saved_files = []
 
     for line in lines:
