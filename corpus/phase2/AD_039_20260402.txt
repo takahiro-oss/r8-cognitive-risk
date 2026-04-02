@@ -1,0 +1,178 @@
+[SOURCE] https://bigboss-financial.com/
+[DATE] 20260402
+[CATEGORY] AD
+[TEXT]
+Official BigBoss Website | Trade FX & CFDs with BigBoss!
+BigBoss - Trade Forex on up to 2222 Leverage and CFD
+Official Social Media
+Don't miss out the investment tips and exclusive campaigns.
+Follow for the latest updates!
+X
+YouTube
+Instagram
+TikTok
+Facebook
+Opening your account in 3 minutes!
+Quick
+                    Open Account
+Trade with
+BigBoss
+, known for its achievements and awards
+Trade with
+BigBoss
+,
+known for its achievements and awards
+Spread
+Welcome to BigBoss
+To provide high quality and reliable service to our customers,
+                            we keep on challenging,
+                            innovating, and improving ourselves.
+So, how about trading with us?
+Spread Advantage
+Narrow and highly competitive.
+Account
+Any changes in your account is shown immediately.
+Maximum leverage 2222:1
+Free trade with no margin call.
+BigBoss’s affiliate system
+We introduce you to trustworthy affiliates and value partnerships.
+News
+31 March 2026
+Announcement of the change of Trading Time for Easter Holiday
+The trading time for the below products will change during the subject event.
+(The following times are GMT 0)
+[CFD Commodities]
+GOLD_USD
+SILVER_USD
+OILWTI_USD
+OILUK_USD
+3rd Apr：*Closed
+[CFD Indices]
+DAX40_EUR
+2nd Apr：22:00 Wed - 20:00 Thu
+3rd Apr：*Closed
+6th Apr：*Closed
+7th Apr：00:15 Tue - 21:00 Tue
+UK100_GBP
+2nd Apr：22:00 Wed - 20:00 Thu
+3rd Apr：*Closed
+6th Apr：*Closed
+7th Apr：00:00 Tue - 21:00 Tue
+HSI50_HKD
+2nd Apr：22:00 Wed - 19:00 Thu
+3rd Apr：*Closed
+6th Apr：*Closed
+7th Apr：*Closed
+8th Apr：01:15 Wed - 21:00 Wed
+N225_JPY
+DOW30_USD
+SP500_USD
+NASDAQ_USD
+3rd Apr：22:00 Thu - 13:15 Fri
+04 March 2026
+Announcement of the change of Trading Time (Summer Time) and Maintenance
+Starting from 7 March 2026 (Sat), the market trading time will change to Summer Time.
+(The following table is listed as GMT 0)
+[Forex]
+21:05 (Sun) - 21:00 (Mon)
+21:05 (Mon) - 21:00 (Tue)
+21:05 (Tue) - 21:00 (Wed)
+21:05 (Wed) - 21:00 (Thu)
+21:05 (Thu) - 20:55 (Fri)
+[CFD (Metal, Index, Energy)]
+22:00 (Sun) - 21:00 (Mon)
+22:00 (Mon) - 21:00 (Tue)
+22:00 (Tue) - 21:00 (Wed)
+22:00 (Wed) - 21:00 (Thu)
+22:00 (Thu) - 20:55 (Fri)
+※Only OILUK_USD 00:00 - 21:00
+[Cryptocurrency CFD]
+21:05 (Sun) - 21:00 (Mon)
+21:05 (Mon) - 21:00 (Tue)
+21:05 (Tue) - 21:00 (Wed)
+21:05 (Wed) - 21:00 (Thu)
+21:05 (Thu) - 21:00 (Fri)
+21:05 (Fri) - 21:00 (Sat)
+21:05 (Sat) - 21:00 (Sun)
+Also, along with the above changes, there will be server maintenance for MT4/MT5 during the following period.
+【Maintenance Schedule】
+7 Mar (Sat) 01:00 - 02:00 (GMT +0)
+※End time may vary depending on the maintenance progress.
+The following servers are subject to the maintenance:
+MT4　LIVE1, LIVE3, LIVE4, LIVE5, DEMO, DEMO2
+MT5　LIVE1, DEMO
+Login and transactions in MT4/MT5 LIVE accounts and demo accounts will be suspended.
+MT4/MT5/BBT services will also be stopped during the maintenance.
+We apologize for the inconvenience and ask for your understanding in advance.
+(※Included Cryptocurrency CFD trading)
+After the maintenance, You will need to login again and the time displayed on MT4/MT5 will be adjusted to summer time (GMT +3).
+For users who need to change their time setting of EA and other indicators, please arrange accordingly.
+Sorry for the inconvenience caused.
+Your kind understanding is much appreciated.
+If you have any inquiries, please contact our Customer Support Team.
+Thank you for your support.
+13 February 2026
+Annoucement of MyPage renewal
+Dear Customers
+Thank you for trading with BigBoss.
+Due to system maintenance for the MyPage renewal on Saturday, February 21,
+MyPage will be temporarily unavailable during the following period.
+【Maintenance Schedule】
+February 21th, Sat 01:00 ~ 04:00 (GMT +0)
+※End time may vary depending on the maintenance progress.
+※Please note that MyPage cannot be accessed or used during the maintenance.
+【Maintenance Target】
+MyPage
+【About the Usage of New MyPage】
+Your current Login ID (email address) and password will remain valid.
+No need to reset your log in information.
+While the Login Page URL remains unchanged, the URLs for internal pages will be updated.
+If you have bookmarked specific pages within MyPage, please update them by bookmarking the Login Page instead.
+【Key Updates】
+・Intuitive User Interface
+A modern, streamlined design that ensures all essential functions are visible at a glance.
+・Superior Performance
+Smoother deposit/withdrawal processes and more efficient account management.
+・Enhanced Mobile Experience
+Optimized for smartphones and tablets, ensuring a seamless experience on any device.
+We apologize for any inconvenience this may cause and appreciate your understanding and cooperation regarding the maintenance of MyPage renewal.
+If you have any inquiries, please contact our Customer Support Team.
+Thank you for your support.
+Past Posts
+Blog
+Company Overview
+BigBoss aims to provide high quality service, and customers’ best interest is always laid at the
+                    first place.
+We provide several deposit and withdrawal methods, various financial products, professional
+                    engineer
+                    team, worldwide NO.1 customer support team.
+We highly appreciate your advice and suggestions, and will consistently improve our service to be
+                    the
+                    worldwide top broker.
+Quick Deposit and Withdrawal
+Several deposit and withdrawal methods are provided to make sure your money transfers
+                                smoothly, so that you will not miss any trading chance.
+We provide our customer the perfect and secure trading environment to focus
+                                better.
+Various Financial Products
+Over 80 financial products are provided, and all the rates are directly collected from
+                                the
+                                interbank market.
+Besides Forex, by contracting with different liquidity providers, CFD trading such as
+                                Nikkei 225, DJIA, Gold, Oil, Bitcoin is also available.
+Top-class Execution
+Our high execution speed is supported by trading servers provided by Equinix,
+                                widely utilized by financial organizations around the world,
+                                and high-speed communication provider AWS.
+Stable trading operation is executed due to our direct partnership with the interbank
+                                market.
+Large amount trading from hedge fund or organizational investors will also be stably
+                                executed as well.
+Multi-Language Customer Support Team
+You may reach our customer support staffs by not only email, but also online
+                                real-time
+                                chatting, and support service is provided in multi-language of English, Chinese, and
+                                Japanese.
+We will provide you the best customer support service, no matter you are a beginner
+                                or a
+                                fund manager.
