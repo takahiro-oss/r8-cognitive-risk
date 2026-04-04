@@ -1,0 +1,40 @@
+# R8 コーパス収集URLリスト
+# 書き方：URL[TAB]ファイルID
+# 例：https://example.com/article	WEB_065_20260404
+#
+# ファイルID命名規則
+# AD_  : 広告・マーケティング系
+# WEB_ : Webメディア・記事
+# SN_  : SNS投稿
+# BL_  : ブログ
+# note_: noteプラットフォーム
+# NT_  : 対照群（中立テキスト）
+# BOOK_: 書籍スキャン
+#
+# 処理済みは自動的に先頭に[済]がつきます
+# 削除不要・追記していくだけでOK
+#
+# =============================================
+# ここからURLを追記する
+# =============================================
+
+[済] https://pcmax.jp/	AD_065_20260404
+https://www.wakuwaku.ne.jp/	AD_066_20260404
+[済] https://www.happymail.co.jp/	AD_067_20260404
+[済] https://mintj.com/	AD_068_20260404
+https://ikukuru.com/	AD_069_20260404
+[済] https://www.xmtrading.com/jp/	AD_070_20260404
+[済] https://www.exness.com/ja/	AD_071_20260404
+[済] https://www.hfm.com/sv/jp/	AD_072_20260404
+[済] https://is6.com/ja	AD_073_20260404
+[済] https://titanfx.com/ja/	AD_074_20260404
+https://www.bigboss.com/ja/	AD_075_20260404
+[済] https://side-job.jp/	AD_076_20260404
+https://money-creation.com/	AD_077_20260404
+https://cash-generator.site/	AD_078_20260404
+[済] https://success-road.net/	AD_079_20260404
+https://shinnosuke-official.com/	AD_080_20260404
+https://rich-mind.online/	AD_081_20260404
+https://celestial-destiny.com/	AD_082_20260404
+https://annauranai.com/	AD_083_20260404
+[済] https://i-c-e-o.com/lp-award-ticket-2026/	AD_084_20260404
