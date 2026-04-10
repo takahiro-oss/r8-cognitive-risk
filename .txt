@@ -1,0 +1,5 @@
+cd D:\r8_strategy
+source .venv/Scripts/activate
+python mass_audit.py --targets http://www.asyura2.com/23/cult48/msg/412.htmlL --out data/results/audit_20260406.csv
+
+python mass_audit.py --targets https://URL1 http://latache1992.blog56.fc2.com/blog-entry-898.html//URL2 http://www.asyura2.com/23/cult48/msg/413.html//https://matching.or.jp/genjitsu/sefure-keijiban/ --out data/results/audit_20260406.csv
