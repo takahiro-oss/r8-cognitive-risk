@@ -207,7 +207,7 @@ def save_csv(results, output_path, append=False):
     file_exists = os.path.isfile(output_path)
     mode = "a" if append else "w"
 
-    fieldnames = ["timestamp", "target", "cmi", "level", "error"] + list(CATEGORY_LABELS.keys())
+    fieldnames = ["timestamp", "target", "cmi", "level", "error"] + list(CATEGORY_LABELS.keys()) + ["human_label", "riskfactor"]
 
     with open(output_path, mode, newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
@@ -215,9 +215,20 @@ def save_csv(results, output_path, append=False):
         if not file_exists or not append:
             writer.writeheader()
         for res in results:
+            # human_label, riskfactorが未設定なら空文字で初期化
+            if "human_label" not in res:
+                res["human_label"] = ""
+            if "riskfactor" not in res:
+                res["riskfactor"] = ""
             writer.writerow(res)
 
     print(f"  [CSV] 保存完了: {output_path}")
+    print(f"  [INFO] human_label列: 1=HIGH 2=MEDIUM 3=LOW を入力")
+    print(f"  [INFO] riskfactor列: 番号で入力（下記参照）")
+    print(f"         1=Unsupported claims  2=Concealment  3=Emotional induction")
+    print(f"         4=Desire activation  5=Reality gap  6=Anchoring")
+    print(f"         7=False positive  8=Authority exploitation")
+    print(f"         9=Fear/urgency manipulation  10=Enemy framing")
 
 
 # ===========================
