@@ -8,3 +8,4 @@ bak_*
 *.key
 __pycache__/
 audit_results.*
+.tmp.driveupload/
