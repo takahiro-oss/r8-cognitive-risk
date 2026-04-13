@@ -3,21 +3,29 @@
 url_batch.py — URL一括取得・自動リネームツール
 
 使い方:
-  python url_batch.py web    # corpus/phase2/urlfile/urls_web.txt を処理
-  python url_batch.py note   # corpus/phase2/urlfile/urls_note.txt を処理
-  python url_batch.py sn     # corpus/phase2/urlfile/urls_sn.txt を処理
-  python url_batch.py ad     # corpus/phase2/urlfile/urls_ad.txt を処理
+  python url_batch.py web    # corpus/url/内の全.txtを処理してweb###としてscan/へ
+  python url_batch.py note
+  python url_batch.py ad
+  python url_batch.py sn
+  python url_batch.py bl
 
-手順:
-  1. corpus/phase2/urlfile/urls_<種別>.txt に1行1URLを記載
-  2. python url_batch.py <種別> を実行
-  3. 自動でテキスト取得 → inbox保存 → scan/にリネームして移動
+URLファイルの置き方:
+  corpus/url/ フォルダに任意の名前の.txtを置く（複数可）
+  例:
+    corpus/url/陰謀論まとめ.txt
+    corpus/url/カルト系.txt
+    corpus/url/todo.txt
 
-urlファイルの書き方:
+URLファイルの書き方:
   https://example.com
   https://example2.com
-  # #で始まる行はスキップ
-  # 処理済みのURLはそのままにしておいてOK（再実行時は手動で削除か#コメントアウト）
+  [済] https://done.com     ← 処理済みは[済]が自動付与されスキップ
+  # コメント行はスキップ
+
+注意:
+  - corpus/url/内の全.txtが処理対象になる
+  - 処理済みURLには[済]が自動付与される（再実行時はスキップ）
+  - inboxは経由せず直接scan/に保存される
 """
 
 import requests
@@ -28,10 +36,9 @@ import re
 import shutil
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-URLFILE_DIR = os.path.join(BASE_DIR, "corpus", "phase2", "urlfile")
-INBOX       = os.path.join(BASE_DIR, "corpus", "phase2", "inbox")
-SCAN        = os.path.join(BASE_DIR, "corpus", "phase2", "scan")
-PHASE2      = os.path.join(BASE_DIR, "corpus", "phase2")
+URL_DIR  = os.path.join(BASE_DIR, "corpus", "url")
+SCAN     = os.path.join(BASE_DIR, "corpus", "phase2", "scan")
+PHASE2   = os.path.join(BASE_DIR, "corpus", "phase2")
 
 VALID_TYPES = ["web", "note", "sn", "ad", "bl", "phish"]
 
@@ -45,7 +52,10 @@ def fetch_url(url):
     for tag in soup(["script", "style", "nav", "header", "footer", "aside"]):
         tag.decompose()
     lines = [l.strip() for l in soup.get_text(separator="\n").splitlines() if l.strip()]
-    return "\n".join(lines)
+    text = "\n".join(lines)
+    if len(text) < 50:
+        raise ValueError("テキストが短すぎます（50文字未満）")
+    return text
 
 
 def find_max_number():
@@ -62,6 +72,49 @@ def find_max_number():
     return max_num
 
 
+def load_urls_from_dir(url_dir):
+    """
+    url_dir内の全.txtを読み込み、URLと元ファイルパスのリストを返す。
+    [済]行・#行・空行はスキップ。
+    """
+    entries = []  # (url, filepath, line_index)
+    txt_files = sorted([
+        f for f in os.listdir(url_dir) if f.endswith(".txt")
+    ])
+    if not txt_files:
+        return entries
+
+    for fname in txt_files:
+        fpath = os.path.join(url_dir, fname)
+        with open(fpath, encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+            if not stripped:
+                continue
+            if stripped.startswith("#"):
+                continue
+            if stripped.startswith("[済]"):
+                continue
+            if stripped.startswith("[エラー]"):
+                continue
+            if stripped.startswith("http://") or stripped.startswith("https://"):
+                entries.append((stripped, fpath, i))
+
+    return entries
+
+
+def mark_done(filepath, line_index):
+    """処理済みURLの行頭に[済]を付ける"""
+    with open(filepath, encoding="utf-8", errors="ignore") as f:
+        lines = f.readlines()
+    line = lines[line_index]
+    if not line.startswith("[済]"):
+        lines[line_index] = "[済] " + line
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+
+
 def main():
     if len(sys.argv) < 2:
         print("使い方: python url_batch.py <種別>")
@@ -73,73 +126,60 @@ def main():
         print(f"エラー: 種別は {', '.join(VALID_TYPES)} のいずれか")
         sys.exit(1)
 
-    urlfile = os.path.join(URLFILE_DIR, f"urls_{file_type}.txt")
-    if not os.path.exists(urlfile):
-        os.makedirs(URLFILE_DIR, exist_ok=True)
-        # テンプレートファイルを作成
-        with open(urlfile, "w", encoding="utf-8") as f:
-            f.write(f"# urls_{file_type}.txt\n")
-            f.write("# 1行1URL。#で始まる行はスキップ\n")
-            f.write("# 例: https://example.com\n")
-        print(f"[作成] URLファイルを作成しました: {urlfile}")
-        print("URLを記入してから再実行してください。")
-        sys.exit(0)
-
-    os.makedirs(INBOX, exist_ok=True)
+    # corpus/url/ フォルダ確認
+    os.makedirs(URL_DIR, exist_ok=True)
     os.makedirs(SCAN, exist_ok=True)
 
-    # URLリスト読み込み
-    with open(urlfile, encoding="utf-8") as f:
-        urls = [l.strip() for l in f if l.strip() and not l.strip().startswith("#")]
-
-    if not urls:
-        print(f"処理対象のURLがありません: {urlfile}")
+    if not os.listdir(URL_DIR):
+        print(f"[INFO] corpus/url/ にURLファイルがありません。")
+        print(f"       任意の名前の.txtを置いて1行1URLを記入してください。")
         sys.exit(0)
 
-    print(f"種別: {file_type}")
-    print(f"対象URL: {len(urls)} 件")
+    # URLリスト読み込み
+    entries = load_urls_from_dir(URL_DIR)
+    if not entries:
+        print("処理対象のURLがありません（全て[済]または空）。")
+        sys.exit(0)
+
+    print(f"種別    : {file_type}")
+    print(f"対象URL : {len(entries)} 件")
+    print(f"URLファイル: corpus/url/")
     print()
 
-    # 取得・inbox保存
+    # 取得・scan保存
+    next_num = find_max_number() + 1
     saved = []
-    for url in urls:
+    failed = []
+
+    for url, fpath, line_idx in entries:
+        new_name = f"{file_type}{next_num}.txt"
+        dst = os.path.join(SCAN, new_name)
         try:
             text = fetch_url(url)
-            # inboxに一時ファイル名で保存
-            tmp_name = re.sub(r"[\\/:*?\"<>|]", "_", url.replace("https://","").replace("http://",""))[:60] + ".txt"
-            tmp_path = os.path.join(INBOX, tmp_name)
-            with open(tmp_path, "w", encoding="utf-8") as f:
+            with open(dst, "w", encoding="utf-8") as f:
                 f.write(url + "\n\n")
                 f.write(text)
-            print(f"[OK] {url}")
-            saved.append(tmp_path)
+            mark_done(fpath, line_idx)
+            print(f"[OK] {new_name} ← {url[:60]}")
+            saved.append(dst)
+            next_num += 1
         except Exception as e:
-            print(f"[ERROR] {url} → {e}")
+            print(f"[ERROR] {url[:60]} → {e}")
+            failed.append((url, str(e)))
+            # 失敗URLに[エラー]を付けて再実行時スキップ
+            with open(fpath, encoding="utf-8", errors="ignore") as f:
+                lines = f.readlines()
+            if not lines[line_idx].startswith("[エラー]"):
+                lines[line_idx] = "[エラー] " + lines[line_idx]
+            with open(fpath, "w", encoding="utf-8") as f:
+                f.writelines(lines)
 
-    if not saved:
-        print("\n取得成功ファイルなし。終了します。")
-        sys.exit(0)
+    print(f"\n完了: {len(saved)}件保存 / {len(failed)}件失敗")
 
-    # リネーム・scan移動
-    next_num = find_max_number() + 1
-    print(f"\n--- リネーム開始（{file_type}{next_num}〜） ---")
-
-    inbox_files = sorted([f for f in os.listdir(INBOX) if f.endswith(".txt")])
-    renamed = []
-    for f in inbox_files:
-        new_name = f"{file_type}{next_num}.txt"
-        src = os.path.join(INBOX, f)
-        dst = os.path.join(SCAN, new_name)
-        shutil.move(src, dst)
-        print(f"  {f[:40]}... -> {new_name}" if len(f) > 40 else f"  {f} -> {new_name}")
-        renamed.append(dst)
-        next_num += 1
-
-    print(f"\n完了: {len(renamed)} ファイルを scan/ に保存")
-    print("\n次のステップ — スキャン:")
-    targets = " ".join(renamed)
-    print(f"  python mass_audit.py --targets {' '.join(renamed[:3])}{'...' if len(renamed) > 3 else ''}")
-    print(f"  --out data/results/scan_batch.csv --append")
+    if saved:
+        print("\n次のステップ — スキャン:")
+        file_list = " ".join(f'"{p}"' for p in saved)
+        print(f"  python mass_audit.py --targets {file_list} --out data/results/scan_batch.csv --append")
 
 
 if __name__ == "__main__":
