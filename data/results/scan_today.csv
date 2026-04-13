@@ -1,24 +1,12 @@
-﻿timestamp,target,cmi,level,error,authority,emotional,logical,statistical,hype,clickbait,propaganda,fear,enemy_frame,disclaimer_exploit,anonymous_authority,naked_number,sexual_induction,beauty_diet
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note116.txt,48.6,MEDIUM,,1.0,0.954,1.0,1.0,0.0,0.0,0.0,0.0,0.636,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note117.txt,39.7,MEDIUM,,1.0,0.518,0.414,0.276,0.166,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note118.txt,38.0,MEDIUM,,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note119.txt,30.0,LOW,,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note120.txt,37.6,MEDIUM,,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.948,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note121.txt,38.0,MEDIUM,,1.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note122.txt,38.0,MEDIUM,,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note123.txt,30.0,LOW,,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note124.txt,30.0,LOW,,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note125.txt,23.9,LOW,,1.0,0.394,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note126.txt,45.7,MEDIUM,,0.141,0.141,0.933,1.0,0.136,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note127.txt,47.7,MEDIUM,,0.221,0.165,1.0,1.0,0.495,0.0,0.371,1.0,1.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note128.txt,36.4,MEDIUM,,0.556,0.08,1.0,0.322,0.064,0.08,1.0,0.45,1.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note129.txt,30.0,LOW,,0.0,0.208,0.0,1.0,0.0,0.0,0.0,0.997,0.0,0.0,0.0,1.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note130.txt,47.8,MEDIUM,,0.332,0.143,1.0,1.0,0.311,0.311,0.156,1.0,1.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\note131.txt,67.6,HIGH,,0.417,1.0,1.0,1.0,0.58,0.0,0.885,1.0,1.0,0.0,0.064,1.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\targets_today.txt,0.0,LOW,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\web132.txt,16.5,LOW,,0.0,0.249,0.0,0.997,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\web133.txt,16.7,LOW,,0.0,0.272,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\web134.txt,0.0,LOW,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\web135.txt,52.0,MEDIUM,,0.496,0.207,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\web136.txt,12.8,LOW,,0.0,0.044,0.266,0.0,0.851,0.0,0.0,0.426,0.0,0.0,0.0,0.0,0.0,0.0
-2026-04-10 11:21:04,D:\r8_strategy\corpus\phase2\scan\web137.txt,40.6,MEDIUM,,1.0,0.022,0.264,1.0,0.423,0.0,0.0,0.317,0.793,0.0,0.0,0.0,0.0,0.0
+﻿timestamp,target,cmi,level,error,authority,emotional,logical,statistical,hype,clickbait,propaganda,fear,enemy_frame,disclaimer_exploit,anonymous_authority,naked_number,sexual_induction,beauty_diet,human_label,riskfactor
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\targets_today.txt,0.0,LOW,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web138.txt,15.2,LOW,,0.0,0.153,0.344,0.0,0.0,0.0,0.0,0.367,1.0,0.0,0.0,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web139.txt,17.0,LOW,,0.932,0.582,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web140.txt,18.0,LOW,,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web141.txt,0.0,LOW,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web142.txt,37.2,MEDIUM,,1.0,0.323,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web143.txt,25.1,LOW,,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.392,0.0,0.0,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web144.txt,35.0,MEDIUM,,0.0,0.077,0.929,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.124,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web145.txt,38.9,MEDIUM,,0.406,0.11,0.101,1.0,0.162,0.051,0.253,0.203,1.0,0.0,0.0,1.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web146.txt,34.2,LOW,,0.73,0.122,0.0,1.0,0.367,0.0,0.276,0.22,0.551,0.0,0.0,0.0,0.0,0.0,,
+2026-04-12 16:22:46,D:\r8_strategy\corpus\phase2\scan\web147.txt,,ERROR,[Error] テキストが短すぎます（50文字未満）,,,,,,,,,,,,,,,,
