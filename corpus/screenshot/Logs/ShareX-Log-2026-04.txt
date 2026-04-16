@@ -1,0 +1,58 @@
+﻿2026-04-16 12:45:48.927 - ShareX starting.
+2026-04-16 12:45:48.929 - Version: 19.0.2
+2026-04-16 12:45:48.929 - Build: Release
+2026-04-16 12:45:48.929 - Command line: "C:\Program Files\ShareX\ShareX.dll"
+2026-04-16 12:45:48.929 - Personal path: D:\r8_strategy\corpus\screenshot
+2026-04-16 12:45:48.929 - Personal path detection method: PersonalPath.cfg file (D:\Documents\ShareX\PersonalPath.cfg)
+2026-04-16 12:45:48.930 - Operating system: Windows 10 Pro (64-bit)
+2026-04-16 12:45:48.930 - .NET version: 9.0.12
+2026-04-16 12:45:48.930 - Running as elevated process: False
+2026-04-16 12:45:48.940 - ApplicationConfig file does not exist: D:\r8_strategy\corpus\screenshot\ApplicationConfig.json
+2026-04-16 12:45:48.940 - ApplicationConfig file does not exist: D:\r8_strategy\corpus\screenshot\ApplicationConfig.json.temp
+2026-04-16 12:45:48.940 - ApplicationConfig file does not exist: D:\r8_strategy\corpus\screenshot\Backup\ApplicationConfig.json
+2026-04-16 12:45:48.940 - Loading new ApplicationConfig instance.
+2026-04-16 12:45:49.217 - MainForm init started.
+2026-04-16 12:45:49.218 - UploadersConfig file does not exist: D:\r8_strategy\corpus\screenshot\UploadersConfig.json
+2026-04-16 12:45:49.218 - UploadersConfig file does not exist: D:\r8_strategy\corpus\screenshot\UploadersConfig.json.temp
+2026-04-16 12:45:49.218 - UploadersConfig file does not exist: D:\r8_strategy\corpus\screenshot\Backup\UploadersConfig.json
+2026-04-16 12:45:49.218 - Loading new UploadersConfig instance.
+2026-04-16 12:45:49.224 - HotkeysConfig file does not exist: D:\r8_strategy\corpus\screenshot\HotkeysConfig.json
+2026-04-16 12:45:49.225 - HotkeysConfig file does not exist: D:\r8_strategy\corpus\screenshot\HotkeysConfig.json.temp
+2026-04-16 12:45:49.225 - HotkeysConfig file does not exist: D:\r8_strategy\corpus\screenshot\Backup\HotkeysConfig.json
+2026-04-16 12:45:49.225 - Loading new HotkeysConfig instance.
+2026-04-16 12:45:49.784 - MainForm init finished.
+2026-04-16 12:45:49.939 - Hotkey registered: Hotkey: Ctrl + Print Screen, Description: 領域をキャプチャー, Job: RectangleRegion
+2026-04-16 12:45:49.940 - Hotkey registered: Hotkey: Print Screen, Description: すべてのスクリーンをキャプチャー, Job: PrintScreen
+2026-04-16 12:45:49.940 - Hotkey registered: Hotkey: Alt + Print Screen, Description: アクティブウィンドウをキャプチャー, Job: ActiveWindow
+2026-04-16 12:45:49.940 - Hotkey registered: Hotkey: Shift + Print Screen, Description: 独自領域の動画キャプチャーを開始/停止, Job: ScreenRecorder
+2026-04-16 12:45:49.940 - Hotkey registered: Hotkey: Ctrl + Shift + Print Screen, Description: 独自領域の動画キャプチャー (GIF) を開始/停止, Job: ScreenRecorderGIF
+2026-04-16 12:45:49.940 - HotkeyManager started.
+2026-04-16 12:45:49.940 - WatchFolderManager started.
+2026-04-16 12:45:49.982 - Startup time: 1102 ms
+2026-04-16 12:57:55.930 - Hotkey triggered. Hotkey: Ctrl + Print Screen, Description: 領域をキャプチャー, Job: RectangleRegion
+2026-04-16 12:57:55.931 - Executing: 領域をキャプチャー
+2026-04-16 12:58:12.917 - Task in queue. Job: Job, Type: Image, Host: 
+2026-04-16 12:58:13.029 - Task status: Preparing
+2026-04-16 12:58:13.060 - Image copied to clipboard.
+2026-04-16 12:58:13.078 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_DAR0un68O3.png
+2026-04-16 12:58:13.096 - Task completed. File name: chrome_DAR0un68O3.png, Duration: 74 ms
+2026-04-16 13:07:28.503 - ApplicationConfig save started: D:\r8_strategy\corpus\screenshot\ApplicationConfig.json
+2026-04-16 13:07:28.503 - UploadersConfig save started: D:\r8_strategy\corpus\screenshot\UploadersConfig.json
+2026-04-16 13:07:28.504 - HotkeysConfig save started: D:\r8_strategy\corpus\screenshot\HotkeysConfig.json
+2026-04-16 13:07:28.841 - HotkeysConfig save successful: D:\r8_strategy\corpus\screenshot\HotkeysConfig.json
+2026-04-16 13:07:28.849 - UploadersConfig save successful: D:\r8_strategy\corpus\screenshot\UploadersConfig.json
+2026-04-16 13:07:29.022 - ApplicationConfig save successful: D:\r8_strategy\corpus\screenshot\ApplicationConfig.json
+2026-04-16 13:18:10.847 - Hotkey triggered. Hotkey: Ctrl + Print Screen, Description: 領域をキャプチャー, Job: RectangleRegion
+2026-04-16 13:18:10.847 - Executing: 領域をキャプチャー
+2026-04-16 13:18:36.587 - Task in queue. Job: Job, Type: Image, Host: 
+2026-04-16 13:18:36.615 - Task status: Preparing
+2026-04-16 13:18:36.649 - Image copied to clipboard.
+2026-04-16 13:18:36.674 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_uuCpVwy8ca.png
+2026-04-16 13:18:36.690 - Task completed. File name: chrome_uuCpVwy8ca.png, Duration: 75 ms
+2026-04-16 13:18:48.377 - Hotkey triggered. Hotkey: Ctrl + Print Screen, Description: 領域をキャプチャー, Job: RectangleRegion
+2026-04-16 13:18:48.377 - Executing: 領域をキャプチャー
+2026-04-16 13:18:58.245 - Task in queue. Job: Job, Type: Image, Host: 
+2026-04-16 13:18:58.274 - Image copied to clipboard.
+2026-04-16 13:18:58.288 - Task status: Preparing
+2026-04-16 13:18:58.289 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_zupGC4PL9s.png
+2026-04-16 13:18:58.299 - Task completed. File name: chrome_zupGC4PL9s.png, Duration: 43 ms
