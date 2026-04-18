@@ -56,3 +56,17 @@
 2026-04-16 13:18:58.288 - Task status: Preparing
 2026-04-16 13:18:58.289 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_zupGC4PL9s.png
 2026-04-16 13:18:58.299 - Task completed. File name: chrome_zupGC4PL9s.png, Duration: 43 ms
+2026-04-17 21:55:07.649 - Hotkey triggered. Hotkey: Print Screen, Description: すべてのスクリーンをキャプチャー, Job: PrintScreen
+2026-04-17 21:55:07.649 - Executing: すべてのスクリーンをキャプチャー
+2026-04-17 21:55:07.693 - Task in queue. Job: Job, Type: Image, Host: 
+2026-04-17 21:55:07.702 - Task status: Preparing
+2026-04-17 21:55:07.768 - Image copied to clipboard.
+2026-04-17 21:55:07.810 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\kbYkk3VJaM.png
+2026-04-17 21:55:07.838 - Task completed. File name: kbYkk3VJaM.png, Duration: 135 ms
+2026-04-17 21:55:13.669 - Hotkey triggered. Hotkey: Ctrl + Print Screen, Description: 領域をキャプチャー, Job: RectangleRegion
+2026-04-17 21:55:13.669 - Executing: 領域をキャプチャー
+2026-04-17 21:55:20.023 - Task in queue. Job: Job, Type: Image, Host: 
+2026-04-17 21:55:20.037 - Task status: Preparing
+2026-04-17 21:55:20.052 - Image copied to clipboard.
+2026-04-17 21:55:20.057 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_gRaGEtECXY.png
+2026-04-17 21:55:20.063 - Task completed. File name: chrome_gRaGEtECXY.png, Duration: 26 ms
