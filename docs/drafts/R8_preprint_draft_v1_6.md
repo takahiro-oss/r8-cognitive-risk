@@ -102,6 +102,18 @@ Pennebaker et al.'s (2015) LIWC framework established that lexical selection pat
 
 R8 differs from these approaches in three respects. First, domain specificity: Japanese-language organizational and commercial texts, with theoretical grounding in Japanese organizational sociology. Second, architectural choice: dictionary-based rather than neural, prioritizing interpretability over predictive coverage. Third, theoretical integration: explicit derivation from cross-cultural convergence between Japanese organizational psychology (Tobe et al., 1984; Yamamoto, 1977; Nakane, 1967) and Western social psychology (Janis, 1972; Milgram, 1963; Kahneman, 2011).
 
+### 2.9 Expectancy-Value Theory and the Functional Manipulation of Reader Goals
+
+Eccles and Wigfield (2002) proposed Expectancy-Value Theory (EVT) as a framework for explaining achievement behavior through two psychological constructs: the individual's expectation of success, and the subjective value assigned to a given task. Subjective value is further decomposed into attainment value (personal importance of succeeding), utility value (instrumental relevance to future goals), intrinsic value (enjoyment derived from the task itself), and cost (psychological and material sacrifice required).
+
+EVT was developed in educational psychology to describe how individuals autonomously form motivational beliefs. The present study identifies a structural inversion of this framework in manipulative text: rather than emerging from autonomous appraisal, EVT variables are externally inflated, concealed, or fabricated through lexical means. Utility value is amplified through fear and urgency signals; attainment value is elevated through authority and exclusivity framing; expectancy for success is manufactured through unverifiable statistical claims; and cost is systematically concealed or redefined as evidence of growth.
+
+R8's 12 risk categories can be mapped onto this functional manipulation structure. EmotionalRisk and FearRisk operate primarily on utility value inflation. AuthorityRisk and PropagandaRisk target attainment value. LogicalRisk and NakedNumber fabricate expectancy. DisclaimerExploit and AbsolutistWords function as cost concealment mechanisms. Critically, intrinsic value manipulation — the use of affirmatively valenced vocabulary (compassion, gratitude, light) to simulate authentic engagement — falls systematically outside the detection scope of the current lexical architecture, constituting the primary source of false negatives documented in Section 5.9.
+
+This mapping does not imply that EVT variable manipulation reflects deliberate authorial design. As documented in Section 5.8, R8 detects lexical patterns that function as EVT variable manipulation — inflating utility value, concealing cost, or fabricating expectancy — independent of whether such manipulation reflects intentional strategy or habitual communication pattern. The distinction between the two cannot be resolved through lexical evidence alone.
+
+The convergence between EVT's motivational architecture and R8's empirically derived category structure was reached through independent analytical paths, providing conceptual support for the theoretical coherence of R8's design. The relationship is presented here as structural correspondence, not as a claim that R8 operationalizes EVT constructs directly.
+
 ---
 
 ## 3. Methodology
@@ -317,6 +329,8 @@ Expansion of the calibration corpus and establishment of inter-rater reliability
 
 Phase 2 will investigate whether vector distance measures provide more discriminative power than scalar aggregation for politically framed content. The second-layer detection architecture will target structural manipulation patterns: self-achievement-to-recommendation induction, agreement-seeking sentence-final repetition, numerical chains, scarcity/urgency presentation, and problem-raising-to-self-as-solver. Theoretical basis: Cialdini (1984), Milgram (1974), Janis (1972).
 
+Additionally, EVT variables not currently covered by R8's lexical architecture — specifically Self-schema manipulation ("discover your true self") and Personal goal targeting ("what is your dream?") — represent structural targets for the second detection layer. These patterns correspond to the paragraph-level sequencing identified in Section 2.9 and align with Cialdini's (1984) commitment and consistency mechanisms. Detecting Self-schema and Personal goal manipulation requires structural pattern recognition beyond the scope of surface lexical density, and is positioned as a Phase 2 design priority.
+
 ### 7.3 Phase 2: Transformer-Based Contextual Analysis
 
 Following corpus expansion and reliability establishment, integration of transformer-based language models for contextual disambiguation is identified as a significant development direction. This development is framed as complementary rather than replacement.
@@ -356,6 +370,8 @@ Arai, N. (2018). Robotto wa toudai ni haireruka [Can a robot get into Tokyo Univ
 Cialdini, R. B. (1984). Influence: The psychology of persuasion. Harper Business.
 
 DeVellis, R. F. (2016). Scale development: Theory and applications (4th ed.). SAGE Publications.
+
+Eccles, J. S., & Wigfield, A. (2002). Motivational beliefs, values, and goals. Annual Review of Psychology, 53, 109–132.
 
 Exner, J. E. (1993). The Rorschach: A comprehensive system (3rd ed.). Wiley.
 
@@ -419,6 +435,7 @@ This paper was developed with AI assistance (Claude, Anthropic; Gemini, Google).
 - 2026-04-15: v1.6草稿開始。5.8〜5.11新規追加。Discussion・Conclusion全面改訂。
 - 2026-04-16: Section 1追記。2.8英語化。投稿戦略確定（PLOS ONE第一候補）。
 - 2026-04-17: Section 4数値更新（62件→224件）。2.8英語化完了。14カテゴリ問題の記述追加（3.3節）。mdファイル形式での管理開始。
+- 2026-04-18: Section 2.9新規追加（EVT接続・Eccles & Wigfield 2002）。7.2末尾にSelf-schema・Personal goals追記。References追加。
 
 ## 要更新箇所（最終確認時）
 - Abstract: "62-document corpus" → "224-document corpus" ✅更新済み
