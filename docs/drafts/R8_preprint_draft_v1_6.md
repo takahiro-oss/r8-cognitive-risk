@@ -207,8 +207,6 @@ The preliminary results indicate that R8's current lexical dictionary is sensiti
 
 ### 5.1 Surface-Level Lexical Matching
 
-[→ 全文はhandout/R8_v16_limitation_draft.mdを参照]
-
 The current implementation relies exclusively on surface-level lexical matching and does not account for contextual disambiguation, linguistic variation, or discourse-level manipulation structures. Three specific consequences follow from this design choice. First, the system cannot distinguish between identical surface forms that carry different semantic functions depending on context. Second, paraphrase and lexical substitution allow manipulation-compatible content to evade detection entirely. Third, the scoring architecture measures lexical density across the entire document, which means locally concentrated high-severity signals are systematically diluted in long-form texts (see Section 5.10 for empirical demonstration).
 
 The false-positive and false-negative implications of these constraints have been empirically observed in the calibration corpus. The author's own analytical essays (corpus ID: note219–note228) provide a documented case of false-positive risk: critical writing about AI manipulation produced CMI scores in the MEDIUM range due to argumentative prose structures activating the same categorical signals as genuinely manipulative texts.
@@ -441,6 +439,8 @@ Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.
 
 Milgram, S. (1963). Behavioral study of obedience. Journal of Abnormal and Social Psychology, 67(4), 371–378.
 
+Milgram, S. (1974). Obedience to authority: An experimental view. Harper & Row.
+
 Nakane, C. (1967). Tate-shakai no ningen kankei [Human relations in a vertical society]. Kodansha.
 
 National Police Agency. (2025). Tokushu sagi oyobi SNS-gata toshi/romance sagi no ninchi/kenkyo jokyo-to (Reiwa 6-nen, zantei-chi) ni tsuite. National Police Agency of Japan.
@@ -469,6 +469,8 @@ Da San Martino, G., Barrón-Cedeño, A., Wachsmuth, H., Petrov, R., & Nakov, P. 
 
 Douglas, K. M., Sutton, R. M., & Cichocka, A. (2017). The psychology of conspiracy theories. Current Directions in Psychological Science, 26(6), 538–542.
 
+Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. Biometrics, 33(1), 159–174.
+
 Lazer, D. M. J., et al. (2018). The science of fake news. Science, 359(6380), 1094–1096.
 
 Pennebaker, J. W., Boyd, R. L., Jordan, K., & Blackburn, K. (2015). The development and psychometric properties of LIWC2015. University of Texas at Austin.
@@ -494,7 +496,7 @@ This paper was developed with AI assistance (Claude, Anthropic; Gemini, Google).
 - 2026-04-16: Section 1追記。2.8英語化。投稿戦略確定（PLOS ONE第一候補）。
 - 2026-04-17: Section 4数値更新（62件→224件）。2.8英語化完了。14カテゴリ問題の記述追加（3.3節）。mdファイル形式での管理開始。
 - 2026-04-18: Section 2.9新規追加（EVT接続・Eccles & Wigfield 2002）。7.2末尾にSelf-schema・Personal goals追記。References追加。
-- 2026-04-20: Section 2.8末尾にRoss(2014)・Ben-Ghiat(2020)追加。Limitation 5.3にκ計算式・基準値追加（Landis & Koch 1977）。Future Work 7.1にκ基準値追記。Future Work 7.4末尾にCVI・CMI×CVIモデル・内向きベクトル概念統合。Limitation 5.9末尾に視覚的権威シンボル検出不能（FalseNegative新類型）追加。References追加（Altemeyer 1981, Ben-Ghiat 2020, Ross 2014）。
+- 2026-04-20: Section 2.8末尾にRoss(2014)・Ben-Ghiat(2020)追加。Limitation 5.3にκ計算式・基準値追加（Landis & Koch 1977）。Future Work 7.1にκ基準値追記。Future Work 7.4末尾にCVI・CMI×CVIモデル・内向きベクトル概念統合。Limitation 5.9末尾に視覚的権威シンボル検出不能（FalseNegative新類型）追加。References追加（Altemeyer 1981, Ben-Ghiat 2020, Ross 2014）。整合性修正：5.1プレースホルダー削除・Landis & Koch(1977)・Milgram(1974)をReferencesに追加・年号混在解消。
 
 ## 要更新箇所（最終確認時）
 - Abstract: "62-document corpus" → "224-document corpus" ✅更新済み
