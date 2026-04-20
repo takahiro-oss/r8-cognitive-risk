@@ -104,6 +104,8 @@ Pennebaker et al.'s (2015) LIWC framework established that lexical selection pat
 
 R8 differs from these approaches in three respects. First, domain specificity: Japanese-language organizational and commercial texts, with theoretical grounding in Japanese organizational sociology. Second, architectural choice: dictionary-based rather than neural, prioritizing interpretability over predictive coverage. Third, theoretical integration: explicit derivation from cross-cultural convergence between Japanese organizational psychology (Tobe et al., 1984; Yamamoto, 1977; Nakane, 1967) and Western social psychology (Janis, 1972; Milgram, 1963; Kahneman, 2011).
 
+Two additional bodies of work provide direct empirical grounding for the manipulation patterns that R8 targets. Ross (2014) identified three structural criteria for cult characterization — absolute authority, coercive persuasion techniques, and exploitative harm — and documented the emergence of online cult dynamics in which manipulation operates exclusively through text, without physical co-presence. This observation grounds R8's focus on digital text as a self-contained manipulation medium. Ben-Ghiat (2020) analyzed the rhetorical strategies of authoritarian political leaders across historical and contemporary contexts, identifying a recurring operational playbook: sustained disinformation campaigns that overwhelm the audience's capacity for factual adjudication (corresponding to R8's PropagandaRisk and EnemyFrame categories), authority signals that bypass deliberative evaluation (AuthorityRisk), and fear-based mobilization that activates threat responses prior to rational processing (FearRisk and AbsolutistWords). The parallel operationalization of cult communication (Ross, 2014) and authoritarian political rhetoric (Ben-Ghiat, 2020) within the same detection framework supports R8's claim to cross-domain applicability — spanning the organizational, commercial, spiritual, and political genres represented in the calibration corpus.
+
 ### 2.9 Expectancy-Value Theory and the Functional Manipulation of Reader Goals
 
 Eccles and Wigfield (2002) proposed Expectancy-Value Theory (EVT) as a framework for explaining achievement behavior through two psychological constructs: the individual's expectation of success, and the subjective value assigned to a given task. Subjective value is further decomposed into attainment value (personal importance of succeeding), utility value (instrumental relevance to future goals), intrinsic value (enjoyment derived from the task itself), and cost (psychological and material sacrifice required).
@@ -225,7 +227,11 @@ The present calibration corpus is insufficient for definitive statistical infere
 
 Furthermore, the corpus includes documents authored by the present author (corpus ID: note219–note228), a series of critical essays examining AI sycophancy. These documents produced CMI scores in the LOW–MEDIUM range (22.4–50.5) despite the absence of manipulative intent on the author's part. These documents are retained in the corpus as documented instances of intent-unresolved classification, with human_label recorded as MEDIUM and riskfactor noted as intent-unresolved.
 
-Phase 2 will prioritize annotation standard consolidation before expanding the annotator pool to a minimum of two independent raters with Cohen's kappa as the reliability metric.
+Phase 2 will prioritize annotation standard consolidation before expanding the annotator pool to a minimum of two independent raters with Cohen's kappa as the reliability metric. Inter-rater reliability will be reported using Cohen's kappa (κ), calculated as:
+
+κ = (P_o − P_e) / (1 − P_e)
+
+where P_o denotes the observed proportion of agreement and P_e denotes the proportion of agreement expected by chance. A minimum threshold of κ ≥ 0.60 is adopted as the criterion for acceptable reliability, consistent with the benchmark established by Landis and Koch (1977), who characterized κ values of 0.41–0.60 as moderate, 0.61–0.80 as substantial, and 0.81–1.00 as almost perfect. The current Phase 1 corpus provides no inter-rater κ estimate, as all annotations were performed by the single author; this absence is disclosed as a limitation rather than concealed.
 
 ### 5.4 Digital Media Application Constraints
 
@@ -333,7 +339,7 @@ The development roadmap is structured in two phases. Phase 2 addresses the empir
 
 ### 7.1 Phase 2: Validation Corpus Expansion and Inter-Rater Reliability
 
-Expansion of the calibration corpus and establishment of inter-rater reliability are the immediate empirical priorities. The Phase 2 corpus design will address current limitations through: (1) manual collection of HIGH-risk documents where automated collection fails due to JavaScript rendering; (2) addition of a contrastive corpus of authentic positive texts (administrative documents, medical informed consent forms); (3) inclusion of social media content (SNS); (4) independent annotation by a minimum of two raters with Cohen's kappa measurement.
+Expansion of the calibration corpus and establishment of inter-rater reliability are the immediate empirical priorities. The Phase 2 corpus design will address current limitations through: (1) manual collection of HIGH-risk documents where automated collection fails due to JavaScript rendering; (2) addition of a contrastive corpus of authentic positive texts (administrative documents, medical informed consent forms); (3) inclusion of social media content (SNS); (4) independent annotation by a minimum of two raters with Cohen's kappa measurement (κ ≥ 0.60; Landis & Koch, 1977). The κ threshold of 0.60 is adopted as the minimum criterion for acceptable reliability before corpus expansion proceeds. Inter-rater training and annotation protocols will be standardized in advance of the Phase 2 annotation cycle.
 
 ### 7.2 Phase 2: Vector Profile Development and Structural Pattern Detection
 
@@ -362,6 +368,10 @@ CMI_nonlinear = 1 / (1 + e^(−k(CMI_linear − θ)))
 where θ represents the individual response threshold and k represents the slope parameter governing the steepness of the transition. This formalization is proposed as a theoretical framework for Phase 3 empirical investigation. The current corpus of 224 documents with single-rater annotation is insufficient to estimate the parameters θ and k, and the absence of behavioral outcome measures (compliance rates, financial losses, recruitment success) makes empirical validation of the threshold model impossible at this stage. The proposal is presented as a research direction rather than an implemented component.
 
 The multi-stage detection architecture that follows from this theoretical framework is structured as follows. Phase 1 lexical screening (current implementation) functions as a first-stage filter, efficiently excluding documents with CMI below 35 from further processing while directing MEDIUM and HIGH documents — and LOW documents with specific co-occurrence patterns — to second-stage analysis. Phase 2 structural detection applies co-occurrence pattern weighting, paragraph-sequence analysis, and ScarcityRisk combination scoring to the non-cleared subset. Phase 3 contextual and behavioral modeling integrates transformer-based disambiguation, reader vulnerability profiling, and empirical threshold estimation where behavioral outcome data become available. This staged architecture is designed to maximize detection utility at each phase while maintaining transparency about the limitations of each analytical layer.
+
+The threshold model introduced above also provides the conceptual foundation for a complementary construct: the Cognitive Vulnerability Index (CVI). While CMI quantifies the manipulation-compatible signal density of a text — a property of the sender — CVI would quantify the cognitive vulnerability of the reader as the threshold parameter θ that determines when CMI signals produce behavioral effects. The theoretical basis for CVI derives directly from Cialdini's (1984) empirical observation that susceptibility to consistency-based persuasion increases with age (p. 177), Milgram's (1974) documentation of authority submission as an individual-difference variable, and Altemeyer's (1981) Right-Wing Authoritarianism scale, which identifies dispositional tendencies toward authority deference, conventionalism, and out-group hostility as measurable individual differences that correspond structurally to R8's AuthorityRisk, AbsolutistWords, and EnemyFrame categories. A full CVI operationalization is beyond the scope of the current research; it is proposed here as a Phase 3 theoretical target whose development depends on Phase 2 empirical foundations.
+
+A further theoretical extension concerns the directionality of manipulation vectors. The current R8 architecture treats texts as directed at an external audience — what may be termed an outward manipulation vector. However, organizational and institutional texts often function simultaneously across multiple audience dimensions: externally toward the public or media, internally toward organizational members, and reflexively toward the text's author as a mechanism of self-justification. Festinger's (1957) cognitive dissonance theory predicts that inward-directed manipulation — the rhetorical reinforcement of an organization's own normative framework in the face of contradictory evidence — intensifies rather than resolves when external pressure increases. Empirical candidates for this inward-vector pattern include government crisis-response texts, corporate incident communications, and institutional denial statements, which Phase 1 calibration identified as a systematic false-negative category: high human-label risk but low automated CMI, attributed to the absence of cult- or commercial-genre vocabulary in bureaucratic register. Operationalizing vector directionality — distinguishing outward persuasion from inward self-legitimation — is identified as a Phase 2 corpus design priority and a Phase 3 modeling target.
 
 ### 7.5 Phase 3: Multilingual Extension
 
@@ -392,6 +402,8 @@ R8 is released as open-source software with the explicit acknowledgment that it 
 ---
 
 ## References
+
+Altemeyer, B. (1981). Right-wing authoritarianism. University of Manitoba Press.
 
 Arai, N. (2018). Robotto wa toudai ni haireruka [Can a robot get into Tokyo University?]. Toyo Keizai.
 
@@ -431,6 +443,8 @@ Nakane, C. (1967). Tate-shakai no ningen kankei [Human relations in a vertical s
 
 National Police Agency. (2025). Tokushu sagi oyobi SNS-gata toshi/romance sagi no ninchi/kenkyo jokyo-to (Reiwa 6-nen, zantei-chi) ni tsuite. National Police Agency of Japan.
 
+Ross, R. A. (2014). Cults inside out: How people get in and can get out. CreateSpace.
+
 Symington, N. (1993). Narcissism: A new theory. Karnac Books.
 
 Tobe, R., Teramoto, Y., Kamata, S., Suginoo, Y., Murai, T., & Nonaka, I. (1984). Shippai no honshitsu [The essence of failure]. Diamond.
@@ -442,6 +456,8 @@ Yamamoto, S. (1977). Kuuki no kenkyuu [A study of "air"]. Bungeishunju.
 Zimbardo, P. G. (2007). The Lucifer effect: Understanding how good people turn evil. Random House.
 
 Baly, R., Karadzhov, G., Alexandrov, D., Glass, J., & Nakov, P. (2018). Predicting factuality of reporting and bias of news media sources. EMNLP 2018, 3528–3539.
+
+Ben-Ghiat, R. (2020). Strongmen: Mussolini to the present. W. W. Norton.
 
 Chakraborty, A., Paranjape, B., Kakarla, S., & Ganguly, N. (2016). Stop clickbait: Detecting and preventing clickbait in online news media. ASONAM 2016, 9–16.
 
@@ -476,6 +492,7 @@ This paper was developed with AI assistance (Claude, Anthropic; Gemini, Google).
 - 2026-04-16: Section 1追記。2.8英語化。投稿戦略確定（PLOS ONE第一候補）。
 - 2026-04-17: Section 4数値更新（62件→224件）。2.8英語化完了。14カテゴリ問題の記述追加（3.3節）。mdファイル形式での管理開始。
 - 2026-04-18: Section 2.9新規追加（EVT接続・Eccles & Wigfield 2002）。7.2末尾にSelf-schema・Personal goals追記。References追加。
+- 2026-04-20: Section 2.8末尾にRoss(2014)・Ben-Ghiat(2020)追加。Limitation 5.3にκ計算式・基準値追加（Landis & Koch 1977）。Future Work 7.1にκ基準値追記。Future Work 7.4末尾にCVI・CMI×CVIモデル・内向きベクトル概念統合。References追加（Altemeyer 1981, Ben-Ghiat 2020, Ross 2014）。
 
 ## 要更新箇所（最終確認時）
 - Abstract: "62-document corpus" → "224-document corpus" ✅更新済み
