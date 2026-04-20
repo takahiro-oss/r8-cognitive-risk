@@ -275,6 +275,8 @@ The author's own analytical essays (corpus ID: note219–note228) provide a part
 
 Distinguishing authentic positive communication from manipulation-mediated positive vocabulary requires three analytical layers: statistical extraction of co-occurrence patterns between positive vocabulary and action-induction language (PMI analysis); inductive sequence analysis reconstructing the communicative destination from the final paragraph backward; and contrastive corpus comparison against authentic positive text baselines. These constitute Phase 2 research priorities.
 
+A structurally distinct false-negative pattern concerns the visual and multimodal dimensions of authority construction. Cialdini (1984) demonstrated that authority compliance is triggered not by the genuine credentials of a source but by the perceived authority conveyed by symbols — titles, attire, institutional affiliations, and the visual presentation of expertise (p. 349). In digital text environments, these authority symbols are instantiated not through vocabulary but through visual elements: profile photographs conveying professional appearance, display of academic credentials or certifications as images, institutional logos, and the visual design language of high-production-value websites. R8 operates exclusively on extracted text and therefore cannot detect any of these visual authority signals. A text that functions as high-risk authority-based manipulation through visual cues may register near-zero AuthorityRisk and AnonymousAuthority scores if the verbal content is stripped of explicit authority vocabulary. This represents a categorical detection boundary rather than a calibration limitation: no expansion of the lexical dictionary can address signals that are not encoded in text. Phase 2 corpus design will include human annotation of visual authority signal presence as a supplementary dimension to enable systematic documentation of this false-negative class.
+
 ### 5.10 Lexical Density and Qualitative Severity: An Empirical Demonstration
 
 The density-based scoring architecture measures the quantitative distribution of manipulation-compatible signals but does not reflect the qualitative severity of individual lexical items.
@@ -492,7 +494,7 @@ This paper was developed with AI assistance (Claude, Anthropic; Gemini, Google).
 - 2026-04-16: Section 1追記。2.8英語化。投稿戦略確定（PLOS ONE第一候補）。
 - 2026-04-17: Section 4数値更新（62件→224件）。2.8英語化完了。14カテゴリ問題の記述追加（3.3節）。mdファイル形式での管理開始。
 - 2026-04-18: Section 2.9新規追加（EVT接続・Eccles & Wigfield 2002）。7.2末尾にSelf-schema・Personal goals追記。References追加。
-- 2026-04-20: Section 2.8末尾にRoss(2014)・Ben-Ghiat(2020)追加。Limitation 5.3にκ計算式・基準値追加（Landis & Koch 1977）。Future Work 7.1にκ基準値追記。Future Work 7.4末尾にCVI・CMI×CVIモデル・内向きベクトル概念統合。References追加（Altemeyer 1981, Ben-Ghiat 2020, Ross 2014）。
+- 2026-04-20: Section 2.8末尾にRoss(2014)・Ben-Ghiat(2020)追加。Limitation 5.3にκ計算式・基準値追加（Landis & Koch 1977）。Future Work 7.1にκ基準値追記。Future Work 7.4末尾にCVI・CMI×CVIモデル・内向きベクトル概念統合。Limitation 5.9末尾に視覚的権威シンボル検出不能（FalseNegative新類型）追加。References追加（Altemeyer 1981, Ben-Ghiat 2020, Ross 2014）。
 
 ## 要更新箇所（最終確認時）
 - Abstract: "62-document corpus" → "224-document corpus" ✅更新済み
