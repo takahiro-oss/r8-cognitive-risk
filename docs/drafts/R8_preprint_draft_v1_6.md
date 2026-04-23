@@ -20,7 +20,7 @@ Version: v1.6 (preprint draft)
 
 ## Abstract
 
-R8 proposes a structural approach to approximating cognitive manipulation risk in Japanese-language text across 12 theoretically grounded categories. This is an exploratory framework at an early stage of empirical development; the claims made in this paper are limited to what the current implementation can support. The multi-category scoring architecture draws conceptual inspiration — not methodological equivalence — from factor-based psychometric models such as the MMPI and Rorschach Comprehensive System.
+R8 proposes a structural approach to approximating cognitive manipulation risk in Japanese-language text across 12 theoretically grounded categories. This is an exploratory framework at an early stage of empirical development; the claims made in this paper are limited to what the current implementation can support. The multi-category scoring architecture draws conceptual inspiration — not methodological equivalence — from factor-based psychometric models such as the MMPI.
 
 R8 proposes a lexical approximation framework informed by the qualitative analysis of organizational cognitive failure — as documented in studies of military and institutional collapse (Tobe et al., 1984). The theoretical framework integrates Japanese organizational sociology (Yamamoto, 1977; Nakane, 1967) with Western social psychology (Janis, 1972; Milgram, 1963; Kahneman, 2011) and clinical psychology of manipulation (Symington, 1993).
 
@@ -90,7 +90,7 @@ Symington (1993) identified the structural features of narcissistic communicatio
 
 ### 2.7 Information Integrity Context
 
-R8 is positioned as an open-source, transparent instrument for approximating the density of manipulation-compatible linguistic signatures, with the explicit acknowledgment that surface-level lexical patterns do not establish manipulative intent or effect. The relationship between this theoretical framing and the implemented method is examined critically in Section 5.7.
+R8 is positioned as an open-source, transparent instrument for approximating the density of manipulation-compatible linguistic signatures, with the explicit acknowledgment that surface-level lexical patterns do not establish manipulative intent or effect. The relationship between this theoretical framing and the implemented method is examined critically in Section 5.6.
 
 ### 2.8 Relationship to Computational Linguistics Approaches
 
@@ -114,9 +114,9 @@ Eccles and Wigfield (2002) proposed Expectancy-Value Theory (EVT) as a framework
 
 EVT was developed in educational psychology to describe how individuals autonomously form motivational beliefs. The present study identifies a structural inversion of this framework in manipulative text: rather than emerging from autonomous appraisal, EVT variables are externally inflated, concealed, or fabricated through lexical means. Utility value is amplified through fear and urgency signals; attainment value is elevated through authority and exclusivity framing; expectancy for success is manufactured through unverifiable statistical claims; and cost is systematically concealed or redefined as evidence of growth.
 
-R8's 12 risk categories can be interpreted as theoretically motivated proxies for EVT variable manipulation. EmotionalRisk and FearRisk are theoretically aligned with utility value inflation; AuthorityRisk and PropagandaRisk with attainment value targeting; LogicalRisk and NakedNumber with expectancy fabrication; and DisclaimerExploit and AbsolutistWords with cost concealment. The category vector profiles observed in Phase 1 calibration — particularly the simultaneous EnemyFrame, PropagandaRisk, and FearRisk activation in HIGH-classified texts, and the LogicalRisk 1.0 pattern in charismatic entrepreneur texts — are directionally consistent with this theoretical mapping, though formal validation against EVT constructs requires independent measurement instruments beyond the scope of the current study. This mapping is proposed as a theoretical foundation for Phase 2 operationalization rather than a claim that current CMI scores measure EVT constructs directly. Critically, intrinsic value manipulation — the use of affirmatively valenced vocabulary (compassion, gratitude, light) to simulate authentic engagement — falls systematically outside the detection scope of the current lexical architecture, constituting the primary source of false negatives documented in Section 5.9.
+R8's 12 risk categories can be interpreted as theoretically motivated proxies for EVT variable manipulation. EmotionalRisk and FearRisk are theoretically aligned with utility value inflation; AuthorityRisk and PropagandaRisk with attainment value targeting; LogicalRisk and NakedNumber with expectancy fabrication; and DisclaimerExploit and AbsolutistWords with cost concealment. The category vector profiles observed in Phase 1 calibration — particularly the simultaneous EnemyFrame, PropagandaRisk, and FearRisk activation in HIGH-classified texts, and the LogicalRisk 1.0 pattern in charismatic entrepreneur texts — are directionally consistent with this theoretical mapping, though formal validation against EVT constructs requires independent measurement instruments beyond the scope of the current study. This mapping is proposed as a theoretical foundation for Phase 2 operationalization rather than a claim that current CMI scores measure EVT constructs directly. Critically, intrinsic value manipulation — the use of affirmatively valenced vocabulary (compassion, gratitude, light) to simulate authentic engagement — falls systematically outside the detection scope of the current lexical architecture, constituting the primary source of false negatives documented in Section 5.8.
 
-This mapping does not imply that EVT variable manipulation reflects deliberate authorial design. As documented in Section 5.8, R8 detects lexical patterns that function as EVT variable manipulation — inflating utility value, concealing cost, or fabricating expectancy — independent of whether such manipulation reflects intentional strategy or habitual communication pattern. The distinction between the two cannot be resolved through lexical evidence alone.
+This mapping does not imply that EVT variable manipulation reflects deliberate authorial design. As documented in Section 5.7, R8 detects lexical patterns that function as EVT variable manipulation — inflating utility value, concealing cost, or fabricating expectancy — independent of whether such manipulation reflects intentional strategy or habitual communication pattern. The distinction between the two cannot be resolved through lexical evidence alone.
 
 The convergence between EVT's motivational architecture and R8's empirically derived category structure was reached through independent analytical paths, providing conceptual support for the theoretical coherence of R8's design. The relationship is presented here as structural correspondence, not as a claim that R8 operationalizes EVT constructs directly.
 
@@ -187,7 +187,7 @@ Genre distribution includes: governmental and institutional documents (LOW basel
 
 CMI scores were obtained across the full 224-document corpus. Summary statistics are reported for documents with valid CMI scores (CMI > 0).
 
-Exact match rate (automated vs. expert label): 61% across the Phase 1 corpus. Agreement within one risk level: 92%. These figures reflect author-initiated reclassification of documents where structural evidence of manipulation-compatible patterns was present despite LOW automated scores; without this intervention the exact match rate was 51%. A blind evaluation conducted on three representative documents (corpus ID: web203, note164, web193) revealed divergence in two of three cases (66.7%), confirming systematic limitations documented in Sections 5.9 and 5.10.
+Exact match rate (automated vs. expert label): 61% across the Phase 1 corpus. Agreement within one risk level: 92%. These figures reflect author-initiated reclassification of documents where structural evidence of manipulation-compatible patterns was present despite LOW automated scores; without this intervention the exact match rate was 51%. A blind evaluation conducted on three representative documents (corpus ID: web203, note164, web193) revealed divergence in two of three cases (66.7%), confirming systematic limitations documented in Sections 5.8 and 5.9.
 
 ### 4.4 Analysis of Discrepancies
 
@@ -249,15 +249,15 @@ The current lexical dictionaries were constructed through theoretical reasoning 
 
 This iterative expansion process introduces the risk of circular validation. Dictionary expansion is therefore reframed not as a precision improvement strategy but as documentation of the lexical detection ceiling before transition to transformer-based contextual analysis. Version 16 represents the current boundary of what surface-level lexical matching can achieve for the genres represented in the calibration corpus.
 
-### 5.7 The Gap Between Theoretical Framing and Implemented Method
+### 5.6 The Gap Between Theoretical Framing and Implemented Method
 
 A structural limitation that underlies all others in this paper deserves explicit statement. The theoretical framework presented in Section 2 draws on cognitive psychology (Kahneman, 2011), social psychology (Janis, 1972; Milgram, 1974; Zimbardo, 2007), and Japanese organizational sociology (Nakane, 1967; Yamamoto, 1977) to characterize cognitive manipulation as a multi-level phenomenon. R8 is theoretically positioned as a detection system for linguistic signals targeting System 1 cognitive processing (Kahneman, 2011).
 
 The implemented method — surface-level lexical density analysis — operates at a categorically different level of description. No amount of dictionary expansion will bridge the gap between counting words and measuring cognitive effects.
 
-What the gap does require is explicit restraint in theoretical claims. The paper presents R8 as a lexical screening tool that approximates manipulation-compatible signal density, not as a direct measure of cognitive manipulation. The theoretical framing in Section 2 should be read as motivating the category design and providing interpretive context, not as a claim that CMI scores measure the theoretical constructs directly. This distinction is particularly salient for the limitations documented in Sections 5.8 through 5.11.
+What the gap does require is explicit restraint in theoretical claims. The paper presents R8 as a lexical screening tool that approximates manipulation-compatible signal density, not as a direct measure of cognitive manipulation. The theoretical framing in Section 2 should be read as motivating the category design and providing interpretive context, not as a claim that CMI scores measure the theoretical constructs directly. This distinction is particularly salient for the limitations documented in Sections 5.7 through 5.10.
 
-### 5.8 Authorial Intent and the Limits of Lexical Inference
+### 5.7 Authorial Intent and the Limits of Lexical Inference
 
 The present system analyzes the linguistic structure of texts but cannot determine the intentional state of the author reflected in that structure. The high-density occurrence of manipulation-compatible vocabulary may reflect deliberate cognitive manipulation design, the author's own sincere beliefs expressed through habitual language, or any combination of the two.
 
@@ -265,7 +265,7 @@ Symington (1993) describes cases in which narcissistically structured communicat
 
 In the calibration corpus, a legal information note account (corpus ID: note164–note179, 15 valid documents) reproduced the stereotyped sequence of fear induction, authority presentation, logical justification, and action induction across all articles — instantiating what the present study terms a two-stage cognitive induction architecture. This structure may represent intentional design or habitual communication pattern; text analysis alone cannot resolve the distinction.
 
-### 5.9 Surface-Positive Vocabulary and Systematic False Negatives
+### 5.8 Surface-Positive Vocabulary and Systematic False Negatives
 
 The most structurally significant detection limitation identified in Phase 1 calibration is the systematic underdetection of texts employing affirmatively valenced vocabulary as a manipulation medium.
 
@@ -279,7 +279,7 @@ A cross-genre replication of this false-negative pattern was identified in the b
 
 A structurally distinct false-negative pattern concerns the visual and multimodal dimensions of authority construction. Cialdini (1984) demonstrated that authority compliance is triggered not by the genuine credentials of a source but by the perceived authority conveyed by symbols — titles, attire, institutional affiliations, and the visual presentation of expertise (p. 371). In digital text environments, these authority symbols are instantiated not through vocabulary but through visual elements: profile photographs conveying professional appearance, display of academic credentials or certifications as images, institutional logos, and the visual design language of high-production-value websites. R8 operates exclusively on extracted text and therefore cannot detect any of these visual authority signals. A text that functions as high-risk authority-based manipulation through visual cues may register near-zero AuthorityRisk and AnonymousAuthority scores if the verbal content is stripped of explicit authority vocabulary. This represents a categorical detection boundary rather than a calibration limitation: no expansion of the lexical dictionary can address signals that are not encoded in text. Phase 2 corpus design will include human annotation of visual authority signal presence as a supplementary dimension to enable systematic documentation of this false-negative class.
 
-### 5.10 Lexical Density and Qualitative Severity: An Empirical Demonstration
+### 5.9 Lexical Density and Qualitative Severity: An Empirical Demonstration
 
 The density-based scoring architecture measures the quantitative distribution of manipulation-compatible signals but does not reflect the qualitative severity of individual lexical items.
 
@@ -287,11 +287,11 @@ A legal information note account (corpus ID: note164) contains explicit threaten
 
 In contrast, web203 (CMI 61.4, HIGH) distributed fear-relevant vocabulary across its full 6,043-character text, yielding a global density of 0.149 per 100 characters sufficient to activate the HIGH threshold. The comparison demonstrates that the scoring architecture systematically underestimates locally concentrated high-severity signals in long-form texts.
 
-This dilution effect may correspond to a structural property of certain manipulation architectures — consistent with Kahneman's (2011) System 1 activation followed by System 2 rationalization. Whether this sequential structure reflects deliberate design or habitual communication pattern cannot be determined from textual evidence alone (see Section 5.8).
+This dilution effect may correspond to a structural property of certain manipulation architectures — consistent with Kahneman's (2011) System 1 activation followed by System 2 rationalization. Whether this sequential structure reflects deliberate design or habitual communication pattern cannot be determined from textual evidence alone (see Section 5.7).
 
 Possible architectural responses include maximum-value scoring or severity-weighted threshold calibration for specific categories. Both approaches introduce increased false-positive risk whose magnitude remains unquantified. These are documented as Phase 2 architectural investigation priorities.
 
-### 5.11 Short-Form Text Application Constraints
+### 5.10 Short-Form Text Application Constraints
 
 The density-based scoring architecture was designed for medium-to-long-form texts and exhibits structural detection failure for short-form social media content.
 
@@ -321,7 +321,7 @@ Category vector profile analysis can visualize differences invisible to scalar s
 
 ### 6.3 Surface-Positive Vocabulary and the False-Negative Problem
 
-The most important structural finding of Phase 1 calibration is the systematic false-negative pattern for texts using affirmatively valenced vocabulary as a manipulation medium (Section 5.9). The finding is not resolvable through dictionary expansion.
+The most important structural finding of Phase 1 calibration is the systematic false-negative pattern for texts using affirmatively valenced vocabulary as a manipulation medium (Section 5.8). The finding is not resolvable through dictionary expansion.
 
 The author's own analytical essays (corpus ID: note219–note228) illustrate this problem. Critical writing about AI sycophancy produced CMI MEDIUM scores, with the author unable to determine with certainty whether implicit rhetorical intent is entirely absent. Phase 2 priority: construction of a contrastive corpus pairing authentic positive texts with manipulation-mediated positive texts to enable false-negative detection.
 
@@ -419,11 +419,7 @@ Brock, T. C. (1968). Implications of commodity theory for value change. In A. G.
 
 Cialdini, R. B. (1984). Influence: The psychology of persuasion. Harper Business.
 
-DeVellis, R. F. (2016). Scale development: Theory and applications (4th ed.). SAGE Publications.
-
 Eccles, J. S., & Wigfield, A. (2002). Motivational beliefs, values, and goals. Annual Review of Psychology, 53, 109–132.
-
-Exner, J. E. (1993). The Rorschach: A comprehensive system (3rd ed.). Wiley.
 
 Festinger, L. (1957). A theory of cognitive dissonance. Stanford University Press.
 
@@ -435,8 +431,6 @@ Granovetter, M., & Soong, R. (1983). Threshold models of diffusion and collectiv
 
 Hathaway, S. R., & McKinley, J. C. (1943). The Minnesota Multiphasic Personality Inventory. University of Minnesota Press.
 
-Hobbs, R. (2010). Digital and media literacy: A plan of action. Aspen Institute.
-
 Janis, I. L. (1972). Victims of groupthink: A psychological study of foreign-policy decisions and fiascoes. Houghton Mifflin.
 
 Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.
@@ -446,8 +440,6 @@ Milgram, S. (1963). Behavioral study of obedience. Journal of Abnormal and Socia
 Milgram, S. (1974). Obedience to authority: An experimental view. Harper & Row.
 
 Nakane, C. (1967). Tate-shakai no ningen kankei [Human relations in a vertical society]. Kodansha.
-
-National Police Agency. (2025). Tokushu sagi oyobi SNS-gata toshi/romance sagi no ninchi/kenkyo jokyo-to (Reiwa 6-nen, zantei-chi) ni tsuite. National Police Agency of Japan.
 
 Ross, R. A. (2014). Cults inside out: How people get in and can get out. CreateSpace.
 
@@ -463,31 +455,17 @@ Yamamoto, S. (1977). Kuuki no kenkyuu [A study of "air"]. Bungeishunju.
 
 Zimbardo, P. G. (2007). The Lucifer effect: Understanding how good people turn evil. Random House.
 
-Baly, R., Karadzhov, G., Alexandrov, D., Glass, J., & Nakov, P. (2018). Predicting factuality of reporting and bias of news media sources. EMNLP 2018, 3528–3539.
-
 Ben-Ghiat, R. (2020). Strongmen: Mussolini to the present. W. W. Norton.
-
-Chakraborty, A., Paranjape, B., Kakarla, S., & Ganguly, N. (2016). Stop clickbait: Detecting and preventing clickbait in online news media. ASONAM 2016, 9–16.
 
 Da San Martino, G., Yu, S., Barrón-Cedeño, A., Petrov, R., & Nakov, P. (2019). Fine-grained analysis of propaganda in news articles. EMNLP 2019, 5636–5646.
 
 Da San Martino, G., Barrón-Cedeño, A., Wachsmuth, H., Petrov, R., & Nakov, P. (2020). SemEval-2020 task 11: Detection of propaganda techniques in news articles. SemEval 2020, 1377–1414.
 
-Douglas, K. M., Sutton, R. M., & Cichocka, A. (2017). The psychology of conspiracy theories. Current Directions in Psychological Science, 26(6), 538–542.
-
 Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. Biometrics, 33(1), 159–174.
-
-Lazer, D. M. J., et al. (2018). The science of fake news. Science, 359(6380), 1094–1096.
 
 Pennebaker, J. W., Boyd, R. L., Jordan, K., & Blackburn, K. (2015). The development and psychometric properties of LIWC2015. University of Texas at Austin.
 
-Pennycook, G., & Rand, D. G. (2019). Fighting misinformation on social media using crowdsourced judgments of news source quality. PNAS, 116(7), 2521–2526.
-
-Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online. Science, 359(6380), 1146–1151.
-
 Wang, Y., Yang, I., Hassanpour, S., & Vosoughi, S. (2024). MentalManip: A dataset for fine-grained analysis of mental manipulation in conversations. In Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) (pp. 3747–3764). Association for Computational Linguistics.
-
-Woolley, S. C., & Howard, P. N. (Eds.). (2018). Computational propaganda. Oxford University Press.
 
 ---
 
@@ -509,10 +487,7 @@ This paper was developed with AI assistance (Claude, Anthropic; Gemini, Google).
 - 2026-04-20: Section 2.8末尾にRoss(2014)・Ben-Ghiat(2020)追加。Limitation 5.3にκ計算式・基準値追加（Landis & Koch 1977）。Future Work 7.1にκ基準値追記。Future Work 7.4末尾にCVI・CMI×CVIモデル・内向きベクトル概念統合。Limitation 5.9末尾に視覚的権威シンボル検出不能（FalseNegative新類型）追加。References追加（Altemeyer 1981, Ben-Ghiat 2020, Ross 2014）。整合性修正：5.1プレースホルダー削除・Landis & Koch(1977)・Milgram(1974)をReferencesに追加・年号混在解消。事実検証性修正：2.9 EVTマッピングを方向的収束・ Phase 2操作化の基盤として再記述。Discussion 6.1にFalseNegative 88.0%・FalsePositive 2.5%の実数に基づく数値スクリーニング再記述追加（単一評価者であることの留保も追記）。Discussion 6.2にJanisデータからの方向的収束・EnemyFrame共起・分析レベルの相違を詳述。Future Work 7.4交互作用仮説を理論的仮説からデータに基づく限定的方向的支持の記述に修正（両数値並記・除外理由明示）。
 
 ## 要更新箇所（最終確認時）
-- Abstract: "62-document corpus" → "224-document corpus" ✅更新済み
-- Section 4.1: 62件→224件 ✅更新済み
-- Section 4.2: 分布数値 ✅更新済み（HIGH 4・MEDIUM 75・LOW 145）
 - 「複数事例にわたり」の箇所→実数に置き換え（最終スキャン後）
-- Festinger(1957)・Cialdini(1984)：引用前に原著確認が必要 → Cialdini確認完了✅・Festinger未確認
-- 5.6欠番問題：清書時に5.6の内容有無を判断。無ければ以下通り番号を修正：5.5→そのまま、旧5.7→新5.6、旧5.8→新5.7、旧5.9→新5.8、旧5.10→新5.9、旧5.11→新5.10。本文中の相互参照（「5.9節」等）も一並みに修正すること。
-- note219–228のカテゴリ別スコア再取得→下記の5.1・5.9の記述補強（mass_audit.py再実行→発火カテゴリ特定→本文に具体的数値追加）
+- Festinger(1957)：引用前に原著確認が必要（手元借用済み）
+- 5.6欠番問題：✅完了（2026-04-23に5.7−5.11→新5.6−5.10に一括振り直し・本文相互参照修正済み）
+- References未引用文献削除：✅完了（11件削除・Ross誤削除後復元済み）
