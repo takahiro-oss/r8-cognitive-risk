@@ -13,3 +13,7 @@ handout/
 操作方ファイル/
 corpus/url/
 personalmemo/
+corpus/screenshot/History.db
+corpus/screenshot/Logs/
+corpus/screenshot/*.temp
+data/results/~$*
