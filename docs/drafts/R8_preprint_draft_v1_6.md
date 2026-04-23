@@ -175,7 +175,7 @@ The author holds an M.S. in Clinical Psychology (Aichi Gakuin University, 2012) 
 
 The present calibration exercise is explicitly preliminary in scope. The calibration corpus comprises 224 documents collected through automated URL-based scraping using the mass_audit.py pipeline, supplemented by manual collection via OCR-based screenshot processing for social media content. Of the 224 documents, a subset returned CMI scores of 0.0 due to JavaScript-rendered content inaccessibility — a structural limitation documented in Section 5.4.
 
-Ground truth classification was determined through single-rater expert judgment by the author, drawing on clinical psychology training and 20 years of educational practice. A structured rubric was applied (see Appendix A). The use of the system's author as the sole annotator constitutes a significant source of bias that cannot be quantified at this scale.
+Ground truth classification was determined through single-rater expert judgment by the author, drawing on clinical psychology training and 20 years of educational practice. A structured rubric was applied on a provisional basis, drawing on two theoretical frameworks already established in the literature: Ross's (2014) three-criterion model of coercive communication (absolute authority, coercive persuasion techniques, and exploitative framing) and Janis's (1972) groupthink symptom profile. Expert judgment was applied at the document level, integrating these theoretical criteria with the author's clinical psychology training (M.S., Aichi Gakuin University, 2012). The provisional nature of this rubric reflects the preliminary scope of Phase 1; statistical determination of classification thresholds and expansion to a multi-rater annotation protocol are identified as Phase 2 priorities (see Section 5.3). The use of the system's author as the sole annotator constitutes a significant source of bias that cannot be quantified at this scale.
 
 ### 4.2 Corpus Description
 
@@ -387,7 +387,7 @@ A longer-term research direction extends R8's framework to the analysis of AI-ge
 
 ### 7.7 Phase 3: Multimodal Extension
 
-Extension to audio and video content is technically feasible by placing a speech-to-text conversion stage (e.g., Whisper) prior to the R8 pipeline. Theoretical grounding: Janis (1972) p289-290, documenting that defective decision-making patterns manifest in leaders' public statements.
+Extension to audio and video content is technically feasible by placing a speech-to-text conversion stage (e.g., Whisper) prior to the R8 pipeline. Theoretical grounding: Janis (1972) documented that defective decision-making patterns manifest in leaders' public statements, providing a basis for extending manipulation signal detection to spoken discourse.
 
 ---
 
