@@ -262,7 +262,7 @@
         },
         "LastRegionTool": "RegionRectangle",
         "LastAnnotationTool": "DrawingRectangle",
-        "LastEditorTool": "DrawingRectangle",
+        "LastEditorTool": "EffectHighlight",
         "ImageEditorStartMode": "AutoSize",
         "ImageEditorWindowState": {
           "Location": "0, 0",
