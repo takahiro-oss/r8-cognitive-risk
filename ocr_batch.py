@@ -35,10 +35,12 @@ IMAGE_EXTS  = {".png", ".jpg", ".jpeg", ".bmp", ".tiff", ".webp"}
 
 
 def find_max_number():
-    """phase2以下の全ファイルから最大連番を取得"""
+    """phase2以下の全ファイルから最大連番を取得（archiveフォルダは除外）"""
     max_num = 0
+    EXCLUDE = {"sample_archive", "date_archive"}
     pattern = re.compile(r'(?:web|note|sn|ad|bl|phish)[_]?(\d+)', re.IGNORECASE)
     for root, dirs, files in os.walk(PHASE2_DIR):
+        dirs[:] = [d for d in dirs if d not in EXCLUDE]
         for f in files:
             m = pattern.search(f)
             if m:
@@ -50,14 +52,13 @@ def find_max_number():
 
 def ocr_image(image_path, output_txt_path):
     """tesseractでOCR実行"""
-    # tesseractはoutputファイルの拡張子を自動付与するので除く
     out_base = output_txt_path.replace(".txt", "")
     cmd = [
         TESSERACT_PATH,
         image_path,
         out_base,
         "-l", "jpn",
-        "--psm", "6"  # 均一なブロックテキストとして処理
+        "--psm", "6"
     ]
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
@@ -79,7 +80,6 @@ def main():
     os.makedirs(SCREENSHOT_DIR, exist_ok=True)
     os.makedirs(SCAN_DIR, exist_ok=True)
 
-    # 画像ファイル取得
     images = sorted([
         f for f in os.listdir(SCREENSHOT_DIR)
         if os.path.splitext(f)[1].lower() in IMAGE_EXTS
@@ -87,7 +87,6 @@ def main():
 
     if not images:
         print(f"画像ファイルがありません: {SCREENSHOT_DIR}")
-        print("png/jpg等のスクリーンショットを置いてから再実行してください。")
         sys.exit(0)
 
     print(f"種別    : {file_type}")
@@ -106,7 +105,6 @@ def main():
         try:
             ocr_image(img_path, out_path)
 
-            # 生成されたtxtの先頭にソース情報を追加
             with open(out_path, "r", encoding="utf-8", errors="ignore") as f:
                 content = f.read()
 
@@ -114,7 +112,6 @@ def main():
                 f.write(f"[SOURCE] screenshot: {img_name}\n\n")
                 f.write(content)
 
-            # 処理済み画像を done/ フォルダに移動
             done_dir = os.path.join(SCREENSHOT_DIR, "done")
             os.makedirs(done_dir, exist_ok=True)
             shutil.move(img_path, os.path.join(done_dir, img_name))

@@ -17,3 +17,6 @@ corpus/screenshot/History.db
 corpus/screenshot/Logs/
 corpus/screenshot/*.temp
 data/results/~$*
+
+corpus/phase2/corpus_archive/
+data/results/data_archive/

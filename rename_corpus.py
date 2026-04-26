@@ -30,10 +30,12 @@ PHASE2 = os.path.join(BASE_DIR, "corpus", "phase2")
 VALID_TYPES = ["web", "note", "sn", "ad", "bl", "phish"]
 
 def find_max_number():
-    """phase2以下の全ファイルから最大連番を取得"""
+    """phase2以下の全ファイルから最大連番を取得（archiveフォルダは除外）"""
     max_num = 0
+    EXCLUDE = {"sample_archive", "date_archive"}
     pattern = re.compile(r'(?:web|note|sn|ad|bl|phish|WEB|NOTE|SN|AD|BL|PHISH)[_]?(\d+)', re.IGNORECASE)
     for root, dirs, files in os.walk(PHASE2):
+        dirs[:] = [d for d in dirs if d not in EXCLUDE]
         for f in files:
             m = pattern.search(f)
             if m:
