@@ -19,7 +19,11 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() in ("cp932", "shift_jis",
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
-VERSION = "v16"
+VERSION = "v17"
+# v17: 辞書拡張（FN実測分析2026-04-28）+ 閾値可変設計（--threshold / --high-threshold）
+#      デフォルト閾値: HIGH=41 / MEDIUM=35
+#      科学的根拠: Precision=91.2% / Recall=33.3% / F1=48.8（n=93, 2026-04-28実測）
+#      高精度モード: --high-threshold 60（Precision=100% / Recall=4.3%）
 
 # --- 外部ライブラリのインポート ---
 try:
@@ -116,6 +120,9 @@ HYPE_WORDS = [
     "鳥肌が立った","眠れなくなる","震えが止まらない",
     # ひらがな読み
     "きたいされる","かのうせいがある","みこまれる",
+    # 簡単さ誇張・誇大語（FN実測分析 2026-04-28に基づく追加）
+    "変えるだけで","たったそれだけで","が圧倒的に",
+    "万人を突破",
 ]
 URGENCY_WORDS = [
     "一度しか言いません","必ず買うべき","スーパーインサイダー","一攫千金","今だけ","期間限定","急げ","残りわずか","本日限定",
@@ -131,6 +138,10 @@ URGENCY_WORDS = [
     # ひらがな読み
     "いまだけ","きかんげんてい","いそげ","のこりわずか",
     "ほんじつげんてい","しめきり","いますぐ","さいごのちゃんす",
+    # アフィリエイト・相談誘導型（FN実測分析 2026-04-28に基づく追加）
+    # 法律・投資・健康系アフィリエイトサイトに共通する即時行動誘導語彙
+    "無料相談はこちら","今すぐ相談","無料で相談",
+    "解決への近道","プロに相談",
 ]
 ABSOLUTIST_WORDS = [
     "絶対","必ず","100%","完全","間違いなく","確実に","全員","誰でも","保証",
@@ -181,6 +192,10 @@ FEAR_WORDS = [
     "電磁波攻撃","5Gで洗脳","監視社会が来る",
     # ひらがな読み
     "きけん","ほうかい","はめつ","きょうふ","きょうい","きき",
+    # 法的恐怖・損失回避型（FN実測分析 2026-04-28に基づく追加）
+    # 弁護士詐称・投資詐欺・カルト勧誘系に共通する恐怖誘導語彙
+    "最悪のシナリオ","人生を棒に振る","取り返しのつかない",
+    "後悔することになる","年以下の懲役","円以下の罰金",
 ]
 ANECDOTAL_MARKERS  = [
     "私の場合","体験談","友人が","実際に試した","お客様の声",
@@ -218,6 +233,8 @@ CLICKBAIT_WORDS    = [
     "99%が知らない","医師が隠す","公式が認めない",
     # 結末煽り語彙（FearRisk複合）
     "の末路",
+    # SNS煽り見出し語（FN実測分析 2026-04-28に基づく追加）
+    "【警告】","【悲報】",
 ]
 PROPAGANDA_WORDS   = [
     "メディアは嘘","誰も言わない","裏の勢力","洗脳",
@@ -354,10 +371,21 @@ CATEGORY_LABELS = {
 # ===========================
 # CMIレベル判定
 # ===========================
-def cmi_level(cmi):
-    if cmi >= 60:
+# high_threshold / medium_thresholdはデフォルト引数で設定。
+# 既存の cmi_level(cmi) 呼び出しはそのまま動作（後方互換性維持）。
+# r8.py単体実行時は --high-threshold / --medium-threshold で上書き可能。
+# mass_audit.pyからのimport時はデフォルト値が使われる。
+#
+# デフォルト閾値の科学的根拠（2026-04-28実測, n=93）:
+#   HIGH=41: Precision=91.2% / Recall=33.3% / F1=48.8
+#   HIGH=60: Precision=100%  / Recall= 4.3% / F1= 8.2（高精度モード）
+CMI_HIGH_DEFAULT   = 41
+CMI_MEDIUM_DEFAULT = 35
+
+def cmi_level(cmi, high_threshold=CMI_HIGH_DEFAULT, medium_threshold=CMI_MEDIUM_DEFAULT):
+    if cmi >= high_threshold:
         return "HIGH   ⚠⚠⚠"
-    elif cmi >= 35:
+    elif cmi >= medium_threshold:
         return "MEDIUM ⚠⚠"
     else:
         return "LOW    ⚠"
@@ -467,11 +495,11 @@ def analyze(text):
 # ===========================
 # レポート出力
 # ===========================
-def report(text, source):
+def report(text, source, high_threshold=CMI_HIGH_DEFAULT, medium_threshold=CMI_MEDIUM_DEFAULT):
     raw = analyze(text)
     ri = {cat: min(raw.get(cat, 0) / THRESHOLDS[cat], 1.0) for cat in WEIGHTS}
     cmi = round(sum(WEIGHTS[c] * ri[c] * 100 for c in WEIGHTS), 1)
-    level = cmi_level(cmi)
+    level = cmi_level(cmi, high_threshold, medium_threshold)
 
     print("\n" + "=" * 54)
     print(f"  R8 Analyzer {VERSION} | Source: {source[:38]}")
@@ -491,12 +519,43 @@ def report(text, source):
     return cmi
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("使い方: python r8.py <URL/File/TextFile.txt>")
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="R8 Cognitive Risk Analyzer — CMIスコアで認知的操作リスクを定量化します",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+閾値の目安（2026-04-28実測, n=93）:
+  --high-threshold 41  Precision=91.2%  Recall=33.3%  F1=48.8  ← デフォルト（バランス重視）
+  --high-threshold 60  Precision=100%   Recall= 4.3%  F1= 8.2  ← 高精度モード
+
+例:
+  python r8.py https://example.com/article
+  python r8.py mytext.txt
+  python r8.py mytext.txt --high-threshold 60
+  python r8.py mytext.txt --high-threshold 35 --medium-threshold 20
+        """
+    )
+    parser.add_argument("target", help="解析対象（URL / ファイルパス）")
+    parser.add_argument(
+        "--high-threshold", type=float, default=CMI_HIGH_DEFAULT,
+        metavar="N",
+        help=f"HIGHと判定するCMI閾値（デフォルト: {CMI_HIGH_DEFAULT}）"
+    )
+    parser.add_argument(
+        "--medium-threshold", type=float, default=CMI_MEDIUM_DEFAULT,
+        metavar="N",
+        help=f"MEDIUMと判定するCMI閾値（デフォルト: {CMI_MEDIUM_DEFAULT}）"
+    )
+
+    args = parser.parse_args()
+
+    if args.high_threshold <= args.medium_threshold:
+        print(f"[Error] --high-threshold ({args.high_threshold}) は --medium-threshold ({args.medium_threshold}) より大きくしてください")
         sys.exit(1)
-    target = sys.argv[1]
-    content = get_text(target)
+
+    content = get_text(args.target)
     if content.startswith("[Error]"):
         print(content)
     else:
-        report(content, target)
+        report(content, args.target, args.high_threshold, args.medium_threshold)
