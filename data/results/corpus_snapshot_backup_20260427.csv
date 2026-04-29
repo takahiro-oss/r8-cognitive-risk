@@ -1,14 +1,20 @@
-﻿timestamp,target,cmi,level,error,authority,emotional,logical,statistical,hype,clickbait,propaganda,fear,enemy_frame,disclaimer_exploit,anonymous_authority,naked_number,sexual_induction,beauty_diet,human_label,riskfactor,others,,
+timestamp,target,cmi,level,error,authority,emotional,logical,statistical,hype,clickbait,propaganda,fear,enemy_frame,disclaimer_exploit,anonymous_authority,naked_number,sexual_induction,beauty_diet,human_label,riskfactor,others,,
 46122.49583,AD_001,61.4,HIGH,,1,0.797,1,1,1,0,0,0.273,0.342,0,0.091,1,0,0,HIGH,No academic/empirical support,,,
 46122.49583,AD_002,37.9,MEDIUM,,0,0.136,1,1,0.328,0,0,0.328,0.409,0,0,1,0,0,HIGH,No academic/empirical support,,,
 46122.49583,AD_019,11.9,LOW,,0,0.059,0,0.235,0,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,,,
-46122.49583,AD_020,35.4,MEDIUM,,0.31,0.226,0.678,1,0.232,0,0,0.077,0.194,0,0,1,0,0,MEDIUM,Desire Activation,,No academic/empirical support:縲悟ｭｦ陦・謨ｰ蛟､縺ｮ陬丈ｻ倥￠縺ｪ縺励・No academic/empirical support:縲悟ｭｦ陦・謨ｰ蛟､縺ｮ陬丈ｻ倥￠縺ｪ縺励・46122.49583,BL_015,35.2,MEDIUM,,0,1,0,0.798,0,0,0,0,1,0,0,1,0,0,MEDIUM,Emotional Induction,,Potential concealment of adverse info: 縲御ｸ榊茜縺ｪ諠・ｱ縺ｮ髫蛹ｿ縺ｮ蜿ｯ閭ｽ諤ｧ縲・Potential concealment of adverse info: 縲御ｸ榊茜縺ｪ諠・ｱ縺ｮ髫蛹ｿ縺ｮ蜿ｯ閭ｽ諤ｧ縲・46122.49583,BL_017,11.9,LOW,,0,0.059,0,0.236,0,0,0,0,1,0,0,0,0,0,MEDIUM,No numerical evidence,,,
-46122.49583,Bl_018,15.4,LOW,,0,0.152,1,0,0.73,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,,Offshore diversion: 縲鯉ｼ域ｳ慕噪菫晁ｭｷ縺ｮ縺ｪ縺・ｼ峨が繝輔す繝ｧ繧｢縺ｸ縺ｮ隱伜ｰ弱・Offshore diversion: 縲鯉ｼ域ｳ慕噪菫晁ｭｷ縺ｮ縺ｪ縺・ｼ峨が繝輔す繝ｧ繧｢縺ｸ縺ｮ隱伜ｰ弱・46122.49583,SN_003,18,LOW,,0,0,0,1,0,0,0,0,0,0,0,0,1,0,MEDIUM,Desire Activation,,,
-46122.49583,SN_004,61.8,HIGH,,0.651,1,1,1,1,0,0,1,0,0,0,1,0,0,HIGH,Desire Activation,,Inconsistent with reality: 縲悟ｮ滓・縺ｨ縺ｮ荵夜屬縲・Inconsistent with reality: 縲悟ｮ滓・縺ｨ縺ｮ荵夜屬縲・46122.49583,SN_005,33.7,LOW,,0,0.466,0,0.931,1,0,0,0,1,0,0,0,0,1,MEDIUM,Emotional Induction,,,
-46122.49583,SN_006,14,LOW,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,,Anchoring: 縲後い繝ｳ繧ｫ繝ｪ繝ｳ繧ｰ・亥ｿ・炊逧・↑鄂・峨・Anchoring: 縲後い繝ｳ繧ｫ繝ｪ繝ｳ繧ｰ・亥ｿ・炊逧・↑鄂・峨・46122.49583,SN_007,23.1,LOW,,0,0.157,0,1,0,0,0,0,0.943,0,0,0,0,0,MEDIUM,Emotional Induction,,,
+46122.49583,AD_020,35.4,MEDIUM,,0.31,0.226,0.678,1,0.232,0,0,0.077,0.194,0,0,1,0,0,MEDIUM,Desire Activation,,No academic/empirical support:「学術/数値の裏付けなし」,No academic/empirical support:「学術/数値の裏付けなし」
+46122.49583,BL_015,35.2,MEDIUM,,0,1,0,0.798,0,0,0,0,1,0,0,1,0,0,MEDIUM,Emotional Induction,,Potential concealment of adverse info: 「不利な情報の隠匿の可能性」,Potential concealment of adverse info: 「不利な情報の隠匿の可能性」
+46122.49583,BL_017,11.9,LOW,,0,0.059,0,0.236,0,0,0,0,1,0,0,0,0,0,MEDIUM,No numerical evidence,,,
+46122.49583,Bl_018,15.4,LOW,,0,0.152,1,0,0.73,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,,Offshore diversion: 「（法的保護のない）オフショアへの誘導」,Offshore diversion: 「（法的保護のない）オフショアへの誘導」
+46122.49583,SN_003,18,LOW,,0,0,0,1,0,0,0,0,0,0,0,0,1,0,MEDIUM,Desire Activation,,,
+46122.49583,SN_004,61.8,HIGH,,0.651,1,1,1,1,0,0,1,0,0,0,1,0,0,HIGH,Desire Activation,,Inconsistent with reality: 「実態との乖離」,Inconsistent with reality: 「実態との乖離」
+46122.49583,SN_005,33.7,LOW,,0,0.466,0,0.931,1,0,0,0,1,0,0,0,0,1,MEDIUM,Emotional Induction,,,
+46122.49583,SN_006,14,LOW,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,,Anchoring: 「アンカリング（心理的な罠）」,Anchoring: 「アンカリング（心理的な罠）」
+46122.49583,SN_007,23.1,LOW,,0,0.157,0,1,0,0,0,0,0.943,0,0,0,0,0,MEDIUM,Emotional Induction,,,
+46122.49583,SN_008,7.2,LOW,,0,0.324,0,0,0,0,0,0,0,0,0,0,1,0,HIGH,Desire Activation,,Emotional Induction (情緒的な誘導),Emotional Induction (情緒的な誘導)
 46122.49583,SN_009,27.2,LOW,,0,0.519,1,1,0,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,,,
-46122.49583,SN_010,18,LOW,,0,1,0,0,1,0,0,0,0,0,0,0,0,1,MEDIUM,No academic/empirical support,,Desire Activation (谺ｲ豎ゅ・諠ｹ襍ｷ),Desire Activation (谺ｲ豎ゅ・諠ｹ襍ｷ)
-46122.49583,SN_012,10.6,LOW,,0,0.264,1,0,0,0,0,0,0,0,0,0,0,0,LOW,No academic/empirical support,,falsepositive(蛛ｽ髯ｽ諤ｧ),falsepositive(蛛ｽ髯ｽ諤ｧ)
+46122.49583,SN_010,18,LOW,,0,1,0,0,1,0,0,0,0,0,0,0,0,1,MEDIUM,No academic/empirical support,,Desire Activation (欲求の惹起),Desire Activation (欲求の惹起)
+46122.49583,SN_012,10.6,LOW,,0,0.264,1,0,0,0,0,0,0,0,0,0,0,0,LOW,No academic/empirical support,,falsepositive(偽陽性),falsepositive(偽陽性)
 46122.49583,SN_013,33.6,LOW,,0,0.694,0,1,0,0,0,0,0.833,0,0,1,0,0,MEDIUM,No academic/empirical support,,,
 46122.49583,SN_015,14,LOW,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,,,
 46122.49583,WEB_016,49,MEDIUM,,0.791,0.311,0.467,1,0.746,0,0,0.373,0.467,0,0,1,0,0,HIGH,No academic/empirical support,,,
@@ -68,7 +74,9 @@
 46122.49583,SN_086,24,LOW,,0,1,0,0,1,0,0,0,0,0,0,1,0,0,MEDIUM,Emotional Induction,,,
 46122.49583,Web_088,44.7,MEDIUM,,1,0.277,0.554,1,0,0,0,0.443,1,0,0,0,0,0,HIGH,No academic/empirical support,,,
 46122.49583,Web_089,37.1,MEDIUM,,0,0.22,1,1,0.081,0,0,0.122,0.153,0,0,1,1,0,HIGH,Desire Activation,,,
+46122.49583,Web_090,1.5,LOW,,0,0.153,0,0,0,0,0,0,0,0,0,0,0,0,HIGH,Desire Activation,,,
 46122.49583,Web_091,29.6,LOW,,0.042,0.24,0.721,1,0.289,0,0,0.577,0,0,0,0,0,0,HIGH,Emotional Induction,,,
+46122.49583,Web_092,5.4,LOW,,0,0.54,0,0,0,0,0,0,0,0,0,0,0,0,HIGH,No academic/empirical support,,,
 46122.49583,Web_094,32.2,LOW,,0.275,0.154,0.927,1,0.741,0,0,0,0,0,0,0,0,0,HIGH,Emotional Induction,,,
 46122.49583,Web_095,9.8,LOW,,0,0.177,1,0,0,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,,,
 46122.49583,note_096,22.9,LOW,,0,0.289,1,0,0,0,0,1,0,0,0,0,1,0,HIGH,Desire Activation,,,
@@ -121,7 +129,7 @@
 46122.49583,web132,16.5,LOW,,0,0.249,0,0.997,0,0,0,0,0,0,0,0,0,0,LOW,,,,
 46122.49583,web133,16.7,LOW,,0,0.272,0,1,0,0,0,0,0,0,0,0,0,0,LOW,,,,
 46122.49583,web134,0,LOW,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,LOW,,,,
-46122.49583,web135,52,MEDIUM,,0.496,0.207,1,1,1,0,0,1,0,0,0,1,0,0,MEDIUM,,,,
+46122.49583,web135,52,MEDIUM,,0.496,0.207,1,1,1,0,0,1,0,0,0,1,0,0,LOW,,,,
 46122.49583,web136,12.8,LOW,,0,0.044,0.266,0,0.851,0,0,0.426,0,0,0,0,0,0,LOW,,,,
 46122.49583,web137,40.6,MEDIUM,,1,0.022,0.264,1,0.423,0,0,0.317,0.793,0,0,0,0,0,LOW,False Positive,,,
 2026/4/12 16:22,web138,15.2,LOW,,0,0.153,0.344,0,0,0,0,0.367,1,0,0,0,0,0,HIGH,Potential concealment of adverse info,,,
@@ -133,6 +141,8 @@
 2026/4/12 16:22,web144,35,MEDIUM,,0,0.077,0.929,1,0,0,1,0,1,0,0.124,0,0,0,MEDIUM,No academic/empirical support,,,
 2026/4/12 16:22,web145,38.9,MEDIUM,,0.406,0.11,0.101,1,0.162,0.051,0.253,0.203,1,0,0,1,0,0,MEDIUM,No academic/empirical support,,,
 2026/4/12 16:22,web146,34.2,LOW,,0.73,0.122,0,1,0.367,0,0.276,0.22,0.551,0,0,0,0,0,MEDIUM,No academic/empirical support,,,
+2026/4/13 11:41,web162,24,LOW,,0,1,0,0,0,0,0,0,1,0,0,1,0,0,HIGH,Desire Activation,,,
+2026/4/13 11:41,web163,32.6,LOW,,0,0.774,1,0.774,0,0,0,0,0,0,0,1,0,0,HIGH,Desire Activation,,,
 2026/4/13 11:18,note164,52.1,MEDIUM,,0.642,0.368,1,1,0.589,0,0,1,0,0,0,1,0,0,HIGH,Emotional Induction,,,
 2026/4/13 11:41,note165,23.3,LOW,,0,0.22,0,1,0,0,0,0,0,0,0.176,1,0,0,MEDIUM,Emotional Induction,,,
 2026/4/13 11:41,note167,47.2,MEDIUM,,0.443,0.68,1,1,0.816,0,0,0.816,0,0,0,0,0,0,HIGH,Emotional Induction,,,
@@ -149,6 +159,8 @@
 2026/4/13 11:41,note178,50.6,MEDIUM,,0,1,1,1,0.915,1,0,0.915,0,0,0,0,0,0,HIGH,Emotional Induction,,,
 2026/4/13 11:41,note179,56.1,MEDIUM,,0.519,0.864,1,1,0,0,0,1,0.648,0,0,1,0,0,HIGH,Emotional Induction,,,
 2026/4/13 11:41,web154,26,LOW,,0,0.396,1,1,0,0,0,0,0,0,0,0,0,0,MEDIUM,No academic/empirical support,,,
+2026/4/13 11:41,web162,24,LOW,,0,1,0,0,0,0,0,0,1,0,0,1,0,0,MEDIUM,,,,
+2026/4/13 11:41,web163,32.6,LOW,,0,0.774,1,0.774,0,0,0,0,0,0,0,1,0,0,MEDIUM,,,,
 2026/4/13 14:38,web156,14,LOW,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,LOW,False Positive,,,
 2026/4/13 14:38,web180,25.8,LOW,,0,1,0,0.477,0.573,0,0,0.573,0,0,0,0,0,0,MEDIUM,Emotional Induction,,,
 2026/4/13 14:38,web181,23.7,LOW,,0,0.192,0.576,1,0,0,0.576,0,0,0,0.154,0,0,0,MEDIUM,Emotional Induction,,,
@@ -158,11 +170,11 @@
 2026/4/13 14:38,web185,28.8,LOW,,0,0,1,0.918,0,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,,,
 2026/4/13 14:38,web186,30,LOW,,0,0,0,1,0,0,0,1,1,0,0,0,0,0,MEDIUM,Emotional Induction,,,
 2026/4/13 14:38,web188,16,LOW,,0,0,1,0,0,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,,,
-2026/4/13 14:38,web189,16,LOW,,0,0,1,0,0,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,螂ｳ諤ｧ繝ｩ繧､繧ｿ繝ｼ縲蜈ｱ諢溽噪縺ｧ繧ｨ繝｢縺・ｨ闡・,
-2026/4/13 14:38,web190,8,LOW,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,螂ｳ諤ｧ繝ｩ繧､繧ｿ繝ｼ縲蜈ｱ諢溽噪縺ｧ繧ｨ繝｢縺・ｨ闡・,
+2026/4/13 14:38,web189,16,LOW,,0,0,1,0,0,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,女性ライター　共感的でエモい言葉,,
+2026/4/13 14:38,web190,8,LOW,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,女性ライター　共感的でエモい言葉,,
 2026/4/13 14:38,web191,9.8,LOW,,0,0.175,0,0,0,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,,,
-2026/4/13 14:38,web192,31.9,LOW,,0,0.613,1,0.7,0,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,謚ｽ雎｡逧・〒蛻・°繧九ｈ縺・〒繧上°繧峨↑縺・枚遶,,
-2026/4/13 14:38,web193,31.6,LOW,,0.435,0,0,0.777,0.933,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,螂ｳ諤ｧ繝ｩ繧､繧ｿ繝ｼ縲蜈ｱ諢溽噪縺ｧ繧ｨ繝｢縺・ｨ闡・,
+2026/4/13 14:38,web192,31.9,LOW,,0,0.613,1,0.7,0,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,抽象的で分かるようでわからない文章,,
+2026/4/13 14:38,web193,31.6,LOW,,0.435,0,0,0.777,0.933,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,女性ライター　共感的でエモい言葉,,
 2026/4/13 14:38,web195,27.4,LOW,,0.314,0.33,0,1,0.792,0,0,0,0,0,0,0,0,0,MEDIUM,Emotional Induction,,,
 2026/4/13 14:38,web196,32.7,LOW,,0.24,0,0,1,0.979,0,0,0,1,0,0,0,0,0,MEDIUM,Emotional Induction,,,
 2026/4/13 14:48,web197,2.6,LOW,,0,0.256,0,0,0,0,0,0,0,0,0,0,0,0,MEDIUM,No academic/empirical support,,,
@@ -181,15 +193,20 @@
 2026/4/13 15:36,web207,45,MEDIUM,,0,0.303,1,1,0,0,1,1,1,0,0,0,0,0,HIGH,No academic/empirical support,,,
 2026/4/13 15:36,web208,46.5,MEDIUM,,1,0.512,1,1,0,0.341,0,0,0,0,0,1,0,0,HIGH,No academic/empirical support,,,
 2026/4/13 15:36,web209,51.3,MEDIUM,,1,0.198,1,0.316,0.759,0,0.711,1,1,0,0,0,0,0,HIGH,No academic/empirical support,,,
-2026/4/13 15:36,web210,45,MEDIUM,,0.214,0.341,0.818,1,0.327,0,0,0.982,1,0,0,0,0,0,HIGH,No academic/empirical support,,No academic/empirical support:縲悟ｭｦ陦・謨ｰ蛟､縺ｮ陬丈ｻ倥￠縺ｪ縺励・No academic/empirical support:縲悟ｭｦ陦・謨ｰ蛟､縺ｮ陬丈ｻ倥￠縺ｪ縺励・2026/4/13 15:36,web211,36.5,MEDIUM,,0,0.447,0.447,1,0,0,0.894,0.358,1,0,0,0,0,0,HIGH,No academic/empirical support,,Potential concealment of adverse info: 縲御ｸ榊茜縺ｪ諠・ｱ縺ｮ髫蛹ｿ縺ｮ蜿ｯ閭ｽ諤ｧ縲・Potential concealment of adverse info: 縲御ｸ榊茜縺ｪ諠・ｱ縺ｮ髫蛹ｿ縺ｮ蜿ｯ閭ｽ諤ｧ縲・2026/4/13 15:36,web213,40.6,MEDIUM,,0,0.312,0.936,1,0,0,0,1,1,0,0,0,0,0,HIGH,No academic/empirical support,,,
-2026/4/13 15:36,web214,14,LOW,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,MEDIUM,False Positive,,Offshore diversion: 縲鯉ｼ域ｳ慕噪菫晁ｭｷ縺ｮ縺ｪ縺・ｼ峨が繝輔す繝ｧ繧｢縺ｸ縺ｮ隱伜ｰ弱・Offshore diversion: 縲鯉ｼ域ｳ慕噪菫晁ｭｷ縺ｮ縺ｪ縺・ｼ峨が繝輔す繝ｧ繧｢縺ｸ縺ｮ隱伜ｰ弱・2026/4/13 15:36,web215,44.3,MEDIUM,,0.046,1,0.51,1,0.068,0,0,0.884,1,0,0,0,0,0,HIGH,Emotional Induction,,,
-2026/4/13 15:36,web216,41.3,MEDIUM,,0.261,0.114,0.824,1,0.55,0,0.137,0.44,1,0,0,0,0,0,HIGH,No academic/empirical support,,Inconsistent with reality: 縲悟ｮ滓・縺ｨ縺ｮ荵夜屬縲・Inconsistent with reality: 縲悟ｮ滓・縺ｨ縺ｮ荵夜屬縲・2026/4/13 15:36,web217,35.9,MEDIUM,,0,0,1,0.421,0,0,0,1,1,0,0,1,0,0,HIGH,No academic/empirical support,,,
-2026/4/13 15:36,web218,21.3,LOW,,0,0.144,0.866,0,0,0,0,0,0.866,0,0,1,0,0,MEDIUM,Emotional Induction,,Anchoring: 縲後い繝ｳ繧ｫ繝ｪ繝ｳ繧ｰ・亥ｿ・炊逧・↑鄂・峨・Anchoring: 縲後い繝ｳ繧ｫ繝ｪ繝ｳ繧ｰ・亥ｿ・炊逧・↑鄂・峨・2026/4/14 17:52,note162,24,LOW,,0,1,0,0,0,0,0,0,1,0,0,1,0,0,HIGH,Desire Activation,,,
-2026/4/14 17:52,note163,32.6,LOW,,0,0.774,1,0.774,0,0,0,0,0,0,0,1,0,0,HIGH,Desire Activation,,Emotional Induction (諠・ｷ堤噪縺ｪ隱伜ｰ・,Emotional Induction (諠・ｷ堤噪縺ｪ隱伜ｰ・
+2026/4/13 15:36,web210,45,MEDIUM,,0.214,0.341,0.818,1,0.327,0,0,0.982,1,0,0,0,0,0,HIGH,No academic/empirical support,,No academic/empirical support:「学術/数値の裏付けなし」,No academic/empirical support:「学術/数値の裏付けなし」
+2026/4/13 15:36,web211,36.5,MEDIUM,,0,0.447,0.447,1,0,0,0.894,0.358,1,0,0,0,0,0,HIGH,No academic/empirical support,,Potential concealment of adverse info: 「不利な情報の隠匿の可能性」,Potential concealment of adverse info: 「不利な情報の隠匿の可能性」
+2026/4/13 15:36,web213,40.6,MEDIUM,,0,0.312,0.936,1,0,0,0,1,1,0,0,0,0,0,HIGH,No academic/empirical support,,,
+2026/4/13 15:36,web214,14,LOW,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,MEDIUM,False Positive,,Offshore diversion: 「（法的保護のない）オフショアへの誘導」,Offshore diversion: 「（法的保護のない）オフショアへの誘導」
+2026/4/13 15:36,web215,44.3,MEDIUM,,0.046,1,0.51,1,0.068,0,0,0.884,1,0,0,0,0,0,HIGH,Emotional Induction,,,
+2026/4/13 15:36,web216,41.3,MEDIUM,,0.261,0.114,0.824,1,0.55,0,0.137,0.44,1,0,0,0,0,0,HIGH,No academic/empirical support,,Inconsistent with reality: 「実態との乖離」,Inconsistent with reality: 「実態との乖離」
+2026/4/13 15:36,web217,35.9,MEDIUM,,0,0,1,0.421,0,0,0,1,1,0,0,1,0,0,HIGH,No academic/empirical support,,,
+2026/4/13 15:36,web218,21.3,LOW,,0,0.144,0.866,0,0,0,0,0,0.866,0,0,1,0,0,MEDIUM,Emotional Induction,,Anchoring: 「アンカリング（心理的な罠）」,Anchoring: 「アンカリング（心理的な罠）」
+2026/4/14 17:52,note162,24,LOW,,0,1,0,0,0,0,0,0,1,0,0,1,0,0,HIGH,Desire Activation,,,
+2026/4/14 17:52,note163,32.6,LOW,,0,0.774,1,0.774,0,0,0,0,0,0,0,1,0,0,HIGH,Desire Activation,,Emotional Induction (情緒的な誘導),Emotional Induction (情緒的な誘導)
 2026/4/14 23:19,note219,44,MEDIUM,,0.367,0.917,1,0.611,1,0,0,0.734,0,0,0,0,0,0,MEDIUM,Intent-Unresolved,,,
-2026/4/14 23:19,D:\r8_strategy\corpus\phase2\scan\note220.txt,38.1,MEDIUM,,1,0.634,0.952,0,0.761,0,0,0.761,0,0,0,0,0,0,MEDIUM,Intent-Unresolved,,Desire Activation (谺ｲ豎ゅ・諠ｹ襍ｷ),Desire Activation (谺ｲ豎ゅ・諠ｹ襍ｷ)
+2026/4/14 23:19,D:\r8_strategy\corpus\phase2\scan\note220.txt,38.1,MEDIUM,,1,0.634,0.952,0,0.761,0,0,0.761,0,0,0,0,0,0,MEDIUM,Intent-Unresolved,,Desire Activation (欲求の惹起),Desire Activation (欲求の惹起)
 2026/4/14 23:19,D:\r8_strategy\corpus\phase2\scan\note221.txt,33,LOW,,0,0.964,1,0,0,0,0,0.925,1,0,0,0,0,1,MEDIUM,Intent-Unresolved,,,
-2026/4/14 23:19,D:\r8_strategy\corpus\phase2\scan\note222.txt,24.3,LOW,,0,0.829,1,0,0,0,0,1,0,0,0,0,0,0,MEDIUM,Intent-Unresolved,,falsepositive(蛛ｽ髯ｽ諤ｧ),falsepositive(蛛ｽ髯ｽ諤ｧ)
+2026/4/14 23:19,D:\r8_strategy\corpus\phase2\scan\note222.txt,24.3,LOW,,0,0.829,1,0,0,0,0,1,0,0,0,0,0,0,MEDIUM,Intent-Unresolved,,falsepositive(偽陽性),falsepositive(偽陽性)
 2026/4/14 23:19,D:\r8_strategy\corpus\phase2\scan\note223.txt,50.5,MEDIUM,,1,0.462,1,1,0.74,0,0,0.74,0,0,0,0,0,0,MEDIUM,Intent-Unresolved,,,
 2026/4/14 23:19,D:\r8_strategy\corpus\phase2\scan\note224.txt,22.4,LOW,,0,0.641,1,0,0,0,0,1,0,0,0,0,0,0,MEDIUM,Intent-Unresolved,,,
 2026/4/14 23:19,D:\r8_strategy\corpus\phase2\scan\note225.txt,39.6,MEDIUM,,0,0.733,0,0.733,0,0,0,1,1,0,0,1,0,0,MEDIUM,Intent-Unresolved,,,

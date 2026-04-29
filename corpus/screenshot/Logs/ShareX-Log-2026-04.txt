@@ -331,3 +331,14 @@
 2026-04-23 15:41:35.005 - WatchFolderManager started.
 2026-04-23 15:41:35.032 - Startup time: 6456 ms
 2026-04-23 15:41:35.033 - CommandLine: -silent
+2026-04-26 12:53:48.299 - Hotkey triggered. Hotkey: Print Screen, Description: すべてのスクリーンをキャプチャー, Job: PrintScreen
+2026-04-26 12:53:48.300 - Executing: すべてのスクリーンをキャプチャー
+2026-04-26 12:53:48.371 - Task in queue. Job: Job, Type: Image, Host: 
+2026-04-26 12:53:48.468 - Task status: Preparing
+2026-04-26 12:53:48.573 - Image copied to clipboard.
+2026-04-26 12:53:48.705 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_fFvfWRAbkS.jpg
+2026-04-26 20:17:06.956 - Task completed. File name: chrome_fFvfWRAbkS.jpg, Duration: 26598486 ms
+2026-04-26 20:17:09.741 - OpenURL(D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_fFvfWRAbkS.jpg) failed:
+System.ComponentModel.Win32Exception (2): An error occurred trying to start process 'D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_fFvfWRAbkS.jpg' with working directory 'C:\Program Files\ShareX'. 指定されたファイルが見つかりません。
+   at System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   at ShareX.HelpersLib.URLHelpers.<>c__DisplayClass5_0.<OpenURL>b__0()
