@@ -342,3 +342,17 @@
 System.ComponentModel.Win32Exception (2): An error occurred trying to start process 'D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\chrome_fFvfWRAbkS.jpg' with working directory 'C:\Program Files\ShareX'. 指定されたファイルが見つかりません。
    at System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
    at ShareX.HelpersLib.URLHelpers.<>c__DisplayClass5_0.<OpenURL>b__0()
+2026-04-29 14:24:40.743 - Hotkey triggered. Hotkey: Ctrl + Print Screen, Description: 領域をキャプチャー, Job: RectangleRegion
+2026-04-29 14:24:40.744 - Executing: 領域をキャプチャー
+2026-04-29 14:24:48.596 - Task in queue. Job: Job, Type: Image, Host: 
+2026-04-29 14:24:48.616 - Task status: Preparing
+2026-04-29 14:24:48.619 - Image copied to clipboard.
+2026-04-29 14:24:48.629 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\claude_U3ZA2YgmZW.png
+2026-04-29 14:25:11.763 - Hotkey triggered. Hotkey: Ctrl + Print Screen, Description: 領域をキャプチャー, Job: RectangleRegion
+2026-04-29 14:25:11.763 - Executing: 領域をキャプチャー
+2026-04-29 14:25:16.041 - Task in queue. Job: Job, Type: Image, Host: 
+2026-04-29 14:25:16.050 - Task status: Preparing
+2026-04-29 14:25:16.080 - Image copied to clipboard.
+2026-04-29 14:25:16.097 - Image saved to file: D:\r8_strategy\corpus\screenshot\Screenshots\2026-04\claude_iHTd4tMw4X.png
+2026-04-29 14:34:44.688 - Task completed. File name: claude_U3ZA2YgmZW.png, Duration: 596077 ms
+2026-04-29 14:34:46.941 - Task completed. File name: claude_iHTd4tMw4X.png, Duration: 570891 ms
