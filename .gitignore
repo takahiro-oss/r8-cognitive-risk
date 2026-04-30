@@ -30,6 +30,14 @@ handout/
 操作方ファイル/
 personalmemo/
 
+# Docs: drafts and preprint (pre-submission)
+docs/preprint/
+docs/drafts/R8_preprint_draft_v1_6*
+docs/drafts/R8_preprint_v1_6*
+docs/drafts/note_draft_*
+docs/drafts/idea_draft_*
+docs/drafts/R8_oral_defense_guide*
+
 # Corpus (large binary/text, backed up via Google Drive)
 corpus/corpus_archive/
 corpus/book/
