@@ -1,22 +1,46 @@
+# Backup files
 bak_*
 *.bak
+
+# Binary / Office files
 *.pdf
 *.docx
+*.xlsm
+*.xlsx
+
+# Secrets
 *.env
 *token*
 *secret*
 *.key
+
+# Python
 __pycache__/
+
+# Audit results (master data, managed outside git)
 audit_results.*
+data/*コピー*.csv
+data/*_コピー*.csv
+
+# Temp / Drive
 .tmp.driveupload/
+
+# Private / Personal
 handout/
 操作方ファイル/
-corpus/url/
 personalmemo/
+
+# Corpus (large binary/text, backed up via Google Drive)
+corpus/corpus_archive/
+corpus/book/
+corpus/url/
+corpus/screenshot/
 corpus/screenshot/History.db
 corpus/screenshot/Logs/
 corpus/screenshot/*.temp
-data/results/~$*
 
-corpus/phase2/corpus_archive/
+# Data archive
 data/results/data_archive/
+
+# Temp results
+data/results/~$*
