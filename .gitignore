@@ -39,7 +39,8 @@ corpus/screenshot/History.db
 corpus/screenshot/Logs/
 corpus/screenshot/*.temp
 
-# Data archive
+# Archives
+archive/
 data/results/data_archive/
 
 # Temp results
