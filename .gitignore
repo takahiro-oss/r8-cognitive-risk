@@ -53,3 +53,13 @@ data/results/data_archive/
 
 # Temp results
 data/results/~$*
+
+# URL lists and scan targets (third-party URLs, privacy risk)
+urls.txt
+urls_todo.txt
+targets_today.txt
+data/targets/
+
+# Corpus samples containing third-party text (copyright risk)
+data/samples/high/
+data/samples/medium/
