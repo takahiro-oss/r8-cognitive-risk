@@ -63,3 +63,6 @@ data/targets/
 # Corpus samples containing third-party text (copyright risk)
 data/samples/high/
 data/samples/medium/
+
+# Business plans (private)
+business/
