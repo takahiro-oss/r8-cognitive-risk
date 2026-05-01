@@ -1,5 +1,5 @@
 ﻿# R8 v1.7 論文草稿 - Markdown版（Claudeが直接更新可能）
-# 最終更新：2026-04-30 | 注意：このファイルはdocxの正式版と並走する作業用ファイル。Claudeが直接更新できます。
+# 最終更新：2026-05-01 | 注意：このファイルはdocxの正式版と並走する作業用ファイル。Claudeが直接更新できます。
 
 ---
 
@@ -203,7 +203,7 @@ CMI scores were obtained across the full 225-document corpus. Of these, 9 docume
 
 Median CMI across valid documents: 31.5.
 
-Exact match rate (automated vs. expert label): 33.3% (75/225) across the Phase 1 corpus. Agreement within one risk level: 80.4% (181/225). For HIGH-risk binary classification under the standard mode (HIGH ≥ 41): Precision = 93.3% (TP=42, FP=3), Recall = 39.6% (FN=64), F1 = 55.6. These figures reflect single-rater annotation prior to full corpus re-labeling under the consolidated annotation criteria (v0.5); inter-rater reliability (Cohen's κ) will be established in Phase 2. The low exact match rate of 33.3% reflects the preliminary state of human annotation prior to full corpus re-labeling under the consolidated annotation criteria (v0.5), which was finalized subsequent to the initial scanning phase. Full re-labeling of all 225 documents under v0.5 criteria is scheduled prior to Phase 2 inter-rater reliability assessment; updated agreement statistics will be reported at that stage. A blind evaluation conducted on three representative documents (corpus ID: web203, note164, web193) revealed divergence in two of three cases (66.7%), confirming systematic limitations documented in Sections 5.8 and 5.9.
+Exact match rate (automated vs. expert label): 33.3% (75/225) across the Phase 1 corpus. Agreement within one risk level: 80.4% (181/225). For HIGH-risk binary classification under the standard mode (HIGH ≥ 41): Precision = 93.3% (TP=42, FP=3), Recall = 39.6% (FN=64), F1 = 55.6. These figures reflect single-rater annotation prior to full corpus re-labeling under the consolidated annotation criteria (v0.6); inter-rater reliability (Cohen's κ) will be established in Phase 2. The low exact match rate of 33.3% reflects the preliminary state of human annotation prior to full corpus re-labeling under the consolidated annotation criteria (v0.6), which was finalized subsequent to the initial scanning phase. Full re-labeling of all 225 documents under v0.6 criteria is scheduled prior to Phase 2 inter-rater reliability assessment; updated agreement statistics will be reported at that stage. A blind evaluation conducted on three representative documents (corpus ID: web203, note164, web193) revealed divergence in two of three cases (66.7%), confirming systematic limitations documented in Sections 5.8 and 5.9.
 
 ### 4.4 Analysis of Discrepancies
 
@@ -345,7 +345,7 @@ The author's own analytical essays (corpus ID: note219–note228) illustrate thi
 
 ### 6.4 Short-Form Social Media Content
 
-Phase 1 calibration confirmed that X (formerly Twitter) posts present a structurally distinct challenge for density-based scoring (Section 5.11). The scoring architecture is not suited for texts of 140 E80 characters, and fact-based disinformation falls categorically outside lexical detection scope. Phase 2 architectural design priorities: dynamic threshold adjustment (short-text mode) and thread-level aggregation.
+Phase 1 calibration confirmed that X (formerly Twitter) posts present a structurally distinct challenge for density-based scoring (Section 5.10). The scoring architecture is not suited for texts of 140 E80 characters, and fact-based disinformation falls categorically outside lexical detection scope. Phase 2 architectural design priorities: dynamic threshold adjustment (short-text mode) and thread-level aggregation.
 
 ### 6.5 Circular Validity and the Need for Independent Validation
 
