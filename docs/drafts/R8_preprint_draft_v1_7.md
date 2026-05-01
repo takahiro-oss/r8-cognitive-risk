@@ -317,6 +317,8 @@ The most fundamental limitation is epistemological. Fact-based disinformation â€
 
 Phase 2 architectural responses include dynamic threshold adjustment calibrated to text length (short-text mode), thread-level aggregation processing multiple posts as a unified document before scoring, and hashtag pattern analysis as a supplementary signal channel.
 
+A further failure mode was identified during Phase 1 corpus construction: two documents (corpus ID: sn234, sn235) were acquired via OCR-based screenshot processing but returned CMI = 0.0 due to capture of non-target content â€” a NAS management interface and a Claude session window respectively. These documents are retained in the corpus as documented cases of acquisition failure and flagged for deletion prior to Phase 2 re-labeling. This failure mode illustrates a categorical limitation of screenshot-based corpus construction: OCR cannot distinguish between the target text and surrounding interface elements, and acquisition validity cannot be confirmed without manual inspection of each document. Phase 2 corpus design will require a mandatory content-validity check prior to annotation.
+
 ---
 
 ## 6. Discussion
