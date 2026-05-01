@@ -373,6 +373,10 @@ Phase 2 will also investigate the independent operationalization of scarcity sig
 
 Following corpus expansion and reliability establishment, integration of transformer-based language models for contextual disambiguation is identified as a significant development direction. This development is framed as complementary rather than replacement.
 
+#### 7.3.1 Preliminary LLM Annotation Trial (AIlabel)
+
+As a preliminary approximation of Phase 2 LLM integration, a supplementary classification trial is proposed in which three general-purpose large language models (Claude, Anthropic; Gemini, Google; GPT-4, OpenAI) independently apply annotation_criteria v0.5 to a subset of the Phase 1 corpus to generate AI-derived risk labels (AIlabel). Inter-model agreement will be calculated using Fleiss' κ to assess the operationalizability of the annotation criteria across model architectures with differing safety training profiles. Agreement between AIlabel and human_label will provide a quantitative estimate of the degree to which the annotation criteria can be operationalized by general-purpose language models without domain-specific fine-tuning. Systematic divergence between AIlabel and R8's lexical CMI scores will constitute empirical evidence for the detection gap that the Phase 2 structural layer is designed to address. This trial is explicitly framed as an analogical approximation rather than a validation study: each model's safety training introduces detection biases whose direction and magnitude are unknown, and AIlabel therefore cannot serve as a substitute for human annotation or inter-rater reliability measurement.
+
 ### 7.4 Phase 2 E: Toward a Non-Linear Detection Model and Multi-Stage Architecture
 
 The current CMI is computed as a linear weighted sum of lexical category scores. This architecture assumes that the persuasive risk contribution of each signal type is additive and independent  Ean assumption that Phase 1 observations suggest is empirically incomplete.
