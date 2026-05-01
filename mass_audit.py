@@ -225,10 +225,15 @@ def save_csv(results, output_path, append=False):
     print(f"  [CSV] 保存完了: {output_path}")
     print(f"  [INFO] human_label列: 1=HIGH 2=MEDIUM 3=LOW を入力")
     print(f"  [INFO] riskfactor列: 番号で入力（下記参照）")
-    print(f"         1=Unsupported claims  2=Concealment  3=Emotional induction")
-    print(f"         4=Desire activation  5=Reality gap  6=Anchoring")
-    print(f"         7=False positive  8=Authority exploitation")
-    print(f"         9=Fear/urgency manipulation  10=Enemy framing")
+    print(f"         1=No academic/empirical support")
+    print(f"         2=Potential concealment of adverse info")
+    print(f"         3=Emotional Induction")
+    print(f"         4=Desire Activation")
+    print(f"         5=Fear/Urgency Manipulation")
+    print(f"         6=Normative Induction via Emotional Grounding")
+    print(f"         7=Authority Halo")
+    print(f"         8=False Positive")
+    print(f"         9=False Negative")
 
 
 # ===========================

@@ -1,23 +1,65 @@
+# Backup files
 bak_*
 *.bak
+
+# Binary / Office files
 *.pdf
 *.docx
+*.xlsm
+*.xlsx
+
+# Secrets
 *.env
 *token*
 *secret*
 *.key
+
+# Python
 __pycache__/
+
+# Audit results (master data, managed outside git)
 audit_results.*
+data/*コピー*.csv
+data/*_コピー*.csv
+
+# Temp / Drive
 .tmp.driveupload/
+
+# Private / Personal
 handout/
 操作方ファイル/
-corpus/url/
 personalmemo/
+
+# Docs: drafts and preprint (pre-submission)
+docs/preprint/
+docs/drafts/R8_preprint_draft_v1_6*
+docs/drafts/R8_preprint_v1_6*
+docs/drafts/note_draft_*
+docs/drafts/idea_draft_*
+docs/drafts/R8_oral_defense_guide*
+
+# Corpus (large binary/text, backed up via Google Drive)
+corpus/corpus_archive/
+corpus/book/
+corpus/url/
+corpus/screenshot/
 corpus/screenshot/History.db
 corpus/screenshot/Logs/
 corpus/screenshot/*.temp
+
+# Archives
+archive/
+data/results/data_archive/
+
+# Temp results
 data/results/~$*
 
-corpus/phase2/corpus_archive/
-data/results/data_archive/
-corpus/screenshot/History.db
+# URL lists and scan targets (third-party URLs, privacy risk)
+urls.txt
+urls_todo.txt
+targets_today.txt
+data/targets/
+
+# Corpus samples containing third-party text (copyright risk)
+data/samples/high/
+data/samples/medium/

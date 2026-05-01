@@ -1,6 +1,0 @@
-﻿D:\r8_strategy\corpus\phase2\0409\note_096_20260409.txt
-D:\r8_strategy\corpus\phase2\0409\note_097_20260409.txt
-D:\r8_strategy\corpus\phase2\0409\note_098_20260409.txt
-D:\r8_strategy\corpus\phase2\0409\SN_099_20260409.txt
-D:\r8_strategy\corpus\phase2\0409\SN_100_20260409.txt
-D:\r8_strategy\corpus\phase2\0409\targets.txt
