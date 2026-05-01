@@ -95,7 +95,7 @@ Single-rater annotation (Phase 1). Inter-rater reliability (κ) to be establishe
 M.S. Clinical Psychology (Aichi Gakuin University, 2012) / Independent Researcher
 臨床心理学修士（愛知学院大学2012）/ 独立研究者
 
-ORCID: 0009-0005-9464-6264
+ORCID: 0009-0005-9464-6260
 
 ---
 
