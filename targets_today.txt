@@ -1,5 +1,0 @@
-﻿D:\r8_strategy\corpus\phase2\scan\sn230.txt
-D:\r8_strategy\corpus\phase2\scan\sn231.txt
-D:\r8_strategy\corpus\phase2\scan\sn232.txt
-D:\r8_strategy\corpus\phase2\scan\sn233.txt
-D:\r8_strategy\corpus\phase2\scan\targets_today.txt
