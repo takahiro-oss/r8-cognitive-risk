@@ -1,0 +1,4 @@
+C
+python rename_corpus.py WEB
+python rename_corpus.py AD
+python rename_corpus.py SNS

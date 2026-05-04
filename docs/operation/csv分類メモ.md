@@ -1,0 +1,10 @@
+1Unsupported claims学術的・数値的根拠のない主張。
+2Concealment不利な情報の意図的省略・隠蔽
+3Emotional induction感情に訴えて合理的判断を迂回させる
+4Desire activation欲望・欲求を刺激して行動を促す
+5Reality gap主張と実態の乖離。誇大広告・虚偽に近いもの
+6Anchoring最初に提示する情報で判断基準を操作する
+7False positive操作意図なし。R8の誤検出
+8Authority exploitation権威・肩書き・著名人を利用した信頼性の偽装
+9Fear/urgency manipulation恐怖や緊急性を煽って即断を迫る
+10Enemy framing敵を設定して対立構造で動員する

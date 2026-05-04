@@ -1,0 +1,11 @@
+bashpython url_to_txt.py https://URL1 https://URL2 https://URL3
+
+
+実行するとcorpus/phase2/にtxtが保存され、次のコマンドが自動表示されます。
+ステップ2：スキャン
+表示されたコマンドをそのままコピペして実行するだけです。
+
+bashpython mass_audit.py --targets corpus/phase2/○○.txt --out data/results/audit_YYYYMMDD.csv --append
+
+Gemini・LMに任せる場合
+url_to_txt.pyで変換したtxtをNotebookLMにアップロードして「操作的な表現を特定して」と指示するだけです。Claude側にはCSVの結果だけ持ってくれば十分です。
