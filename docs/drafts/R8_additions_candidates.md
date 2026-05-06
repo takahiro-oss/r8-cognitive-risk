@@ -4,6 +4,7 @@
 作成: 2026-05-04
 方針: ラベリング・分析作業中に気づいた追加候補を記録する。
      最終的に整合性・リスク・重複をスクリーニングして採否を決定する。
+     論文への実際の追記はラベリング完了後に改めて判断する。
 
 ---
 
@@ -13,6 +14,7 @@
 2. 固有名詞・名誉毀損リスクがないか
 3. 査読者が「蛇足」と判断しないか
 4. 既存の記述と重複しないか
+5. スコープ拡大により論文の焦点が曖昧になるリスクがないか（002以降で特に注意）
 
 ---
 
@@ -43,5 +45,53 @@
 **リスク:**
 - 存命公人への言及なし（固有名詞不使用）→ 名誉毀損リスク低
 - 「著名公人」の匿名記述で対応済み
+
+---
+
+### [002] 強制なき誘導構造（Non-coercive Influence）の検出スコープ
+
+**発見日:** 2026-05-05
+**着想の起点:** ラベリング中に「チャンネル登録よろしくお願いします」等の定型句が
+　　　　　　　 悪意なく誘導構造を持つことに気づいた。
+**配置候補:** Future Work 7.2末尾 または 7.4内
+**スクリーニング判定:** 未判定
+
+**概念の整理:**
+
+現在のR8は「認知操作リスク（損害可能性あり）」を検出することを前提としている。
+しかし誘導構造は「強制の強度」によって連続体をなしている：
+
+```
+Level 0: 誘導なし（中立的情報提供）
+Level 1: 強制なき誘導（社会的証明・互恵・登録依頼）← CMI未検出
+Level 2: 損失回避・緊急性を伴う誘導（R8の現在の射程）
+Level 3: 認知操作を伴う高リスク誘導（HIGHゾーン）
+```
+
+Level 1はCialdini（1984）の社会的証明・互恵・コミットメント誘導に対応する。
+受信者への強制はゼロだが、構造的には同一のSystem 1標的メカニズムが機能している。
+
+**追加候補文（英語）:**
+
+> A further design consideration concerns the operationalization of influence without coercion. Texts that employ structurally equivalent persuasion mechanisms —social proof, reciprocity, and commitment induction (Cialdini, 1984) —without explicit urgency or fear signals represent a systematic gap in the current detection scope. Phase 2 will investigate whether a non-coercive influence dimension, distinct from the CMI's manipulation risk orientation, can be operationalized as a supplementary indicator for deployment contexts requiring broader persuasion-signal coverage.
+
+**追加候補文（日本語）:**
+
+> さらなる設計上の考慮事項として、強制を伴わない影響力の操作化がある。明示的な緊急性・恐怖シグナルを用いず、社会的証明・互恵・コミットメント誘導（Cialdini, 1984）等の構造的に等価な説得メカニズムを使用するテキストは、現在の検出スコープの系統的な空白を形成している。Phase 2では、CMIの操作的リスク志向とは区別される非強制的影響力次元を補助指標として操作化可能かどうかを検討する。
+
+**理論的根拠:**
+- Cialdini（1984）：社会的証明・互恵・コミットメントはSystem 1を標的とするが強制を含まない
+- Kahneman（2011）：System 1は強制の有無に関わらず誘導可能
+- 7.4の非線形検出モデルとの接続：誘導強度のスペクトラムは閾値モデルの拡張として位置づけ可能
+
+**スコープリスクの注記（要注意）:**
+- 「認知操作リスク検出」から「説得シグナル検出全般」へのスコープ拡大を示唆する
+- 査読者から「R8の定義が曖昧」と見なされる可能性がある
+- **追記する場合はFuture Workに留め、現在のR8の定義を変更しない形を厳守する**
+- 既存の7.2・7.4との重複チェックが必要（ScarcityRisk・EVT変数操作との境界整理）
+
+**判断メモ（2026-05-05）:**
+- ラベリング完了後に改めてスコープ整合性を確認してから採否を決定する
+- 採用する場合は7.2末尾への1〜2文追記が最小侵襲的
 
 ---
