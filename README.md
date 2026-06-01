@@ -63,30 +63,35 @@ R8 was built to address this gap.
 ## Repository Structure / リポジトリ構成
 
 ```
-r8_strategy/
+r8-cognitive-risk/
 ├── r8.py                  # メインスキャナ（v17）
 ├── mass_audit.py          # バッチスキャン
-├── ailabel/               # AIlabel 3モデル比較ツール
+├── preprocess.py          # 前処理パイプライン
+├── clean_corpus.py        # テキストクリーニング
+├── quality_check.py       # 品質チェック
+├── mask_corpus.py         # 個人情報マスク
+├── translate_corpus.py    # 翻訳処理
+├── remove_duplicate.py    # 重複除去
 ├── scripts/               # 補助スクリプト群
-├── docs/                  # 論文・設計文書
-├── data/results/          # スキャン結果 CSV
-└── corpus/                # テキストコーパス（非公開）
+└── docs/
+    ├── preprint/          # Zenodo公開論文（v1.5, v1.7, v1.8）
+    └── drafts/            # アノテーション基準（v0.8）
 ```
 
 ---
 
-## Initial Calibration Results / 初期較正結果（v17・標準モード HIGH≥41）
+## Calibration Results / 較正結果（v17・標準モード HIGH≥41）
 
 | Metric | Value |
 |---|---|
-| Corpus | 225 documents |
-| Precision | 93.3% |
-| Recall | 39.6% |
-| F1 | 55.6 |
-| Exact match | 33.3% |
-| Within-one | 80.4% |
+| Corpus | 216 documents |
+| Precision | 97.7% |
+| Recall | 35.2% |
+| F1 | 51.8 |
+| Cohen's κ (Claude Sonnet) | 0.231 |
+| Cohen's κ (Gemini 2.5 Flash) | 0.103 |
 
-Single-rater annotation (Phase 1). Inter-rater reliability (κ) to be established in Phase 2.
+Single-rater expert annotation (Phase 1). Human inter-rater reliability (κ) to be established in Phase 2.
 
 ---
 
@@ -101,7 +106,7 @@ ORCID: 0009-0005-9464-6260
 
 ## Status / ステータス
 
-- **v17** (2026-05-28) — v1.8 preprint published: exploratory framing, APA 7th references, corrected metrics (Recall=35.2%, κ=0.231/0.103), Japanese translation added
+- **v17** (2026-05-31) — Section 5.4 corrected (v1.7/v1.8); repository restructured (whitelist-only public release)
 - Preprint: [Zenodo DOI: 10.5281/zenodo.20428127](https://doi.org/10.5281/zenodo.20428127)
 - Annotation criteria: v0.8
-- Phase 2 in preparation: inter-rater reliability, corpus expansion, structural detection layer
+- Phase 2 in preparation: human inter-rater reliability, corpus expansion, structural detection layer
