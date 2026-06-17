@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# r8.py — R8 Cognitive Risk Analyzer v16
+# r8.py — R8 Cognitive Risk Analyzer v17
 # CMI (Cognitive Manipulation Index): 0=安全, 100=最高リスク
 # 権威リスク v2: 偽権威/正当権威の2層判定導入
 # 表記ゆれ正規化 Phase1: NFKC+カタカナ→ひらがな変換、辞書ひらがな読み追加
@@ -20,10 +20,10 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() in ("cp932", "shift_jis",
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 VERSION = "v17"
-# v17: 辞書拡張（FN実測分析2026-04-28）+ 閾値可変設計（--threshold / --high-threshold）
-#      デフォルト閾値: HIGH=41 / MEDIUM=35
-#      科学的根拠: Precision=91.2% / Recall=33.3% / F1=48.8（n=93, 2026-04-28実測）
-#      高精度モード: --high-threshold 60（Precision=100% / Recall=4.3%）
+# v17: dictionary expansion + variable threshold design (--threshold / --high-threshold)
+#      default thresholds: HIGH=41 / MEDIUM=35
+#      calibration metrics: see paper §4.3 and data/results/corpus_master.csv
+#      high-precision mode: --high-threshold 60
 
 # --- 外部ライブラリのインポート ---
 try:
@@ -376,9 +376,8 @@ CATEGORY_LABELS = {
 # r8.py単体実行時は --high-threshold / --medium-threshold で上書き可能。
 # mass_audit.pyからのimport時はデフォルト値が使われる。
 #
-# デフォルト閾値の科学的根拠（2026-04-28実測, n=93）:
-#   HIGH=41: Precision=91.2% / Recall=33.3% / F1=48.8
-#   HIGH=60: Precision=100%  / Recall= 4.3% / F1= 8.2（高精度モード）
+# Calibration metrics are referenced from the paper §4.3 and data/results/corpus_master.csv.
+# Hard-coding numeric values in comments introduces staleness risk on corpus updates.
 CMI_HIGH_DEFAULT   = 41
 CMI_MEDIUM_DEFAULT = 35
 
@@ -525,11 +524,12 @@ if __name__ == "__main__":
         description="R8 Cognitive Risk Analyzer — CMIスコアで認知的操作リスクを定量化します",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-閾値の目安（2026-04-28実測, n=93）:
-  --high-threshold 41  Precision=91.2%  Recall=33.3%  F1=48.8  ← デフォルト（バランス重視）
-  --high-threshold 60  Precision=100%   Recall= 4.3%  F1= 8.2  ← 高精度モード
+threshold guide:
+  --high-threshold 41  <- default (standard mode)
+  --high-threshold 60  <- high-precision mode
+  calibration metrics: see paper §4.3 and data/results/corpus_master.csv
 
-例:
+examples:
   python r8.py https://example.com/article
   python r8.py mytext.txt
   python r8.py mytext.txt --high-threshold 60

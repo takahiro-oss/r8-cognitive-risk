@@ -232,8 +232,7 @@ def save_csv(results, output_path, append=False):
     print(f"         5=Fear/Urgency Manipulation")
     print(f"         6=Normative Induction via Emotional Grounding")
     print(f"         7=Authority Halo")
-    print(f"         8=False Positive")
-    print(f"         9=False Negative")
+    print(f"         Note: FP/FN classification is computed post-hoc by comparing level vs human_label; annotators do not assign these codes.")
 
 
 # ===========================
