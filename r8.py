@@ -383,11 +383,11 @@ CMI_MEDIUM_DEFAULT = 35
 
 def cmi_level(cmi, high_threshold=CMI_HIGH_DEFAULT, medium_threshold=CMI_MEDIUM_DEFAULT):
     if cmi >= high_threshold:
-        return "HIGH   ⚠⚠⚠"
+        return "HIGH"
     elif cmi >= medium_threshold:
-        return "MEDIUM ⚠⚠"
+        return "MEDIUM"
     else:
-        return "LOW    ⚠"
+        return "LOW"
 
 # ===========================
 # 分析ロジック

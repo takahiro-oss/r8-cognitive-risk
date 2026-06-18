@@ -87,7 +87,7 @@ def suggest_checks(task_description: str) -> None:
         return
 
     for trigger_name, info in triggered:
-        print(f"\n▶ 検出: {trigger_name}")
+        print(f"\n> 検出: {trigger_name}")
         print(f"  理由: {info['reason']}")
         if info["required"]:
             print(f"  【必須】")
@@ -244,7 +244,7 @@ def run_threshold_check(max_lines_range=None, min_chars_range=None) -> None:
             # 誤スキップは致命的なので重みを2倍にして評価
             score = accuracy - len(false_skips) * 20
 
-            status = "✅" if len(false_skips) == 0 else "❌"
+            status = "[OK]" if len(false_skips) == 0 else "[FAIL]"
             print(f"\n{status} max_lines={max_lines}, min_chars={min_chars}")
             print(f"   正解率: {accuracy:.0f}% | 誤スキップ: {len(false_skips)} | 誤通過: {len(false_passes)}")
 
@@ -413,7 +413,7 @@ def run_regression_tests() -> None:
         result = _run_module_on_lines(tc["module"], tc["input_lines"])
         ok = tc["check"](result)
 
-        status = "✅ PASS" if ok else "❌ FAIL"
+        status = "[PASS]" if ok else "[FAIL]"
         print(f"\n{status} [{tc['id']}] {tc['description']}")
         print(f"  モジュール: {tc['module']}")
 
@@ -431,7 +431,7 @@ def run_regression_tests() -> None:
     if failed:
         print(f"\n【失敗したテスト】")
         for tc in failed:
-            print(f"  ❌ {tc['id']}: {tc['description']}")
+            print(f"  [FAIL] {tc['id']}: {tc['description']}")
         print("\nコードを修正して再度実行してください。")
     else:
         print("全テスト通過。パイプラインは正常に動作しています。")
@@ -472,7 +472,7 @@ def run_llm_evaluation(targets: list) -> None:
     print("=" * 60)
     print("【P3: LLM品質評価】")
     print(f"対象: {targets}")
-    print("⚠️  APIを呼び出します。手動承認済みの場合のみ実行してください。")
+    print("[WARN] APIを呼び出します。手動承認済みの場合のみ実行してください。")
     print("=" * 60)
 
     client = anthropic.Anthropic()
@@ -503,7 +503,7 @@ def run_llm_evaluation(targets: list) -> None:
             reason = result.get("reason", "")
             missing = result.get("missing")
 
-            status = {"good": "✅", "acceptable": "⚠️", "poor": "❌"}.get(quality, "?")
+            status = {"good": "[OK]", "acceptable": "[WARN]", "poor": "[NG]"}.get(quality, "[?]")
             print(f"  {status} 品質: {quality}")
             print(f"  理由: {reason}")
             if missing:

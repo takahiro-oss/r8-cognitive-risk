@@ -233,7 +233,7 @@ def run():
                 raw = f.read()
         except Exception as e:
             print(f"  [{i:03d}/{total}] ERROR {src.name}: 読み込みエラー: {e}")
-            print(f"\n⚠ 作業停止")
+            print(f"\n[STOP] 作業停止")
             return False
 
         cleaned, removed = clean_text(raw)
@@ -242,7 +242,7 @@ def run():
         if severity == "ERROR":
             print(f"  [{i:03d}/{total}] ERROR {src.name}")
             print(f"\n{'='*60}")
-            print(f"⚠ 作業停止: チェックエラー")
+            print(f"[STOP] 作業停止: チェックエラー")
             print(f"  ファイル: {src.name}")
             print(f"  問題:     {message}")
             print(f"  除去された行（先頭10件）:")

@@ -325,13 +325,13 @@ def print_corpus_stats(targets_csv):
     # 不足カテゴリの警告
     print("\n  [優先収集カテゴリ]")
     if len(high) < 20:
-        print(f"  ⚠ HIGH   あと{20-len(high)}件必要")
+        print(f"  [!] HIGH   あと{20-len(high)}件必要")
     if len(medium) < 20:
-        print(f"  ⚠ MEDIUM あと{20-len(medium)}件必要")
+        print(f"  [!] MEDIUM あと{20-len(medium)}件必要")
     if len(low) < 20:
-        print(f"  ⚠ LOW    あと{20-len(low)}件必要")
+        print(f"  [!] LOW    あと{20-len(low)}件必要")
     if len(high) >= 20 and len(medium) >= 20 and len(low) >= 20:
-        print(f"  ✅ 全カテゴリ目標達成！")
+        print(f"  [OK] 全カテゴリ目標達成")
     print("=" * 60 + "\n")
 
 # ===========================
