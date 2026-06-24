@@ -50,7 +50,7 @@ genre_fills = {
 
 headers = [
     ("No.", 5), ("対象ID", 32), ("ジャンル", 18), ("CMI", 8),
-    ("R8判定", 10), ("TAKAHIROラベル", 14),
+    ("R8判定", 10), ("著者ラベル", 14),
     ("あなたの判定\nHIGH/MEDIUM/LOW/不明", 22), ("備考・判定理由（任意）", 35),
 ]
 for ci, (h, w) in enumerate(headers, 1):
